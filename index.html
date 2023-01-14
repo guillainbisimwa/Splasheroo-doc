@@ -47,7 +47,7 @@
             </blockquote>
             <pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;kittn&#x27;</span>
 
-api = Kittn::APIClient.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
+api = <span class="hljs-title class_">Kittn</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:APIClient</span>.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
 
 api = kittn.authorize(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)</code></pre><pre class="highlight bash"><code><span class="hljs-comment"># With shell, you can just pass the correct header with each request</span>
 curl <span class="hljs-string">&quot;api_endpoint_here&quot;</span>
@@ -65,7 +65,7 @@ curl <span class="hljs-string">&quot;api_endpoint_here&quot;</span>
             <h2 id="get-all-kittens">Get All Kittens</h2>
             <pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;kittn&#x27;</span>
 
-api = Kittn::APIClient.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
+api = <span class="hljs-title class_">Kittn</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:APIClient</span>.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
 api.kittens.get</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
 
 api = kittn.authorize(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
@@ -122,7 +122,7 @@ api.kittens.get()</code></pre><pre class="highlight bash"><code>curl <span class
             <h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
             <pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;kittn&#x27;</span>
 
-api = Kittn::APIClient.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
+api = <span class="hljs-title class_">Kittn</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:APIClient</span>.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
 api.kittens.get(<span class="hljs-number">2</span>)</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
 
 api = kittn.authorize(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
