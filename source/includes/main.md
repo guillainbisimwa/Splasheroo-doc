@@ -65,8 +65,16 @@ axios
     }
 }
 ```
+> If you faild to signup, you'll get this :
 
-> Make sure that your API key is located in `auth_token`. In our our case id `*************`
+```json
+{    
+   "success": false,
+   "msg": "Account Already exist"
+}
+```
+
+> Make sure that your API key is located in `token`. In our our case id `*************`
 
 Splasheroo API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
@@ -94,62 +102,36 @@ Remember — if you post successfully, then you gonna have your API key!
 </aside>
 
 <aside class="warning"> If you faild to signup, you'll get this validation message: <code>
-```json
-{    
-   "success": false,
-   "msg": "Account Already exist"
-}
-```
+&lt;"msg": "Account Already exist"&gt;
 </code></aside>
 
 ## login
 
 > login an existing user - get token from here
 
-```ruby
-require 'uri'
-require 'net/http'
-require 'openssl'
-
-url = URI("https://find-your-house-backend.herokuapp.com/auth/login")
-
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-request = Net::HTTP::Post.new(url)
-request["content-type"] = 'application/json'
-request.body = "{
-    \"email\": \"guy@email.com\",
-    \"password\": \"1234\"
-}"
-
-response = http.request(request)
-puts response.read_body
-```
-
 ```javascript
 import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://find-your-house-backend.herokuapp.com/auth/login",
+  url: "https://splasheroo-backend.herokuapp.com/api/login",
   params: {},
   headers: {
     "content-type": "application/json",
+    "role": "customer"
   },
   data: {
-    email: "guy@email.com",
-    password: "1234",
+   password: "12345678",
+   email: "test@me.com",
   },
 };
 
 axios
   .request(options)
-  .then(function (response) {
+  .then( (response) => {
     console.log(response.data);
   })
-  .catch(function (error) {
+  .catch((error) => {
     console.error(error);
   });
 ```
@@ -158,12 +140,25 @@ axios
 
 ```json
 {
-  "auth_token": "*************",
-  "id": "1"
+  "success": true,
+   "token": "*****************************",
+   "account": {
+      "roleData": {
+         "customer": "63dbf013d61a9eaaffb4e47f"
+      },
+      "_id": "63dbf013d61a9eaaffb4e47f",
+      "email": "test@me.com",
+      "completedProfile": false,
+      "role": "customer",
+      "__v": 0,
+      "fullName": "Test full name",
+      "phone": "789456123",
+      "postCode": "postCode",
+      "address": "address"
 }
 ```
 
-> Make sure that your API key is located in `auth_token`. In our our case id `*************`
+> Make sure that your API key is located in `token`. In our our case id `*************`
 
 FIND YOUR HOUSE API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
@@ -173,7 +168,7 @@ This endpoint log in an existing user
 
 ### HTTP Request
 
-`POST https://find-your-house-backend.herokuapp.com/auth/login`
+`POST https://splasheroo-backend.herokuapp.com/api/login`
 
 ### Query Parameters
 
