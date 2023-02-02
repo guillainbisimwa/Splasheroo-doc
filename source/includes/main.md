@@ -181,4 +181,61 @@ This endpoint log in an existing user
 Remember — if you post successfully, then you gonna have your API key!
 </aside>
 
-<aside class="warning"> If you faild to signup, you'll get this validation message: <code>"msg": "Password Invalid"</code></aside>
+<aside class="warning">If you faild to login, you'll get this validation message: <code>"msg": "Password Invalid"</code></aside>
+
+## Check if Email exists
+
+> Check if email exists
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/checkEmail",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+   email: "test@me.com",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Email exists"
+}
+```
+
+> If the email doesn't exist, you'll get this message
+
+```json
+{
+    "success": false,
+    "msg": "Invalid Email"
+}
+```
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/checkEmail`
+
+### Query Parameters
+
+| Parameter | Type   | Description                                         |
+| --------- | ------ | --------------------------------------------------- |
+| email     | string | An adress mail. It's must be unique in our database |
