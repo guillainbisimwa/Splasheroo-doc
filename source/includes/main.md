@@ -1,171 +1,571 @@
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the Splasheroo API! You can use our API to access Splasheroo API endpoints, which can get informations  in our database.
 
 # Authentication
 
-> To authorize, use this code:
+Our API is able to support user accounts with each user having the ability managing their own resources.
+In order to get your API key (token), you need to Signup or login!
 
-```ruby
-require 'kittn'
+## Signup
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+> Signup a new user - get token from here
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```bash
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
 
 ```javascript
-import { kittn } from 'kittn';
+import axios from "axios";
 
-const api = kittn.authorize('meowmeowmeow');
-```
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/register",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+    "role": "customer"
+  },
+  data: {
+   fullName: "Test full name",
+   password: "12345678",
+   phone: "789456123",
+   email: "test@me.com",
+   postCode: "postCode",
+   address : "address"
+  },
+};
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](https://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class=notice>
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```bash
-curl "https://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-import { kittn } from 'kittn';
-
-const api = kittn.authorize('meowmeowmeow');
-const kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-   {
-      "id":         1,
-      "name":       "Fluffums",
-      "breed":      "calico",
-      "fluffiness": 6,
-      "cuteness":   7
-   },
-   {
-      "id":         2,
-      "name":       "Max",
-      "breed":      "unknown",
-      "fluffiness": 5,
-      "cuteness":   10
-   }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET https://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter    | Default | Description
------------- | ------- | -----------
-include_cats | false   | If set to true, the result will also include cats.
-available    | true    | If set to false, the result will include kittens that have already been adopted.
-
-<aside class=success>
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```bash
-curl "https://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-import { kittn } from 'kittn';
-
-const api = kittn.authorize('meowmeowmeow');
-const max = api.kittens.get(2);
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-   "id":         2,
-   "name":       "Max",
-   "breed":      "unknown",
-   "fluffiness": 5,
-   "cuteness":   10
+    "success": true,
+    "token": "*******************************",
+    "account": {
+        "email": "test8@me.com",
+        "completedProfile": false,
+        "role": "customer",
+        "roleData": {
+            "customer": "63dc00a716439caa3a169a08"
+        },
+        "_id": "63dc00a716439caa3a169a08",
+        "__v": 0,
+        "fullName": "Test full name",
+        "phone": "789456123",
+        "postCode": "postCode",
+        "address": "address"
+    }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+> Make sure that your API key is located in `auth_token`. In our our case id `*************`
 
-<aside class=warning>
-Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.
+Splasheroo API expects for the API key to be included in all API requests to the server in a header that looks like the following:
+
+`Authorization: *************`
+
+This endpoint creates a new user.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/register`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| fullName              | string | Name of the user                                    |
+| email                 | string | An adress mail. It's must be unique in our database |
+| password              | string | A password                                          |
+| phone                 | string |                                                     |
+| postcode              | string |                                                     |
+| address               | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna have your API key!
 </aside>
 
-### HTTP Request (with ID)
+<aside class="warning"> If you faild to signup, you'll get this validation message: <code>
+```json
+{    
+   "success": false,
+   "msg": "Account Already exist"
+}
+```
+</code></aside>
 
-`GET https://example.com/kittens/<ID>`
+## login
 
-### URL Parameters
+> login an existing user - get token from here
 
-Parameter | Description
---------- | -----------
-ID        | The ID of the kitten to retrieve
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://find-your-house-backend.herokuapp.com/auth/login")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Post.new(url)
+request["content-type"] = 'application/json'
+request.body = "{
+    \"email\": \"guy@email.com\",
+    \"password\": \"1234\"
+}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://find-your-house-backend.herokuapp.com/auth/login",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    email: "guy@email.com",
+    password: "1234",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "auth_token": "*************",
+  "id": "1"
+}
+```
+
+> Make sure that your API key is located in `auth_token`. In our our case id `*************`
+
+FIND YOUR HOUSE API expects for the API key to be included in all API requests to the server in a header that looks like the following:
+
+`Authorization: *************`
+
+This endpoint log in an existing user
+
+### HTTP Request
+
+`POST https://find-your-house-backend.herokuapp.com/auth/login`
+
+### Query Parameters
+
+| Parameter | Type   | Description                                         |
+| --------- | ------ | --------------------------------------------------- |
+| email     | string | An adress mail. It's must be unique in our database |
+| password  | string | A password                                          |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna have your API key!
+</aside>
+
+<aside class="warning"> If you faild to signup, you'll get this validation message: <code>&lt;"Invalid credentials"&gt;</code></aside>
+
+## logout
+
+> logout a connected user - use your token
+
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://find-your-house-backend.herokuapp.com/users/sign_out")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Delete.new(url)
+request["authorization"] = "*************",
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "DELETE",
+  url: "https://find-your-house-backend.herokuapp.com/users/sign_out",
+  headers: {
+    authorization: "*************",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "status": "success",
+  "message": "Signed out successfully"
+}
+```
+
+> Make sure to replace `****************` with your API key.
+
+FIND YOUR HOUSE API expects for the API key to be included in all API requests to the server in a header that looks like the following:
+
+`Authorization: *************`
+
+This endpoint logout an user
+
+### HTTP Request
+
+`DELETE https://find-your-house-backend.herokuapp.com/users/sign_out`
+
+> If you faild to logout, you'll get this message:
+
+```json
+{
+  "status": "error",
+  "error": "Access token is missing in the request"
+}
+```
+
+# Houses
+
+## Get all houses
+
+> This endpoint retrieves all houses.
+
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://find-your-house-backend.herokuapp.com/houses")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["authorization"] = "*************",
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://find-your-house-backend.herokuapp.com/houses",
+  headers: {
+    authorization: "*************",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 3,
+    "price": 200.0,
+    "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "about": "House in Brgule, Serbia",
+    "picture": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "owner": "Pixabay",
+    "created_at": "2021-05-03T09:14:30.922Z",
+    "updated_at": "2021-05-03T09:14:30.922Z"
+  },
+  {
+    "id": 5,
+    "price": 800.0,
+    "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "about": "A single living house in Addis Ababa, Ethiopia",
+    "picture": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "owner": "Pixabay",
+    "created_at": "2021-05-03T18:11:58.211Z",
+    "updated_at": "2021-05-03T18:11:58.211Z"
+  }
+]
+```
+
+> Make sure to replace `****************` with your API key.
+
+This endpoint retrieves all houses.
+
+### HTTP Request
+
+`GET https://find-your-house-backend.herokuapp.com/houses`
+
+## Get a specific house
+
+> This endpoint retrieves a specific houses.
+
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://find-your-house-backend.herokuapp.com/houses/2")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["authorization"] = "*************",
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://find-your-house-backend.herokuapp.com/houses/2",
+  headers: {
+    authorization: "*************",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 2,
+    "price": 200.0,
+    "details": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "about": "House in Brgule, Serbia",
+    "picture": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "owner": "Pixabay",
+    "created_at": "2021-05-03T09:14:30.922Z",
+    "updated_at": "2021-05-03T09:14:30.922Z"
+  }
+]
+```
+
+> Make sure to replace `****************` with your API key.
+
+This endpoint retrieves all houses.
+
+### HTTP Request
+
+`GET https://find-your-house-backend.herokuapp.com/houses/<ID>`
+
+### Url Parameters
+
+| Parameter | Type    | Description                     |
+| --------- | ------- | ------------------------------- |
+| ID        | integer | The ID of the house to retrieve |
+
+# Favorites
+
+## Get all user favorites
+
+> This endpoint retrieves all user favorites.
+
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://find-your-house-backend.herokuapp.com/users/3/favourites")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["authorization"] = "*************",
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://find-your-house-backend.herokuapp.com/users/3/favourites",
+  headers: {
+    authorization: "*************",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "name",
+    "user_id": 1,
+    "house_id": 2,
+    "created_at": "2021-05-09T19:35:43.347Z",
+    "updated_at": "2021-05-09T19:35:43.347Z"
+  }
+  {
+    "id": 6,
+    "name": "name",
+    "user_id": 1,
+    "house_id": 1,
+    "created_at": "2021-05-09T19:35:43.347Z",
+    "updated_at": "2021-05-09T19:35:43.347Z"
+  }
+]
+```
+
+> Make sure to replace `****************` with your API key.
+
+This endpoint retrieves all user favorites
+
+### HTTP Request
+
+`GET https://find-your-house-backend.herokuapp.com/users/<USERID>/favourites`
+
+### Url Parameters
+
+| Parameter | Type    | Description        |
+| --------- | ------- | ------------------ |
+| USERID    | integer | The ID of the user |
+
+## Get a specific user favorite
+
+> This endpoint retrieves a specific user favorite.
+
+```ruby
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+url = URI("https://find-your-house-backend.herokuapp.com/users/3/favourites/1")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(url)
+request["authorization"] = "*************",
+
+response = http.request(request)
+puts response.read_body
+```
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://find-your-house-backend.herokuapp.com/users/3/favourites/1",
+  headers: {
+    authorization: "*************",
+  },
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 6,
+    "name": "name",
+    "user_id": 1,
+    "house_id": 1,
+    "created_at": "2021-05-09T19:35:43.347Z",
+    "updated_at": "2021-05-09T19:35:43.347Z"
+  }
+]
+```
+
+> Make sure to replace `****************` with your API key.
+
+This endpoint retrieves a specific user favorite.
+
+### HTTP Request
+
+`GET https://find-your-house-backend.herokuapp.com/users/<USERID>/favourites/<ID>`
+
+### Url Parameter
+
+| Parameter | Type    | Description                                          |
+| --------- | ------- | ---------------------------------------------------- |
+| ID        | integer | The ID of a specific user favorite house to retrieve |
+| USERID    | integer | The ID of the user                                   |
