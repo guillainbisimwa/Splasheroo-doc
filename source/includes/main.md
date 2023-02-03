@@ -239,3 +239,133 @@ axios
 | Parameter | Type   | Description                                         |
 | --------- | ------ | --------------------------------------------------- |
 | email     | string | An adress mail. It's must be unique in our database |
+
+
+# Vehicle
+
+Add vehicle manually or retrieve from https://panel.ukvehicledata.co.uk/
+
+## Add
+
+> Add manualy
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/vehicle/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id : "63dc00a716439caa3a169a08",
+    RegistrationPlate : "RP2",
+    licence : true,
+    model : "Model",
+    make : "Make",
+    coulor : "red"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Vehicle added successfully"
+}
+```
+
+This endpoint creates a vehicle.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/vehicle/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Id returned when sign up or sign in                 |
+| RegistrationPlate     | string |                                                     |
+| licence               | boolean|                                                     |
+| model                 | string |                                                     |
+| make                  | string |                                                     |
+| coulor                | string |                                                     |
+
+## Get 
+
+> vehicle data from ukvehicledata
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/vehicle/getUKVD",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    registrationPlate: "KM12AKK"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": false,
+  "msg": "Unexpected token o in JSON at position 1",
+  "VehicleDetails": {
+    "Colour": "Grey",
+    "FuelType": "Diesel",
+    "Make": "VOLKSWAGEN",
+    "Model": "SHARAN",
+    "DateFirstRegistered": "15/06/2012"
+  },
+}
+```
+
+> If the vehicle doesn't exist, you'll get this message
+
+```json
+{
+  "success": false,
+  "msg": "Unexpected token o in JSON at position 1"
+}
+```
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/vehicle/getUKVD`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| registrationPlate     | string |                                                     |
