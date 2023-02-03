@@ -340,7 +340,7 @@ axios
 ```json
 {
   "success": false,
-  "msg": "Unexpected token o in JSON at position 1",
+  "msg": "Vehicle found",
   "VehicleDetails": {
     "Colour": "Grey",
     "FuelType": "Diesel",
