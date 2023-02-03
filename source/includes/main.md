@@ -355,8 +355,8 @@ axios
 
 ```json
 {
-  "success": false,
-  "msg": "Unexpected token o in JSON at position 1"
+    "success": false,
+    "msg": "Vehicle not found"
 }
 ```
 
