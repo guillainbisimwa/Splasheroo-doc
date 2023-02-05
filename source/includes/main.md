@@ -974,3 +974,69 @@ This endpoint will add a BankCard.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+
+## Get single Bankcard
+
+> Get a single bankCard by it customer's ID, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    customer: "63db5cf616391c961dc3a4e5"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "bankCard found",
+    "bankCard": [
+        {
+            "_id": "63e022086852fc4fee6bb40a",
+            "cardNumber": "123456789123",
+            "cardHolderName": "Nicolas Brody",
+            "expiryDate": "2001-12-24T22:00:00.000Z",
+            "cvvCvc": "12/12",
+            "verified": false,
+            "customer": "63db5cf616391c961dc3a4e5",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| customer              | string | Existing Customer's ID                              |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
+</aside>
