@@ -441,7 +441,7 @@ This endpoint will send an email.
 | name                  | string |                                                     |
 
 <aside class="success">
-Remember — if you post successfully, then you gonna receive an email, if not please check the Span folder
+Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder
 </aside>
 
 ## Check if Email is validate
@@ -487,7 +487,7 @@ axios
 ```json
 {
     "success": false,
-    "msg": "Invalid Email"
+    "msg": "Email not validated"
 }
 ```
 
@@ -500,3 +500,75 @@ axios
 | Parameter | Type   | Description                                         |
 | --------- | ------ | --------------------------------------------------- |
 | email     | string | An adress mail. It's must be unique in our database |
+
+
+# CAR WASH SERVICES
+
+We have only two type of services. Outside & Inside wash @ GBP 25.30 and Outside wash only @ GBP 20.30
+
+## Add a service
+
+> Post a sevice and save it iin our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/servie/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    serviceName: "Outside wash only",
+    price: "20.30",
+    startTimeOfDays: "08:00:00",
+    endTimeOfDays: "20:00:00",
+    duration: "45",
+    contact: "+243841550213", 
+    address: "10 Downing street"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Service added successfuly!"
+}
+```
+
+This endpoint will send an email.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/service/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| serviceName           | string |                                                     |
+| price                 | number |                                                     |
+| startTimeOfDays       | string |                                                     |
+| endTimeOfDays         | string |                                                     |
+| duration              | number |                                                     |
+| contact               | string |                                                     |
+| address               | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a full service object
+</aside>
