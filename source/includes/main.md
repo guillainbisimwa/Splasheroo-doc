@@ -906,3 +906,71 @@ This endpoint will fecth a single service.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
 </aside>
+
+# BANKING CARD
+
+Bank Crad management
+
+## Add a Bank CARD
+
+> Post a bamkCard and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    cardNumber: "123456789123", 
+    cardHolderName: "Nicolas Brody", 
+    expiryDate: "12/25", 
+    cvvCvc: "12/12", 
+    customer: "63db5cf616391c961dc3a4e5"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "BankCard added successfuly!"
+}
+```
+
+This endpoint will add a BankCard.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/bankCard/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| cardNumber            | string |                                                     |
+| cardHolderName        | number |                                                     |
+| expiryDate            | string |                                                     |
+| cvvCvc                | string |                                                     |
+| customer              | number | ID of an existing customer                             |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
