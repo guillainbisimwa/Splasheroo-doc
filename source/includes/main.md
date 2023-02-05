@@ -508,7 +508,7 @@ We have only two type of services. Outside & Inside wash @ GBP 25.30 and Outside
 
 ## Add a service
 
-> Post a sevice and save it iin our database, 
+> Post a sevice and save it in our database, 
 
 
 ```javascript
@@ -551,7 +551,7 @@ axios
 }
 ```
 
-This endpoint will send an email.
+This endpoint will add a service.
 
 ### HTTP Request
 
@@ -570,5 +570,763 @@ This endpoint will send an email.
 | address               | string |                                                     |
 
 <aside class="success">
-Remember — if you post successfully, then you gonna receive a full service object
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get all services
+
+> Get all sevices saved in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/servie/all",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Service fetched successfully",
+    "services": [
+        {
+            "_id": "63e00d434969108cb5bc1794",
+            "serviceName": "Outside wash only",
+            "price": 20.3,
+            "duration": 45,
+            "contact": "+243841550213",
+            "address": "10 Downing street",
+            "__v": 0
+        },
+        {
+            "_id": "63e014aa4969108cb5bc1797",
+            "serviceName": "Outside & Inside",
+            "price": 25.3,
+            "duration": 60,
+            "contact": "+243841550213",
+            "address": "10 Downing street",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fetch all services.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/service/all`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get single service
+
+> Get a single service by it's ID, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/servie/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63e00d434969108cb5bc1794"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Service found",
+    "service": [
+        {
+            "_id": "63e00d434969108cb5bc1794",
+            "serviceName": "Outside wash only",
+            "price": 20.3,
+            "duration": 45,
+            "contact": "+243841550213",
+            "address": "10 Downing street",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/service/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a service ojbect
+</aside>
+
+
+# RIDERS
+
+Riders management
+
+## Add a rider
+
+> Post a rider and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    name: "James Bond", 
+    idNumber: "124578", 
+    gsmId: "321654987", 
+    address: "10 Downing street", 
+    email: "james@test.me", 
+    emergencyContact: "+243841550213"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider added successfuly!"
+}
+```
+
+This endpoint will add a service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| name                  | string |                                                     |
+| idNumber              | number |                                                     |
+| gsmId                 | string |                                                     |
+| address               | string |                                                     |
+| email                 | number |                                                     |
+| emergencyContact      | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get all riders
+
+> Get all sevices saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/all",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider fetched successfully",
+    "riders": [
+        {
+            "_id": "63e01b1d747fbe40578423db",
+            "name": "James Bond",
+            "activate": false,
+            "idNumber": "124578",
+            "gsmId": "321654987",
+            "address": "10 Downing street",
+            "email": "james@test.me",
+            "emergencyContact": "+243841550213",
+            "timestamp": "2023-02-05T20:56:12.077Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fetch all riders.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/rider/all`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get single rider
+
+> Get a single rider by it's ID, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63e01b1d747fbe40578423db"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider found",
+    "rider": [
+        {
+            "_id": "63e01b1d747fbe40578423db",
+            "name": "James Bond",
+            "activate": false,
+            "idNumber": "124578",
+            "gsmId": "321654987",
+            "address": "10 Downing street",
+            "email": "james@test.me",
+            "emergencyContact": "+243841550213",
+            "timestamp": "2023-02-05T20:56:12.077Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
+</aside>
+
+# BANKING CARD
+
+Bank Crad management
+
+## Add a Bank CARD
+
+> Post a bankCard and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    cardNumber: "123456789123", 
+    cardHolderName: "Nicolas Brody", 
+    expiryDate: "12/25", 
+    cvvCvc: "12/12", 
+    customer: "63db5cf616391c961dc3a4e5"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "BankCard added successfuly!"
+}
+```
+
+This endpoint will add a BankCard.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/bankCard/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| cardNumber            | string |                                                     |
+| cardHolderName        | number |                                                     |
+| expiryDate            | string |                                                     |
+| cvvCvc                | string |                                                     |
+| customer              | number | ID of an existing customer                             |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get single Bankcard
+
+> Get a single bankCard by it customer's ID, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    customer: "63db5cf616391c961dc3a4e5"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "bankCard found",
+    "bankCard": [
+        {
+            "_id": "63e022086852fc4fee6bb40a",
+            "cardNumber": "123456789123",
+            "cardHolderName": "Nicolas Brody",
+            "expiryDate": "2001-12-24T22:00:00.000Z",
+            "cvvCvc": "12/12",
+            "verified": false,
+            "customer": "63db5cf616391c961dc3a4e5",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single bankCard.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/bankCard/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| customer              | string | Existing Customer's ID                              |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
+</aside>
+
+
+# PROMO CODE
+
+Bank Crad management
+
+## Add a PROMO CODE
+
+> Post a promoCode and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    amount: "5", 
+    code: "x2023", 
+    expireDate: "2023-10-01T12:00:59"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "PromoCode added successfuly!"
+}
+```
+
+This endpoint will add a promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/promoCode/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| amount                | string |                                                     |
+| code                  | number |                                                     |
+| expireDate            | string | in this format: YYYY-mm-ddTHH:MM:ss                 |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get single promo Code
+
+> Get a single promo Code by it customer's ID, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63e0269a2efe25d61bfbda03"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "PromoCode found",
+    "promoCode": [
+        {
+            "_id": "63e0269a2efe25d61bfbda03",
+            "amount": 5,
+            "code": "x2023",
+            "expireDate": "2023-10-01T12:00:59",
+            "timestamp": "2023-02-05T21:44:36.539Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/promoCode/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Existing promoCode's ID                             |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect
+</aside>
+
+
+# BOOKING
+
+Booking management
+
+## Add a Booking
+
+> Post a booking and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    date: "2023-03-01T12:00:59", 
+    ref: "C10000002", 
+    contact: "+24389897544", 
+    notes: "This car needs attention when clining left tyers", 
+    slot_start_time: "2023-03-01T12:00:59", 
+    slot_end_time: "2023-03-01T13:00:59", 
+    location: "10 Downing street", 
+    car: "63dcde4dfb6a27a947f255a1",
+    service: "63e014aa4969108cb5bc1797",
+    driver: "63e01b1d747fbe40578423db"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Booking added successfuly!"
+}
+```
+
+This endpoint will add a Booking.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/booking/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | string |                                                     |
+| ref                   | number |                                                     |
+| contact               | string |                                                     |
+| notes                 | string |                                                     |
+| slot_start_time       | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
+| slot_end_time         | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
+| location              | string |                                                     |
+| car                   | string |  id                                                 |
+| service               | string |  id                                                 |
+| driver                | string |  id                                                 |
+| promoCode?            | string |  id (optional)                                      |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get all bookings
+
+> Get all bookings saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/all",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Booking fetched successfully",
+    "bookings": [
+        {
+            "_id": "63e02d66276302955b62e222",
+            "date": "2023-02-05T22:27:43.550Z",
+            "status": "waiting",
+            "ref": "C10000002",
+            "contact": "+24389897544",
+            "notes": "This car needs attention when clining left tyers",
+            "slot_start_time": "2023-03-01T10:00:59.000Z",
+            "slot_end_time": "2023-03-01T11:00:59.000Z",
+            "location": "10 Downing street",
+            "jobCompleted": false,
+            "car": "63dcde4dfb6a27a947f255a1",
+            "service": "63e014aa4969108cb5bc1797",
+            "driver": "63e01b1d747fbe40578423db",
+            "timestamp": "2023-02-05T22:27:43.550Z",
+            "__v": 0
+        },
+        {
+            "_id": "63e030ab1e50a3131769ade5",
+            "date": "2023-03-01T11:00:59.000Z",
+            "status": "waiting",
+            "ref": "AB0000100",
+            "contact": "+24389897544",
+            "notes": "Don't forget to clean glasses",
+            "slot_start_time": "2023-03-01T11:00:59.000Z",
+            "slot_end_time": "2023-03-01T11:45:59.000Z",
+            "location": "10 Downing street",
+            "jobCompleted": false,
+            "car": "63dfb03bd18638890433cadf",
+            "service": "63e00d434969108cb5bc1794",
+            "driver": "63e01b1d747fbe40578423db",
+            "timestamp": "2023-02-05T22:41:38.605Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fetch all bookings.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/booking/all`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and all bookings
 </aside>
