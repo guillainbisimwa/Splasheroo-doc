@@ -1248,3 +1248,85 @@ This endpoint will add a Booking.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
+
+
+## Get all bookings
+
+> Get all bookings saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/all",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Booking fetched successfully",
+    "bookings": [
+        {
+            "_id": "63e02d66276302955b62e222",
+            "date": "2023-02-05T22:27:43.550Z",
+            "status": "waiting",
+            "ref": "C10000002",
+            "contact": "+24389897544",
+            "notes": "This car needs attention when clining left tyers",
+            "slot_start_time": "2023-03-01T10:00:59.000Z",
+            "slot_end_time": "2023-03-01T11:00:59.000Z",
+            "location": "10 Downing street",
+            "jobCompleted": false,
+            "car": "63dcde4dfb6a27a947f255a1",
+            "service": "63e014aa4969108cb5bc1797",
+            "driver": "63e01b1d747fbe40578423db",
+            "timestamp": "2023-02-05T22:27:43.550Z",
+            "__v": 0
+        },
+        {
+            "_id": "63e030ab1e50a3131769ade5",
+            "date": "2023-03-01T11:00:59.000Z",
+            "status": "waiting",
+            "ref": "AB0000100",
+            "contact": "+24389897544",
+            "notes": "Don't forget to clean glasses",
+            "slot_start_time": "2023-03-01T11:00:59.000Z",
+            "slot_end_time": "2023-03-01T11:45:59.000Z",
+            "location": "10 Downing street",
+            "jobCompleted": false,
+            "car": "63dfb03bd18638890433cadf",
+            "service": "63e00d434969108cb5bc1794",
+            "driver": "63e01b1d747fbe40578423db",
+            "timestamp": "2023-02-05T22:41:38.605Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fetch all bookings.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/booking/all`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and all bookings
+</aside>
