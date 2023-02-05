@@ -913,7 +913,7 @@ Bank Crad management
 
 ## Add a Bank CARD
 
-> Post a bamkCard and save in our database, 
+> Post a bankCard and save in our database, 
 
 
 ```javascript
@@ -1029,7 +1029,7 @@ This endpoint will fecth a single service.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/rider/find`
+`POST https://splasheroo-backend.herokuapp.com/api/bankCard/find`
 
 ### Query Parameters
 
@@ -1040,3 +1040,68 @@ This endpoint will fecth a single service.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
 </aside>
+
+
+# PROMO CODE
+
+Bank Crad management
+
+## Add a PROMO CODE
+
+> Post a promoCode and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    amount: "5", 
+    code: "x2023", 
+    expireDate: "2023-10-01T12:00:59"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "PromoCode added successfuly!"
+}
+```
+
+This endpoint will add a promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/promoCode/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| amount                | string |                                                     |
+| code                  | number |                                                     |
+| expireDate            | string | in this format: YYYY-mm-ddTHH:MM:ss                 |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
