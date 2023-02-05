@@ -776,3 +776,64 @@ This endpoint will add a service.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
+
+
+## Get all riders
+
+> Get all sevices saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/all",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider fetched successfully",
+    "riders": [
+        {
+            "_id": "63e01b1d747fbe40578423db",
+            "name": "James Bond",
+            "activate": false,
+            "idNumber": "124578",
+            "gsmId": "321654987",
+            "address": "10 Downing street",
+            "email": "james@test.me",
+            "emergencyContact": "+243841550213",
+            "timestamp": "2023-02-05T20:56:12.077Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fetch all riders.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/rider/all`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
