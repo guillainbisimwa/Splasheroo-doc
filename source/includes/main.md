@@ -639,3 +639,70 @@ This endpoint will fetch all services.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
+
+
+## Get single service
+
+> Get a single service by it's ID, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/servie/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63e00d434969108cb5bc1794"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Service found",
+    "service": [
+        {
+            "_id": "63e00d434969108cb5bc1794",
+            "serviceName": "Outside wash only",
+            "price": 20.3,
+            "duration": 45,
+            "contact": "+243841550213",
+            "address": "10 Downing street",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will add a service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/service/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a service ojbect
+</aside>
