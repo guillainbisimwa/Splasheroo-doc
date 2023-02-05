@@ -1169,3 +1169,82 @@ This endpoint will fecth a single promoCode.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect
 </aside>
+
+
+# BOOKING
+
+Booking management
+
+## Add a Booking
+
+> Post a booking and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    date: "2023-03-01T12:00:59", 
+    ref: "C10000002", 
+    contact: "+24389897544", 
+    notes: "This car needs attention when clining left tyers", 
+    slot_start_time: "2023-03-01T12:00:59", 
+    slot_end_time: "2023-03-01T13:00:59", 
+    location: "10 Downing street", 
+    car: "63dcde4dfb6a27a947f255a1",
+    service: "63e014aa4969108cb5bc1797",
+    driver: "63e01b1d747fbe40578423db"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Booking added successfuly!"
+}
+```
+
+This endpoint will add a Booking.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/booking/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | string |                                                     |
+| ref                   | number |                                                     |
+| contact               | string |                                                     |
+| notes                 | string |                                                     |
+| slot_start_time       | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
+| slot_end_time         | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
+| location              | string |                                                     |
+| car                   | string |  id                                                 |
+| service               | string |  id                                                 |
+| driver                | string |  id                                                 |
+| promoCode?            | string |  id (optional)                                      |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
