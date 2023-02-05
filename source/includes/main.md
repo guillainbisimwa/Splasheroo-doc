@@ -651,7 +651,7 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/add",
+  url: "https://splasheroo-backend.herokuapp.com/api/servie/find",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -837,3 +837,72 @@ This endpoint will fetch all riders.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+
+## Get single rider
+
+> Get a single rider by it's ID, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63e01b1d747fbe40578423db"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider found",
+    "rider": [
+        {
+            "_id": "63e01b1d747fbe40578423db",
+            "name": "James Bond",
+            "activate": false,
+            "idNumber": "124578",
+            "gsmId": "321654987",
+            "address": "10 Downing street",
+            "email": "james@test.me",
+            "emergencyContact": "+243841550213",
+            "timestamp": "2023-02-05T20:56:12.077Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
+</aside>
