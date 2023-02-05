@@ -6,22 +6,19 @@
       <meta name=robots content="index, follow">
       <meta name=description content="API Reference">
       <title>API Reference</title>
-      <link rel=icon href=images/bookmark.png>
-      <link href=css/screen.css rel=stylesheet media=screen>
-      <link href=css/print.css rel=stylesheet media=print>
-      <link href=css/highlight-monokai.css rel=stylesheet media=screen,print>
-      <script src=js/all.js></script>
+      <link rel=icon href=images/bookmark.1bbee95b.png>
+      <link href=css/screen.21a86285.css rel=stylesheet media=screen>
+      <link href=css/print.0babe0f0.css rel=stylesheet media=print>
+      <link href=css/highlight-monokai.f7211925.css rel=stylesheet media=screen,print>
+      <script src=js/all.1b59ed1c.js></script>
    </head>
-   <body class="" data-languages="[&#34;bash&#34;,&#34;ruby&#34;,&#34;python&#34;,&#34;javascript&#34;]">
+   <body class="" data-languages="[&#34;javascript&#34;]">
       <a href=# id=nav-button>
-         <span>NAV <img alt=navbar class=image-navbar src=images/navbar.png></span>
+         <span>NAV <img alt=navbar class=image-navbar src=images/navbar.37b9accb.png></span>
       </a>
       <div class=tocify-wrapper>
-         <img alt=logo class=image-logo src=images/logo.png>
+         <img alt=logo class=image-logo src=images/logo.80217d04.png>
          <div class=lang-selector>
-            <a href=# data-language-name="bash">bash</a>
-            <a href=# data-language-name="ruby">ruby</a>
-            <a href=# data-language-name="python">python</a>
             <a href=# data-language-name="javascript">javascript</a>
          </div>
          <div class=search>
@@ -29,137 +26,1434 @@
          </div>
          <ul class=search-results></ul>
          <div id=toc></div>
-         <ul class=toc-footer>
-            <li><a href=https://github.com/center-key/node-slate>node-slate on GitHub</a></li>
-            <li><a href=https://www.npmjs.com/package/node-slate>Documentation powered by Slate</a></li>
-         </ul>
       </div>
       <div class=page-wrapper>
          <div class=dark-box></div>
          <div class=content>
             <h1 id="introduction">Introduction</h1>
-            <p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-            <p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-            <p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+            <p>Welcome to the Splasheroo API! You can use our API to access Splasheroo API endpoints, which can get informations in our database.</p>
             <h1 id="authentication">Authentication</h1>
+            <p>Our API is able to support user accounts with each user having the ability managing their own resources. In order to get your API key (token), you need to Signup or login!</p>
+            <h2 id="signup">Signup</h2>
             <blockquote>
-               <p>To authorize, use this code:</p>
+               <p>Signup a new user - get token from here</p>
             </blockquote>
-            <pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;kittn&#x27;</span>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
 
-api = <span class="hljs-title class_">Kittn</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:APIClient</span>.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/register&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+    <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;customer&quot;</span>
+  },
+  <span class="hljs-attr">data</span>: {
+   <span class="hljs-attr">fullName</span>: <span class="hljs-string">&quot;Test full name&quot;</span>,
+   <span class="hljs-attr">password</span>: <span class="hljs-string">&quot;12345678&quot;</span>,
+   <span class="hljs-attr">phone</span>: <span class="hljs-string">&quot;789456123&quot;</span>,
+   <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;test@me.com&quot;</span>,
+   <span class="hljs-attr">postCode</span>: <span class="hljs-string">&quot;postCode&quot;</span>,
+   address : <span class="hljs-string">&quot;address&quot;</span>
+  },
+};
 
-api = kittn.authorize(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)</code></pre><pre class="highlight bash"><code><span class="hljs-comment"># With shell, you can just pass the correct header with each request</span>
-curl <span class="hljs-string">&quot;api_endpoint_here&quot;</span>
-  -H <span class="hljs-string">&quot;Authorization: meowmeowmeow&quot;</span></code></pre><pre class="highlight javascript"><code><span class="hljs-keyword">import</span> { kittn } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;kittn&#x27;</span>;
-
-<span class="hljs-keyword">const</span> api = kittn.<span class="hljs-title function_">authorize</span>(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>);</code></pre>
-            <blockquote>
-               <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-            </blockquote>
-            <p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="https://example.com/developers">developer portal</a>.</p>
-            <p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-            <p><code>Authorization: meowmeowmeow</code></p>
-            <aside class=notice> You must replace <code>meowmeowmeow</code> with your personal API key. </aside>
-            <h1 id="kittens">Kittens</h1>
-            <h2 id="get-all-kittens">Get All Kittens</h2>
-            <pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;kittn&#x27;</span>
-
-api = <span class="hljs-title class_">Kittn</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:APIClient</span>.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
-api.kittens.get</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
-
-api = kittn.authorize(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
-api.kittens.get()</code></pre><pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://example.com/api/kittens&quot;</span>
-  -H <span class="hljs-string">&quot;Authorization: meowmeowmeow&quot;</span></code></pre><pre class="highlight javascript"><code><span class="hljs-keyword">import</span> { kittn } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;kittn&#x27;</span>;
-
-<span class="hljs-keyword">const</span> api = kittn.<span class="hljs-title function_">authorize</span>(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>);
-<span class="hljs-keyword">const</span> kittens = api.<span class="hljs-property">kittens</span>.<span class="hljs-title function_">get</span>();</code></pre>
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
             <blockquote>
                <p>The above command returns JSON structured like this:</p>
             </blockquote>
-            <pre class="highlight json"><code><span class="hljs-punctuation">[</span>
-   <span class="hljs-punctuation">{</span>
-      <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span>         <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span>       <span class="hljs-string">&quot;Fluffums&quot;</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;breed&quot;</span><span class="hljs-punctuation">:</span>      <span class="hljs-string">&quot;calico&quot;</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;fluffiness&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">6</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;cuteness&quot;</span><span class="hljs-punctuation">:</span>   <span class="hljs-number">7</span>
-   <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-   <span class="hljs-punctuation">{</span>
-      <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span>         <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span>       <span class="hljs-string">&quot;Max&quot;</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;breed&quot;</span><span class="hljs-punctuation">:</span>      <span class="hljs-string">&quot;unknown&quot;</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;fluffiness&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;cuteness&quot;</span><span class="hljs-punctuation">:</span>   <span class="hljs-number">10</span>
-   <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">]</span></code></pre>
-            <p>This endpoint retrieves all kittens.</p>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*******************************&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test8@me.com&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;completedProfile&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;role&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;customer&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;roleData&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fullName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Test full name&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;phone&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;789456123&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;postCode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;postCode&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;address&quot;</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If you faild to signup, you&#39;ll get this :</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>    
+   <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+   <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Account Already exist&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>Make sure that your API key is located in <code>token</code>. In our our case id <code>*************</code></p>
+            </blockquote>
+            <p>Splasheroo API expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+            <p><code>Authorization: *************</code></p>
+            <p>This endpoint creates a new user.</p>
             <h3 id="http-request">HTTP Request</h3>
-            <p><code>GET https://example.com/api/kittens</code></p>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/register</code></p>
             <h3 id="query-parameters">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
                      <th>Parameter</th>
-                     <th>Default</th>
+                     <th>Type</th>
                      <th>Description</th>
                   </tr>
                </thead>
                <tbody>
                   <tr>
-                     <td>include_cats</td>
-                     <td>false</td>
-                     <td>If set to true, the result will also include cats.</td>
+                     <td>fullName</td>
+                     <td>string</td>
+                     <td>Name of the user</td>
                   </tr>
                   <tr>
-                     <td>available</td>
-                     <td>true</td>
-                     <td>If set to false, the result will include kittens that have already been adopted.</td>
+                     <td>email</td>
+                     <td>string</td>
+                     <td>An adress mail. It&#39;s must be unique in our database</td>
+                  </tr>
+                  <tr>
+                     <td>password</td>
+                     <td>string</td>
+                     <td>A password</td>
+                  </tr>
+                  <tr>
+                     <td>phone</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>postcode</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>address</td>
+                     <td>string</td>
+                     <td></td>
                   </tr>
                </tbody>
             </table>
-            <aside class=success> Remember — a happy kitten is an authenticated kitten! </aside>
-            <h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-            <pre class="highlight ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;kittn&#x27;</span>
+            <aside class="success"> Remember — if you post successfully, then you gonna have your API key! </aside>
+            <aside class="warning"> If you faild to signup, you'll get this validation message: <code>
+"msg": "Account Already exist"
+</code></aside>
+            <h2 id="login">login</h2>
+            <blockquote>
+               <p>login an existing user - get token from here</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
 
-api = <span class="hljs-title class_">Kittn</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:APIClient</span>.authorize!(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
-api.kittens.get(<span class="hljs-number">2</span>)</code></pre><pre class="highlight python"><code><span class="hljs-keyword">import</span> kittn
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/login&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+    <span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;customer&quot;</span>
+  },
+  <span class="hljs-attr">data</span>: {
+   <span class="hljs-attr">password</span>: <span class="hljs-string">&quot;12345678&quot;</span>,
+   <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;test@me.com&quot;</span>,
+  },
+};
 
-api = kittn.authorize(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>)
-api.kittens.get(<span class="hljs-number">2</span>)</code></pre><pre class="highlight bash"><code>curl <span class="hljs-string">&quot;https://example.com/api/kittens/2&quot;</span>
-  -H <span class="hljs-string">&quot;Authorization: meowmeowmeow&quot;</span></code></pre><pre class="highlight javascript"><code><span class="hljs-keyword">import</span> { kittn } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;kittn&#x27;</span>;
-
-<span class="hljs-keyword">const</span> api = kittn.<span class="hljs-title function_">authorize</span>(<span class="hljs-string">&#x27;meowmeowmeow&#x27;</span>);
-<span class="hljs-keyword">const</span> max = api.<span class="hljs-property">kittens</span>.<span class="hljs-title function_">get</span>(<span class="hljs-number">2</span>);</code></pre>
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
             <blockquote>
                <p>The above command returns JSON structured like this:</p>
             </blockquote>
             <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
-   <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span>         <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
-   <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span>       <span class="hljs-string">&quot;Max&quot;</span><span class="hljs-punctuation">,</span>
-   <span class="hljs-attr">&quot;breed&quot;</span><span class="hljs-punctuation">:</span>      <span class="hljs-string">&quot;unknown&quot;</span><span class="hljs-punctuation">,</span>
-   <span class="hljs-attr">&quot;fluffiness&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span>
-   <span class="hljs-attr">&quot;cuteness&quot;</span><span class="hljs-punctuation">:</span>   <span class="hljs-number">10</span>
+  <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+   <span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;*****************************&quot;</span><span class="hljs-punctuation">,</span>
+   <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;roleData&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+         <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dbf013d61a9eaaffb4e47f&quot;</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dbf013d61a9eaaffb4e47f&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test@me.com&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;completedProfile&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;role&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;customer&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fullName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Test full name&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;phone&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;789456123&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;postCode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;postCode&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;address&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
-            <p>This endpoint retrieves a specific kitten.</p>
-            <aside class=warning> Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code. </aside>
-            <h3 id="http-request-with-id">HTTP Request (with ID)</h3>
-            <p><code>GET https://example.com/kittens/&lt;ID&gt;</code></p>
-            <h3 id="url-parameters">URL Parameters</h3>
+            <blockquote>
+               <p>Make sure that your API key is located in <code>token</code>. In our our case id <code>*************</code></p>
+            </blockquote>
+            <p>Splasheroo API expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+            <p><code>Authorization: *************</code></p>
+            <p>This endpoint log in an existing user</p>
+            <h3 id="http-request-1">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/login</code></p>
+            <h3 id="query-parameters-1">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
                      <th>Parameter</th>
+                     <th>Type</th>
                      <th>Description</th>
                   </tr>
                </thead>
                <tbody>
                   <tr>
-                     <td>ID</td>
-                     <td>The ID of the kitten to retrieve</td>
+                     <td>email</td>
+                     <td>string</td>
+                     <td>An adress mail. It&#39;s must be unique in our database</td>
+                  </tr>
+                  <tr>
+                     <td>password</td>
+                     <td>string</td>
+                     <td>A password</td>
                   </tr>
                </tbody>
             </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna have your API key! </aside>
+            <aside class="warning">If you faild to login, you'll get this validation message: <code>"msg": "Password Invalid"</code></aside>
+            <h2 id="check-if-email-exists">Check if Email exists</h2>
+            <blockquote>
+               <p>Check if email exists</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/checkEmail&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+   <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;test@me.com&quot;</span>,
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email exists&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If the email doesn&#39;t exist, you&#39;ll get this message</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Invalid Email&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h3 id="http-request-2">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/checkEmail</code></p>
+            <h3 id="query-parameters-2">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>email</td>
+                     <td>string</td>
+                     <td>An adress mail. It&#39;s must be unique in our database</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h1 id="vehicle">Vehicle</h1>
+            <p>Add vehicle manually or retrieve from <a href="https://panel.ukvehicledata.co.uk/">https://panel.ukvehicledata.co.uk/</a></p>
+            <h2 id="add">Add</h2>
+            <blockquote>
+               <p>Add manualy</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/vehicle/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    id : <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span>,
+    <span class="hljs-title class_">RegistrationPlate</span> : <span class="hljs-string">&quot;RP2&quot;</span>,
+    licence : <span class="hljs-literal">true</span>,
+    model : <span class="hljs-string">&quot;Model&quot;</span>,
+    make : <span class="hljs-string">&quot;Make&quot;</span>,
+    coulor : <span class="hljs-string">&quot;red&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle added successfully&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint creates a vehicle.</p>
+            <h3 id="http-request-3">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/vehicle/add</code></p>
+            <h3 id="query-parameters-3">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td>Id returned when sign up or sign in</td>
+                  </tr>
+                  <tr>
+                     <td>RegistrationPlate</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>licence</td>
+                     <td>boolean</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>model</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>make</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>coulor</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <h2 id="get">Get</h2>
+            <blockquote>
+               <p>vehicle data from ukvehicledata</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/vehicle/getUKVD&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">registrationPlate</span>: <span class="hljs-string">&quot;KM12AKK&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle found&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;VehicleDetails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;Colour&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Grey&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;FuelType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Diesel&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;Make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;VOLKSWAGEN&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;Model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SHARAN&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;DateFirstRegistered&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;15/06/2012&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If the vehicle doesn&#39;t exist, you&#39;ll get this message</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle not found&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h3 id="http-request-4">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/vehicle/getUKVD</code></p>
+            <h3 id="query-parameters-4">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>registrationPlate</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <h1 id="email">Email</h1>
+            <p>To verify the email address</p>
+            <h2 id="email-validation">Email validation</h2>
+            <blockquote>
+               <p>Validate an email, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/email/send&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">email</span>:<span class="hljs-string">&quot;test@me.com&quot;</span>,
+    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2/10/2023&quot;</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Full name&quot;</span>,
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;8464542165578654&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email sent successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If faild to send an Email, you&#39;ll get this message</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Faild to send an Email!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will send an email.</p>
+            <h3 id="http-request-5">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/email/send</code></p>
+            <h3 id="query-parameters-5">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td>Id returned when sign up or sign in</td>
+                  </tr>
+                  <tr>
+                     <td>email</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>date</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>name</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder </aside>
+            <h2 id="check-if-email-is-validate">Check if Email is validate</h2>
+            <blockquote>
+               <p>Check if email is already validate</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/email/status&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+   <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;test@me.com&quot;</span>,
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email is validate&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If the email doesn&#39;t exist, you&#39;ll get this message</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email not validated&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h3 id="http-request-6">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/status</code></p>
+            <h3 id="query-parameters-6">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>email</td>
+                     <td>string</td>
+                     <td>An adress mail. It&#39;s must be unique in our database</td>
+                  </tr>
+               </tbody>
+            </table>
+            <h1 id="car-wash-services">CAR WASH SERVICES</h1>
+            <p>We have only two type of services. Outside &amp; Inside wash @ GBP 25.30 and Outside wash only @ GBP 20.30</p>
+            <h2 id="add-a-service">Add a service</h2>
+            <blockquote>
+               <p>Post a sevice and save it in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/servie/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">serviceName</span>: <span class="hljs-string">&quot;Outside wash only&quot;</span>,
+    <span class="hljs-attr">price</span>: <span class="hljs-string">&quot;20.30&quot;</span>,
+    <span class="hljs-attr">startTimeOfDays</span>: <span class="hljs-string">&quot;08:00:00&quot;</span>,
+    <span class="hljs-attr">endTimeOfDays</span>: <span class="hljs-string">&quot;20:00:00&quot;</span>,
+    <span class="hljs-attr">duration</span>: <span class="hljs-string">&quot;45&quot;</span>,
+    <span class="hljs-attr">contact</span>: <span class="hljs-string">&quot;+243841550213&quot;</span>, 
+    <span class="hljs-attr">address</span>: <span class="hljs-string">&quot;10 Downing street&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service added successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will add a service.</p>
+            <h3 id="http-request-7">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/service/add</code></p>
+            <h3 id="query-parameters-7">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>serviceName</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>price</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>startTimeOfDays</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>endTimeOfDays</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>duration</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>contact</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>address</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-all-services">Get all services</h2>
+            <blockquote>
+               <p>Get all sevices saved in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/servie/all&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  }
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service fetched successfully&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;services&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e00d434969108cb5bc1794&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Outside wash only&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20.3</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">45</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e014aa4969108cb5bc1797&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Outside &amp; Inside&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">25.3</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">60</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fetch all services.</p>
+            <h3 id="http-request-8">HTTP Request</h3>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/service/all</code></p>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-single-service">Get single service</h2>
+            <blockquote>
+               <p>Get a single service by it&#39;s ID, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/servie/find&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;63e00d434969108cb5bc1794&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service found&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e00d434969108cb5bc1794&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Outside wash only&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20.3</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">45</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fecth a single service.</p>
+            <h3 id="http-request-9">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/service/find</code></p>
+            <h3 id="query-parameters-8">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a service ojbect </aside>
+            <h1 id="riders">RIDERS</h1>
+            <p>Riders management</p>
+            <h2 id="add-a-rider">Add a rider</h2>
+            <blockquote>
+               <p>Post a rider and save in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/rider/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;James Bond&quot;</span>, 
+    <span class="hljs-attr">idNumber</span>: <span class="hljs-string">&quot;124578&quot;</span>, 
+    <span class="hljs-attr">gsmId</span>: <span class="hljs-string">&quot;321654987&quot;</span>, 
+    <span class="hljs-attr">address</span>: <span class="hljs-string">&quot;10 Downing street&quot;</span>, 
+    <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;james@test.me&quot;</span>, 
+    <span class="hljs-attr">emergencyContact</span>: <span class="hljs-string">&quot;+243841550213&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider added successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will add a service.</p>
+            <h3 id="http-request-10">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/add</code></p>
+            <h3 id="query-parameters-9">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>name</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>idNumber</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>gsmId</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>address</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>email</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>emergencyContact</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-all-riders">Get all riders</h2>
+            <blockquote>
+               <p>Get all sevices saved in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/rider/all&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  }
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider fetched successfully&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;riders&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;James Bond&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;activate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;idNumber&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;124578&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;gsmId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;321654987&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;james@test.me&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;emergencyContact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-05T20:56:12.077Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fetch all riders.</p>
+            <h3 id="http-request-11">HTTP Request</h3>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/rider/all</code></p>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-single-rider">Get single rider</h2>
+            <blockquote>
+               <p>Get a single rider by it&#39;s ID, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/rider/find&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider found&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;rider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;James Bond&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;activate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;idNumber&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;124578&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;gsmId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;321654987&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;email&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;james@test.me&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;emergencyContact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-05T20:56:12.077Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fecth a single service.</p>
+            <h3 id="http-request-12">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/find</code></p>
+            <h3 id="query-parameters-10">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a rider ojbect </aside>
+            <h1 id="banking-card">BANKING CARD</h1>
+            <p>Bank Crad management</p>
+            <h2 id="add-a-bank-card">Add a Bank CARD</h2>
+            <blockquote>
+               <p>Post a bankCard and save in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/bankCard/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">cardNumber</span>: <span class="hljs-string">&quot;123456789123&quot;</span>, 
+    <span class="hljs-attr">cardHolderName</span>: <span class="hljs-string">&quot;Nicolas Brody&quot;</span>, 
+    <span class="hljs-attr">expiryDate</span>: <span class="hljs-string">&quot;12/25&quot;</span>, 
+    <span class="hljs-attr">cvvCvc</span>: <span class="hljs-string">&quot;12/12&quot;</span>, 
+    <span class="hljs-attr">customer</span>: <span class="hljs-string">&quot;63db5cf616391c961dc3a4e5&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;BankCard added successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will add a BankCard.</p>
+            <h3 id="http-request-13">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/bankCard/add</code></p>
+            <h3 id="query-parameters-11">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>cardNumber</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>cardHolderName</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>expiryDate</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>cvvCvc</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>customer</td>
+                     <td>number</td>
+                     <td>ID of an existing customer</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-single-bankcard">Get single Bankcard</h2>
+            <blockquote>
+               <p>Get a single bankCard by it customer&#39;s ID, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/bankCard/find&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">customer</span>: <span class="hljs-string">&quot;63db5cf616391c961dc3a4e5&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bankCard found&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;bankCard&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e022086852fc4fee6bb40a&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;cardNumber&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;123456789123&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;cardHolderName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Nicolas Brody&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;expiryDate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2001-12-24T22:00:00.000Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;cvvCvc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;12/12&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;verified&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63db5cf616391c961dc3a4e5&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fecth a single bankCard.</p>
+            <h3 id="http-request-14">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/bankCard/find</code></p>
+            <h3 id="query-parameters-12">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>customer</td>
+                     <td>string</td>
+                     <td>Existing Customer&#39;s ID</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect </aside>
+            <h1 id="promo-code">PROMO CODE</h1>
+            <p>Bank Crad management</p>
+            <h2 id="add-a-promo-code">Add a PROMO CODE</h2>
+            <blockquote>
+               <p>Post a promoCode and save in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/promoCode/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">amount</span>: <span class="hljs-string">&quot;5&quot;</span>, 
+    <span class="hljs-attr">code</span>: <span class="hljs-string">&quot;x2023&quot;</span>, 
+    <span class="hljs-attr">expireDate</span>: <span class="hljs-string">&quot;2023-10-01T12:00:59&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PromoCode added successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will add a promoCode.</p>
+            <h3 id="http-request-15">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/promoCode/add</code></p>
+            <h3 id="query-parameters-13">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>amount</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>code</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>expireDate</td>
+                     <td>string</td>
+                     <td>in this format: YYYY-mm-ddTHH:MM:ss</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-single-promo-code">Get single promo Code</h2>
+            <blockquote>
+               <p>Get a single promo Code by it customer&#39;s ID, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/promoCode/find&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;63e0269a2efe25d61bfbda03&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PromoCode found&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;promoCode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0269a2efe25d61bfbda03&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;amount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;x2023&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;expireDate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-10-01T12:00:59&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-05T21:44:36.539Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fecth a single promoCode.</p>
+            <h3 id="http-request-16">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/promoCode/find</code></p>
+            <h3 id="query-parameters-14">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td>Existing promoCode&#39;s ID</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect </aside>
+            <h1 id="booking">BOOKING</h1>
+            <p>Booking management</p>
+            <h2 id="add-a-booking">Add a Booking</h2>
+            <blockquote>
+               <p>Post a booking and save in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2023-03-01T12:00:59&quot;</span>, 
+    <span class="hljs-attr">ref</span>: <span class="hljs-string">&quot;C10000002&quot;</span>, 
+    <span class="hljs-attr">contact</span>: <span class="hljs-string">&quot;+24389897544&quot;</span>, 
+    <span class="hljs-attr">notes</span>: <span class="hljs-string">&quot;This car needs attention when clining left tyers&quot;</span>, 
+    <span class="hljs-attr">slot_start_time</span>: <span class="hljs-string">&quot;2023-03-01T12:00:59&quot;</span>, 
+    <span class="hljs-attr">slot_end_time</span>: <span class="hljs-string">&quot;2023-03-01T13:00:59&quot;</span>, 
+    <span class="hljs-attr">location</span>: <span class="hljs-string">&quot;10 Downing street&quot;</span>, 
+    <span class="hljs-attr">car</span>: <span class="hljs-string">&quot;63dcde4dfb6a27a947f255a1&quot;</span>,
+    <span class="hljs-attr">service</span>: <span class="hljs-string">&quot;63e014aa4969108cb5bc1797&quot;</span>,
+    <span class="hljs-attr">driver</span>: <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking added successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will add a Booking.</p>
+            <h3 id="http-request-17">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/booking/add</code></p>
+            <h3 id="query-parameters-15">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>date</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>ref</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>contact</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>notes</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>slot_start_time</td>
+                     <td>string</td>
+                     <td>in this format: YYYY-mm-ddTHH:MM:ss</td>
+                  </tr>
+                  <tr>
+                     <td>slot_end_time</td>
+                     <td>string</td>
+                     <td>in this format: YYYY-mm-ddTHH:MM:ss</td>
+                  </tr>
+                  <tr>
+                     <td>location</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>car</td>
+                     <td>string</td>
+                     <td>id</td>
+                  </tr>
+                  <tr>
+                     <td>service</td>
+                     <td>string</td>
+                     <td>id</td>
+                  </tr>
+                  <tr>
+                     <td>driver</td>
+                     <td>string</td>
+                     <td>id</td>
+                  </tr>
+                  <tr>
+                     <td>promoCode?</td>
+                     <td>string</td>
+                     <td>id (optional)</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="get-all-bookings">Get all bookings</h2>
+            <blockquote>
+               <p>Get all bookings saved in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/all&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  }
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking fetched successfully&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;bookings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e02d66276302955b62e222&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;date&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-05T22:27:43.550Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;ref&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;C10000002&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+24389897544&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;This car needs attention when clining left tyers&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;slot_start_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-01T10:00:59.000Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;slot_end_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-01T11:00:59.000Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;jobCompleted&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dcde4dfb6a27a947f255a1&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e014aa4969108cb5bc1797&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;driver&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-05T22:27:43.550Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e030ab1e50a3131769ade5&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;date&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-01T11:00:59.000Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;ref&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;AB0000100&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+24389897544&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Don&#x27;t forget to clean glasses&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;slot_start_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-01T11:00:59.000Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;slot_end_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-01T11:45:59.000Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;jobCompleted&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dfb03bd18638890433cadf&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e00d434969108cb5bc1794&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;driver&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-05T22:41:38.605Z&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fetch all bookings.</p>
+            <h3 id="http-request-18">HTTP Request</h3>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all</code></p>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and all bookings </aside>
             <h1 id="errors">Errors</h1>
             <aside class=error> This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s front matter. Files are included in the order listed. </aside>
             <p>The Kittn API uses the following error codes:</p>
@@ -220,9 +1514,6 @@ api.kittens.get(<span class="hljs-number">2</span>)</code></pre><pre class="high
          </div>
          <div class=dark-box>
             <div class=lang-selector>
-               <a href=# data-language-name="bash">bash</a>
-               <a href=# data-language-name="ruby">ruby</a>
-               <a href=# data-language-name="python">python</a>
                <a href=# data-language-name="javascript">javascript</a>
             </div>
          </div>
