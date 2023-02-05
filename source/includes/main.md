@@ -691,11 +691,11 @@ axios
 }
 ```
 
-This endpoint will add a service.
+This endpoint will fecth a single service.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/service/add`
+`POST https://splasheroo-backend.herokuapp.com/api/service/find`
 
 ### Query Parameters
 
@@ -705,4 +705,74 @@ This endpoint will add a service.
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a service ojbect
+</aside>
+
+
+# RIDERS
+
+Riders management
+
+## Add a rider
+
+> Post a rider and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    name: "James Bond", 
+    idNumber: "124578", 
+    gsmId: "321654987", 
+    address: "10 Downing street", 
+    email: "james@test.me", 
+    emergencyContact: "+243841550213"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider added successfuly!"
+}
+```
+
+This endpoint will add a service.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| name                  | string |                                                     |
+| idNumber              | number |                                                     |
+| gsmId                 | string |                                                     |
+| address               | string |                                                     |
+| email                 | number |                                                     |
+| emergencyContact      | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
 </aside>
