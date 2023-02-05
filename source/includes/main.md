@@ -508,7 +508,7 @@ We have only two type of services. Outside & Inside wash @ GBP 25.30 and Outside
 
 ## Add a service
 
-> Post a sevice and save it iin our database, 
+> Post a sevice and save it in our database, 
 
 
 ```javascript
@@ -551,7 +551,7 @@ axios
 }
 ```
 
-This endpoint will send an email.
+This endpoint will add a service.
 
 ### HTTP Request
 
@@ -570,5 +570,72 @@ This endpoint will send an email.
 | address               | string |                                                     |
 
 <aside class="success">
-Remember — if you post successfully, then you gonna receive a full service object
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
+## Get all services
+
+> Get all sevices saved in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/servie/all",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Service fetched successfully",
+    "services": [
+        {
+            "_id": "63e00d434969108cb5bc1794",
+            "serviceName": "Outside wash only",
+            "price": 20.3,
+            "duration": 45,
+            "contact": "+243841550213",
+            "address": "10 Downing street",
+            "__v": 0
+        },
+        {
+            "_id": "63e014aa4969108cb5bc1797",
+            "serviceName": "Outside & Inside",
+            "price": 25.3,
+            "duration": 60,
+            "contact": "+243841550213",
+            "address": "10 Downing street",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fetch all services.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/service/all`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
 </aside>
