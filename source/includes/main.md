@@ -1025,7 +1025,7 @@ axios
 }
 ```
 
-This endpoint will fecth a single service.
+This endpoint will fecth a single bankCard.
 
 ### HTTP Request
 
@@ -1105,3 +1105,67 @@ This endpoint will add a promoCode.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+
+## Get single promo Code
+
+> Get a single promo Code by it customer's ID, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/find",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63e0269a2efe25d61bfbda03"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "PromoCode found",
+    "promoCode": [
+        {
+            "_id": "63e0269a2efe25d61bfbda03",
+            "amount": 5,
+            "code": "x2023",
+            "expireDate": "2023-10-01T12:00:59",
+            "timestamp": "2023-02-05T21:44:36.539Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+This endpoint will fecth a single promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/promoCode/find`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Existing promoCode's ID                             |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect
+</aside>
