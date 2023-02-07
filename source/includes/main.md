@@ -528,7 +528,7 @@ const options = {
     endTimeOfDays: "20:00:00",
     duration: "45",
     contact: "+243841550213",
-    allService : [{"Exterior Bodywork", "Exterior Glass", "Exterior Trim", "Alloys", "Tyre Shine"}],
+    allService : ["Exterior Bodywork", "Exterior Glass", "Exterior Trim", "Alloys", "Tyre Shine"],
   },
 };
 
