@@ -708,7 +708,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 </aside>
 
 
-# RIDERS
+# Riders
 
 Riders management
 
@@ -907,7 +907,7 @@ This endpoint will fecth a single service.
 Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
 </aside>
 
-# BANKING CARD
+# Banking Card
 
 Bank Crad management
 
@@ -1042,7 +1042,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 </aside>
 
 
-# PROMO CODE
+# Promo Code
 
 Bank Crad management
 
@@ -1171,7 +1171,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 </aside>
 
 
-# BOOKING
+# Booking
 
 Booking management
 
