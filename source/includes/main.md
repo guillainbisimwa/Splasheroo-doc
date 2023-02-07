@@ -502,7 +502,7 @@ axios
 | email     | string | An adress mail. It's must be unique in our database |
 
 
-# CAR WASH SERVICES
+# Car Wash Service
 
 We have only two type of services. Outside & Inside wash @ GBP 25.30 and Outside wash only @ GBP 20.30
 
@@ -527,8 +527,8 @@ const options = {
     startTimeOfDays: "08:00:00",
     endTimeOfDays: "20:00:00",
     duration: "45",
-    contact: "+243841550213", 
-    address: "10 Downing street"
+    contact: "+243841550213",
+    allService : [{"Exterior Bodywork", "Exterior Glass", "Exterior Trim", "Alloys", "Tyre Shine"}],
   },
 };
 
