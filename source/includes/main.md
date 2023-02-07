@@ -909,7 +909,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 
 # Banking Card
 
-Bank Crad management
+Bank Card management
 
 ## Add a Bank CARD
 
@@ -1044,9 +1044,9 @@ Remember — if you post successfully, then you gonna receive a success message 
 
 # Promo Code
 
-Bank Crad management
+Promo Code management
 
-## Add a PROMO CODE
+## Add a Promo Code
 
 > Post a promoCode and save in our database, 
 
@@ -1329,4 +1329,66 @@ This endpoint will fetch all bookings.
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and all bookings
+</aside>
+
+
+# Payment
+
+Payment management
+
+## Add a Payment
+
+> Post a Payment and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/payment/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    bankCard: "4680945nge93ff67", 
+    booking: "43570934750935034"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Payment added successfuly!"
+}
+```
+
+This endpoint will add a promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/payment/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| bankCard              | string | id                                                  |
+| booking               | number | id                                                  |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
 </aside>
