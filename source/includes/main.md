@@ -1392,3 +1392,61 @@ This endpoint will add a promoCode.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
+
+# GSM task
+
+The GSMtasks API is a RESTful web service for developers to programmatically interact with GSMtasks data, real-time delivery and task management and route optimization functionality.
+
+## Authentication
+
+> To obtain a authentication token the fallowing HTTP request has to be performed.
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/authGsmtask",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Successfully authentified",
+    "gsmuser": {
+        "token": "f69d6f61840fb92efc24b0267abb47a34a7657a9",
+        "user": "https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-************/",
+        "accounts": [
+            "040967e8-a52d-4436-80f0-**************"
+        ],
+        "account": "040967e8-a52d-4436-80f0-**************"
+    }
+}
+```
+
+This endpoint will authentificate the user.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/authGsmtask`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
