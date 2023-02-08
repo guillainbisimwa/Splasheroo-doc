@@ -578,7 +578,7 @@ axios
                   </tr>
                </tbody>
             </table>
-            <h1 id="car-wash-services">CAR WASH SERVICES</h1>
+            <h1 id="car-wash-service">Car Wash Service</h1>
             <p>We have only two type of services. Outside &amp; Inside wash @ GBP 25.30 and Outside wash only @ GBP 20.30</p>
             <h2 id="add-a-service">Add a service</h2>
             <blockquote>
@@ -599,8 +599,8 @@ axios
     <span class="hljs-attr">startTimeOfDays</span>: <span class="hljs-string">&quot;08:00:00&quot;</span>,
     <span class="hljs-attr">endTimeOfDays</span>: <span class="hljs-string">&quot;20:00:00&quot;</span>,
     <span class="hljs-attr">duration</span>: <span class="hljs-string">&quot;45&quot;</span>,
-    <span class="hljs-attr">contact</span>: <span class="hljs-string">&quot;+243841550213&quot;</span>, 
-    <span class="hljs-attr">address</span>: <span class="hljs-string">&quot;10 Downing street&quot;</span>
+    <span class="hljs-attr">contact</span>: <span class="hljs-string">&quot;+243841550213&quot;</span>,
+    allService : [<span class="hljs-string">&quot;Exterior Bodywork&quot;</span>, <span class="hljs-string">&quot;Exterior Glass&quot;</span>, <span class="hljs-string">&quot;Exterior Trim&quot;</span>, <span class="hljs-string">&quot;Alloys&quot;</span>, <span class="hljs-string">&quot;Tyre Shine&quot;</span>],
   },
 };
 
@@ -789,7 +789,7 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a service ojbect </aside>
-            <h1 id="riders">RIDERS</h1>
+            <h1 id="riders">Riders</h1>
             <p>Riders management</p>
             <h2 id="add-a-rider">Add a rider</h2>
             <blockquote>
@@ -991,8 +991,8 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a rider ojbect </aside>
-            <h1 id="banking-card">BANKING CARD</h1>
-            <p>Bank Crad management</p>
+            <h1 id="banking-card">Banking Card</h1>
+            <p>Bank Card management</p>
             <h2 id="add-a-bank-card">Add a Bank CARD</h2>
             <blockquote>
                <p>Post a bankCard and save in our database, </p>
@@ -1137,9 +1137,9 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect </aside>
-            <h1 id="promo-code">PROMO CODE</h1>
-            <p>Bank Crad management</p>
-            <h2 id="add-a-promo-code">Add a PROMO CODE</h2>
+            <h1 id="promo-code">Promo Code</h1>
+            <p>Promo Code management</p>
+            <h2 id="add-a-promo-code">Add a Promo Code</h2>
             <blockquote>
                <p>Post a promoCode and save in our database, </p>
             </blockquote>
@@ -1269,7 +1269,7 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect </aside>
-            <h1 id="booking">BOOKING</h1>
+            <h1 id="booking">Booking</h1>
             <p>Booking management</p>
             <h2 id="add-a-booking">Add a Booking</h2>
             <blockquote>
@@ -1454,6 +1454,68 @@ axios
             <h3 id="http-request-18">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and all bookings </aside>
+            <h1 id="payment">Payment</h1>
+            <p>Payment management</p>
+            <h2 id="add-a-payment">Add a Payment</h2>
+            <blockquote>
+               <p>Post a Payment and save in our database, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/payment/add&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">bankCard</span>: <span class="hljs-string">&quot;4680945nge93ff67&quot;</span>, 
+    <span class="hljs-attr">booking</span>: <span class="hljs-string">&quot;43570934750935034&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Payment added successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will add a promoCode.</p>
+            <h3 id="http-request-19">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/payment/add</code></p>
+            <h3 id="query-parameters-16">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>bankCard</td>
+                     <td>string</td>
+                     <td>id</td>
+                  </tr>
+                  <tr>
+                     <td>booking</td>
+                     <td>number</td>
+                     <td>id</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h1 id="errors">Errors</h1>
             <aside class=error> This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s front matter. Files are included in the order listed. </aside>
             <p>The Kittn API uses the following error codes:</p>
