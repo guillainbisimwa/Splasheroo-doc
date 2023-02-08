@@ -1430,7 +1430,7 @@ axios
     "success": true,
     "msg": "Successfully authentified",
     "gsmuser": {
-        "token": "f69d6f61840fb92efc24b0267abb47a34a7657a9",
+        "token": "f69d6f61840fb92efc24b0267abb47***********",
         "user": "https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-************/",
         "accounts": [
             "040967e8-a52d-4436-80f0-**************"
@@ -1447,6 +1447,6 @@ This endpoint will authentificate the user.
 `GET https://splasheroo-backend.herokuapp.com/api/authGsmtask`
 
 <aside class="success">
-Remember — if you post successfully, then you gonna receive a success message
+Remember — this is the token  <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>,
 </aside>
 
