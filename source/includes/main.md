@@ -502,7 +502,7 @@ axios
 | email     | string | An adress mail. It's must be unique in our database |
 
 
-# CAR WASH SERVICES
+# Car Wash Service
 
 We have only two type of services. Outside & Inside wash @ GBP 25.30 and Outside wash only @ GBP 20.30
 
@@ -527,8 +527,8 @@ const options = {
     startTimeOfDays: "08:00:00",
     endTimeOfDays: "20:00:00",
     duration: "45",
-    contact: "+243841550213", 
-    address: "10 Downing street"
+    contact: "+243841550213",
+    allService : ["Exterior Bodywork", "Exterior Glass", "Exterior Trim", "Alloys", "Tyre Shine"],
   },
 };
 
@@ -708,7 +708,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 </aside>
 
 
-# RIDERS
+# Riders
 
 Riders management
 
@@ -907,9 +907,9 @@ This endpoint will fecth a single service.
 Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
 </aside>
 
-# BANKING CARD
+# Banking Card
 
-Bank Crad management
+Bank Card management
 
 ## Add a Bank CARD
 
@@ -1042,11 +1042,11 @@ Remember — if you post successfully, then you gonna receive a success message 
 </aside>
 
 
-# PROMO CODE
+# Promo Code
 
-Bank Crad management
+Promo Code management
 
-## Add a PROMO CODE
+## Add a Promo Code
 
 > Post a promoCode and save in our database, 
 
@@ -1171,7 +1171,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 </aside>
 
 
-# BOOKING
+# Booking
 
 Booking management
 
@@ -1330,3 +1330,123 @@ This endpoint will fetch all bookings.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and all bookings
 </aside>
+
+
+# Payment
+
+Payment management
+
+## Add a Payment
+
+> Post a Payment and save in our database, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/payment/add",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    bankCard: "4680945nge93ff67", 
+    booking: "43570934750935034"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Payment added successfuly!"
+}
+```
+
+This endpoint will add a promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/payment/add`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| bankCard              | string | id                                                  |
+| booking               | number | id                                                  |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+# GSM task
+
+The GSMtasks API is a RESTful web service for developers to programmatically interact with GSMtasks data, real-time delivery and task management and route optimization functionality.
+
+## Authentication
+
+> To obtain a authentication token the fallowing HTTP request has to be performed.
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/authGsmtask",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Successfully authentified",
+    "gsmuser": {
+        "token": "f69d6f61840fb92efc24b0267abb47***********",
+        "user": "https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-************/",
+        "accounts": [
+            "040967e8-a52d-4436-80f0-**************"
+        ],
+        "account": "040967e8-a52d-4436-80f0-**************"
+    }
+}
+```
+
+This endpoint will authentificate the user.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/authGsmtask`
+
+<aside class="success">
+Remember — this is the token  <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>,
+</aside>
+
