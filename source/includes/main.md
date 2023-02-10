@@ -1450,3 +1450,6 @@ This endpoint will authentificate the user.
 Remember — this is the token  <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>,
 </aside>
 
+<aside class="warning">
+The tokens are valid forever, unless refreshed by the user himself.
+</aside>
