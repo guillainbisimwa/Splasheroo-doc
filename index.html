@@ -372,7 +372,7 @@ axios
                   </tr>
                </tbody>
             </table>
-            <h2 id="get">Get</h2>
+            <h2 id="get-vehicle-info-from-ukvd">Get Vehicle info from UKVD</h2>
             <blockquote>
                <p>vehicle data from ukvehicledata</p>
             </blockquote>
@@ -438,6 +438,96 @@ axios
                   </tr>
                </tbody>
             </table>
+            <h2 id="get-vehicle">Get Vehicle</h2>
+            <blockquote>
+               <p>vehicle data from ukvehicledata</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/vehicle/get&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle fetched successfully!&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;vehicle&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dcde4dfb6a27a947f255a1&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;RegistrationPlate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;RP&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Model&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;make&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;coulor&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;red&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dce56ebdace4978ef94131&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;RegistrationPlate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;RP2&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;licence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Model&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;make&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;coulor&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;red&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dce961351de7dd046c49f6&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;RegistrationPlate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;RP2&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;licence&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Model&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;make&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;coulor&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;red&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63dc00a716439caa3a169a08&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If the vehicle doesn&#39;t exist, you&#39;ll get this message</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle not found&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <h3 id="http-request-5">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/vehicle/get</code></p>
+            <h3 id="query-parameters-5">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td>Customer&#39;s ID</td>
+                  </tr>
+               </tbody>
+            </table>
             <h1 id="email">Email</h1>
             <p>To verify the email address</p>
             <h2 id="email-validation">Email validation</h2>
@@ -484,9 +574,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Faild to send an Email!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will send an email.</p>
-            <h3 id="http-request-5">HTTP Request</h3>
+            <h3 id="http-request-6">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/email/send</code></p>
-            <h3 id="query-parameters-5">Query Parameters</h3>
+            <h3 id="query-parameters-6">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -559,9 +649,9 @@ axios
     <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email not validated&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
-            <h3 id="http-request-6">HTTP Request</h3>
+            <h3 id="http-request-7">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/status</code></p>
-            <h3 id="query-parameters-6">Query Parameters</h3>
+            <h3 id="query-parameters-7">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -620,9 +710,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a service.</p>
-            <h3 id="http-request-7">HTTP Request</h3>
+            <h3 id="http-request-8">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/service/add</code></p>
-            <h3 id="query-parameters-7">Query Parameters</h3>
+            <h3 id="query-parameters-8">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -721,7 +811,7 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all services.</p>
-            <h3 id="http-request-8">HTTP Request</h3>
+            <h3 id="http-request-9">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/service/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h2 id="get-single-service">Get single service</h2>
@@ -769,9 +859,9 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single service.</p>
-            <h3 id="http-request-9">HTTP Request</h3>
+            <h3 id="http-request-10">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/service/find</code></p>
-            <h3 id="query-parameters-8">Query Parameters</h3>
+            <h3 id="query-parameters-9">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -830,9 +920,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a service.</p>
-            <h3 id="http-request-10">HTTP Request</h3>
+            <h3 id="http-request-11">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/add</code></p>
-            <h3 id="query-parameters-9">Query Parameters</h3>
+            <h3 id="query-parameters-10">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -920,7 +1010,7 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all riders.</p>
-            <h3 id="http-request-11">HTTP Request</h3>
+            <h3 id="http-request-12">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/rider/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h2 id="get-single-rider">Get single rider</h2>
@@ -971,9 +1061,9 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single service.</p>
-            <h3 id="http-request-12">HTTP Request</h3>
+            <h3 id="http-request-13">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/find</code></p>
-            <h3 id="query-parameters-10">Query Parameters</h3>
+            <h3 id="query-parameters-11">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1031,9 +1121,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;BankCard added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a BankCard.</p>
-            <h3 id="http-request-13">HTTP Request</h3>
+            <h3 id="http-request-14">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/bankCard/add</code></p>
-            <h3 id="query-parameters-11">Query Parameters</h3>
+            <h3 id="query-parameters-12">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1117,9 +1207,9 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single bankCard.</p>
-            <h3 id="http-request-14">HTTP Request</h3>
+            <h3 id="http-request-15">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/bankCard/find</code></p>
-            <h3 id="query-parameters-12">Query Parameters</h3>
+            <h3 id="query-parameters-13">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1175,9 +1265,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PromoCode added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a promoCode.</p>
-            <h3 id="http-request-15">HTTP Request</h3>
+            <h3 id="http-request-16">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/promoCode/add</code></p>
-            <h3 id="query-parameters-13">Query Parameters</h3>
+            <h3 id="query-parameters-14">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1249,9 +1339,9 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single promoCode.</p>
-            <h3 id="http-request-16">HTTP Request</h3>
+            <h3 id="http-request-17">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/promoCode/find</code></p>
-            <h3 id="query-parameters-14">Query Parameters</h3>
+            <h3 id="query-parameters-15">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1314,9 +1404,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a Booking.</p>
-            <h3 id="http-request-17">HTTP Request</h3>
+            <h3 id="http-request-18">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/booking/add</code></p>
-            <h3 id="query-parameters-15">Query Parameters</h3>
+            <h3 id="query-parameters-16">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1451,7 +1541,7 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all bookings.</p>
-            <h3 id="http-request-18">HTTP Request</h3>
+            <h3 id="http-request-19">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and all bookings </aside>
             <h1 id="payment">Payment</h1>
@@ -1491,9 +1581,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Payment added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a promoCode.</p>
-            <h3 id="http-request-19">HTTP Request</h3>
+            <h3 id="http-request-20">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/payment/add</code></p>
-            <h3 id="query-parameters-16">Query Parameters</h3>
+            <h3 id="query-parameters-17">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1516,6 +1606,51 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h1 id="gsm-task">GSM task</h1>
+            <p>The GSMtasks API is a RESTful web service for developers to programmatically interact with GSMtasks data, real-time delivery and task management and route optimization functionality.</p>
+            <h2 id="authentication-1">Authentication</h2>
+            <blockquote>
+               <p>To obtain a authentication token the fallowing HTTP request has to be performed.</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/authGsmtask&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  }
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Successfully authentified&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;gsmuser&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;f69d6f61840fb92efc24b0267abb47***********&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;user&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-************/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;accounts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;040967e8-a52d-4436-80f0-**************&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;040967e8-a52d-4436-80f0-**************&quot;</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will authentificate the user.</p>
+            <h3 id="http-request-21">HTTP Request</h3>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/authGsmtask</code></p>
+            <aside class="success"> Remember — this is the token <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>, </aside>
+            <aside class="warning"> The tokens are valid forever, unless refreshed by the user himself. </aside>
             <h1 id="errors">Errors</h1>
             <aside class=error> This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s front matter. Files are included in the order listed. </aside>
             <p>The Kittn API uses the following error codes:</p>
