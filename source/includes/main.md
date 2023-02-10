@@ -306,7 +306,7 @@ This endpoint creates a vehicle.
 | make                  | string |                                                     |
 | coulor                | string |                                                     |
 
-## Get 
+## Get Vehicle info from UKVD
 
 > vehicle data from ukvehicledata
 
@@ -369,6 +369,95 @@ axios
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
 | registrationPlate     | string |                                                     |
+
+
+## Get Vehicle 
+
+> vehicle data from ukvehicledata
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/vehicle/get",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63dc00a716439caa3a169a08"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Vehicle fetched successfully!",
+    "vehicle": [
+        {
+            "_id": "63dcde4dfb6a27a947f255a1",
+            "RegistrationPlate": "RP",
+            "model": "Model",
+            "make": "make",
+            "coulor": "red",
+            "customer": "63dc00a716439caa3a169a08",
+            "__v": 0
+        },
+        {
+            "_id": "63dce56ebdace4978ef94131",
+            "RegistrationPlate": "RP2",
+            "licence": true,
+            "model": "Model",
+            "make": "make",
+            "coulor": "red",
+            "customer": "63dc00a716439caa3a169a08",
+            "__v": 0
+        },
+        {
+            "_id": "63dce961351de7dd046c49f6",
+            "RegistrationPlate": "RP2",
+            "licence": true,
+            "model": "Model",
+            "make": "make",
+            "coulor": "red",
+            "customer": "63dc00a716439caa3a169a08",
+            "__v": 0
+        }
+    ]
+}
+```
+
+> If the vehicle doesn't exist, you'll get this message
+
+```json
+{
+    "success": false,
+    "msg": "Vehicle not found"
+}
+```
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/vehicle/get`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Customer's ID                                       |
 
 # Email
 
@@ -1450,3 +1539,6 @@ This endpoint will authentificate the user.
 Remember — this is the token  <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>,
 </aside>
 
+<aside class="warning">
+The tokens are valid forever, unless refreshed by the user himself.
+</aside>
