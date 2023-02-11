@@ -154,7 +154,8 @@ axios
       "fullName": "Test full name",
       "phone": "789456123",
       "postCode": "postCode",
-      "address": "address"
+      "address": "address",  
+      "stripeCustomerId": "",
 }
 ```
 
