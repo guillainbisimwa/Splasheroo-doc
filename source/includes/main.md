@@ -459,6 +459,75 @@ axios
 | --------------------- | ------ | --------------------------------------------------- |
 | id                    | string | Customer's ID                                       |
 
+
+## Update Vehicle
+
+> Update vehicle
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/vehicle/update",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id : "63e0c60d62c9e9978212d600",
+    RegistrationPlate : "RP2",
+    licence : true,
+    model : "Model2",
+    make : "Make",
+    coulor : "red"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Vehicle updated successfully!",
+}
+```
+
+> If the vehicle doesn't exist, you'll get this message
+
+```json
+{
+    "success": false,
+    "msg": "Vehicle not found"
+}
+```
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/vehicle/update`
+
+### Query Parameters
+
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Vecicle ID                                          |
+| RegistrationPlate     | string |                                                     |
+| licence               | boolean|                                                     |
+| model                 | string |                                                     |
+| make                  | string |                                                     |
+| coulor                | string |                                                     |
+
 # Email
 
 To verify the email address
