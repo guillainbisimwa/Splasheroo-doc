@@ -726,6 +726,8 @@ This endpoint will add a service.
 | duration              | number |                                                     |
 | contact               | string |                                                     |
 | address               | string |                                                     |
+| allService            | array  | An array of string                                                |
+
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
@@ -767,21 +769,38 @@ axios
     "msg": "Service fetched successfully",
     "services": [
         {
-            "_id": "63e00d434969108cb5bc1794",
-            "serviceName": "Outside wash only",
-            "price": 20.3,
-            "duration": 45,
+            "_id": "63e75fef580c7eb24880c99b",
+            "serviceName": "Exterior & Interior",
+            "allService": [
+                "Exterior Bodywork",
+                "Exterior Glass",
+                "Exterior Trim ",
+                "Alloys",
+                "Tyre Shine",
+                "Door Shuts",
+                "Interior Vacuum",
+                "Dashboard Wipe",
+                "Center Console Wiped",
+                "Anti-bacterial Treatment"
+            ],
+            "price": 25,
+            "duration": 60,
             "contact": "+243841550213",
-            "address": "10 Downing street",
             "__v": 0
         },
         {
-            "_id": "63e014aa4969108cb5bc1797",
-            "serviceName": "Outside & Inside",
-            "price": 25.3,
+            "_id": "63e76037580c7eb24880c99e",
+            "serviceName": "Exterior Only",
+            "allService": [
+                "Exterior Bodywork",
+                "Exterior Glass",
+                "Exterior Trim",
+                "Alloys",
+                "Tyre Shine"
+            ],
+            "price": 20,
             "duration": 60,
             "contact": "+243841550213",
-            "address": "10 Downing street",
             "__v": 0
         }
     ]
@@ -836,13 +855,19 @@ axios
     "success": true,
     "msg": "Service found",
     "service": [
-        {
-            "_id": "63e00d434969108cb5bc1794",
-            "serviceName": "Outside wash only",
-            "price": 20.3,
-            "duration": 45,
+         {
+            "_id": "63e76037580c7eb24880c99e",
+            "serviceName": "Exterior Only",
+            "allService": [
+                "Exterior Bodywork",
+                "Exterior Glass",
+                "Exterior Trim",
+                "Alloys",
+                "Tyre Shine"
+            ],
+            "price": 20,
+            "duration": 60,
             "contact": "+243841550213",
-            "address": "10 Downing street",
             "__v": 0
         }
     ]
