@@ -674,7 +674,7 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/add",
+  url: "https://splasheroo-backend.herokuapp.com/api/service/add",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -744,7 +744,7 @@ import axios from "axios";
 
 const options = {
   method: "GET",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/all",
+  url: "https://splasheroo-backend.herokuapp.com/api/service/all",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -828,7 +828,7 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/find",
+  url: "https://splasheroo-backend.herokuapp.com/api/service/find",
   params: {},
   headers: {
     "content-type": "application/json",
