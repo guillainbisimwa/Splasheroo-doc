@@ -846,6 +846,11 @@ axios
                      <td>string</td>
                      <td></td>
                   </tr>
+                  <tr>
+                     <td>allService</td>
+                     <td>array</td>
+                     <td>An array of string</td>
+                  </tr>
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
@@ -880,21 +885,38 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service fetched successfully&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;services&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
         <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e00d434969108cb5bc1794&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Outside wash only&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20.3</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">45</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;allService&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;Exterior Bodywork&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Exterior Glass&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Exterior Trim &quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Alloys&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Tyre Shine&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Door Shuts&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Interior Vacuum&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Dashboard Wipe&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Center Console Wiped&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Anti-bacterial Treatment&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">25</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">60</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
         <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
         <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e014aa4969108cb5bc1797&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Outside &amp; Inside&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">25.3</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e76037580c7eb24880c99e&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior Only&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;allService&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;Exterior Bodywork&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Exterior Glass&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Exterior Trim&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Alloys&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Tyre Shine&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">60</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
         <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span>
@@ -936,13 +958,19 @@ axios
     <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service found&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-        <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e00d434969108cb5bc1794&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Outside wash only&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20.3</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">45</span><span class="hljs-punctuation">,</span>
+         <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e76037580c7eb24880c99e&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;serviceName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior Only&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;allService&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;Exterior Bodywork&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Exterior Glass&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Exterior Trim&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Alloys&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-string">&quot;Tyre Shine&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;price&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">60</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;+243841550213&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10 Downing street&quot;</span><span class="hljs-punctuation">,</span>
             <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
         <span class="hljs-punctuation">}</span>
     <span class="hljs-punctuation">]</span>
