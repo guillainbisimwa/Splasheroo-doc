@@ -1577,6 +1577,63 @@ This endpoint will add a promoCode.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+
+## Add stripe customer ID
+
+> For creating a Stripe customer
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/:id",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    email: "guy@test.me"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Stripe added successfuly!"
+}
+```
+
+This endpoint will add a promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/:id`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | customer id                                         |
+| email                 | string |                                                     |
+
+<aside class="warning">
+the ID must be passed as a params!
+</aside>
+
 # GSM task
 
 The GSMtasks API is a RESTful web service for developers to programmatically interact with GSMtasks data, real-time delivery and task management and route optimization functionality.
