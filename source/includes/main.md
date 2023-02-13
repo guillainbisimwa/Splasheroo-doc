@@ -1111,10 +1111,10 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    cardNumber: "123456789123", 
+    cardNumber: "4242424242424242", 
     cardHolderName: "Nicolas Brody", 
-    expiryDate: "12/25", 
-    cvvCvc: "12/12", 
+    expiryDate: "02/24", 
+    cvvCvc: "314", 
     customer: "63db5cf616391c961dc3a4e5",
     email : "test15@me.com"
   },
