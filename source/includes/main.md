@@ -1212,6 +1212,58 @@ Remember — if you post successfully, then you gonna receive a success message 
 | --------------------- | ------ | --------------------------------------------------- |
 | id                    | string |  ID of an existing customer                         |
 
+
+## Delete a Card
+
+> Delete a Credit card, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "DELETE",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/details/63ea14d39f2bdfe3554c67b9",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "success": true,
+    "msg": "Card deleted successfully"
+  }
+```
+
+This endpoint will delete your card from STRIPE.
+
+### HTTP Request
+
+`DELETE https://splasheroo-backend.herokuapp.com/api/bankCard/delete/:id`
+
+<aside class="success">
+Remember — if you delete successfully, then you gonna receive a success message and all bookings
+</aside>
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  ID of an existing card                             |
+
 <!-- 
 ## Get single Bankcard
 
