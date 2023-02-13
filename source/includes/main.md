@@ -154,7 +154,8 @@ axios
       "fullName": "Test full name",
       "phone": "789456123",
       "postCode": "postCode",
-      "address": "address"
+      "address": "address",  
+      "stripeCustomerId": "",
 }
 ```
 
@@ -459,6 +460,75 @@ axios
 | --------------------- | ------ | --------------------------------------------------- |
 | id                    | string | Customer's ID                                       |
 
+
+## Update Vehicle
+
+> Update vehicle
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/vehicle/update",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id : "63e0c60d62c9e9978212d600",
+    RegistrationPlate : "RP2",
+    licence : true,
+    model : "Model2",
+    make : "Make",
+    coulor : "red"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Vehicle updated successfully!",
+}
+```
+
+> If the vehicle doesn't exist, you'll get this message
+
+```json
+{
+    "success": false,
+    "msg": "Vehicle not found"
+}
+```
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/vehicle/update`
+
+### Query Parameters
+
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Vecicle ID                                          |
+| RegistrationPlate     | string |                                                     |
+| licence               | boolean|                                                     |
+| model                 | string |                                                     |
+| make                  | string |                                                     |
+| coulor                | string |                                                     |
+
 # Email
 
 To verify the email address
@@ -605,7 +675,7 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/add",
+  url: "https://splasheroo-backend.herokuapp.com/api/service/add",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -657,6 +727,8 @@ This endpoint will add a service.
 | duration              | number |                                                     |
 | contact               | string |                                                     |
 | address               | string |                                                     |
+| allService            | array  | An array of string                                                |
+
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
@@ -673,7 +745,7 @@ import axios from "axios";
 
 const options = {
   method: "GET",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/all",
+  url: "https://splasheroo-backend.herokuapp.com/api/service/all",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -698,21 +770,38 @@ axios
     "msg": "Service fetched successfully",
     "services": [
         {
-            "_id": "63e00d434969108cb5bc1794",
-            "serviceName": "Outside wash only",
-            "price": 20.3,
-            "duration": 45,
+            "_id": "63e75fef580c7eb24880c99b",
+            "serviceName": "Exterior & Interior",
+            "allService": [
+                "Exterior Bodywork",
+                "Exterior Glass",
+                "Exterior Trim ",
+                "Alloys",
+                "Tyre Shine",
+                "Door Shuts",
+                "Interior Vacuum",
+                "Dashboard Wipe",
+                "Center Console Wiped",
+                "Anti-bacterial Treatment"
+            ],
+            "price": 25,
+            "duration": 60,
             "contact": "+243841550213",
-            "address": "10 Downing street",
             "__v": 0
         },
         {
-            "_id": "63e014aa4969108cb5bc1797",
-            "serviceName": "Outside & Inside",
-            "price": 25.3,
+            "_id": "63e76037580c7eb24880c99e",
+            "serviceName": "Exterior Only",
+            "allService": [
+                "Exterior Bodywork",
+                "Exterior Glass",
+                "Exterior Trim",
+                "Alloys",
+                "Tyre Shine"
+            ],
+            "price": 20,
             "duration": 60,
             "contact": "+243841550213",
-            "address": "10 Downing street",
             "__v": 0
         }
     ]
@@ -740,7 +829,7 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/servie/find",
+  url: "https://splasheroo-backend.herokuapp.com/api/service/find",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -767,13 +856,19 @@ axios
     "success": true,
     "msg": "Service found",
     "service": [
-        {
-            "_id": "63e00d434969108cb5bc1794",
-            "serviceName": "Outside wash only",
-            "price": 20.3,
-            "duration": 45,
+         {
+            "_id": "63e76037580c7eb24880c99e",
+            "serviceName": "Exterior Only",
+            "allService": [
+                "Exterior Bodywork",
+                "Exterior Glass",
+                "Exterior Trim",
+                "Alloys",
+                "Tyre Shine"
+            ],
+            "price": 20,
+            "duration": 60,
             "contact": "+243841550213",
-            "address": "10 Downing street",
             "__v": 0
         }
     ]
@@ -998,11 +1093,11 @@ Remember — if you post successfully, then you gonna receive a success message 
 
 # Banking Card
 
-Bank Card management
+Bank Card management throught STRIPE You can a cards on a customer in order to charge the customer later.
 
 ## Add a Bank CARD
 
-> Post a bankCard and save in our database, 
+> Post a Credit Card and save in our database, 
 
 
 ```javascript
@@ -1016,11 +1111,12 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    cardNumber: "123456789123", 
+    cardNumber: "4242424242424242", 
     cardHolderName: "Nicolas Brody", 
-    expiryDate: "12/25", 
-    cvvCvc: "12/12", 
-    customer: "63db5cf616391c961dc3a4e5"
+    expiryDate: "02/24", 
+    cvvCvc: "314", 
+    customer: "63db5cf616391c961dc3a4e5",
+    email : "test15@me.com"
   },
 };
 
@@ -1057,13 +1153,118 @@ This endpoint will add a BankCard.
 | cardHolderName        | number |                                                     |
 | expiryDate            | string |                                                     |
 | cvvCvc                | string |                                                     |
-| customer              | number | ID of an existing customer                             |
+| customer              | number | ID of an existing customer                          |
+| email                 | string | email of an existing customer                       |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+## Get Card details
 
+> Get a Credit card details saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/details/63db5cf616391c961dc3a4e5",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "success": true,
+    "last4": "4242",
+    "brand": "Visa"
+  }
+```
+
+This endpoint will show you 4 last digits of your card.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/bankCard/details/:id`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and all bookings
+</aside>
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  ID of an existing customer                         |
+
+
+## Delete a Card
+
+> Delete a Credit card, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "DELETE",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/details/63ea14d39f2bdfe3554c67b9",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "success": true,
+    "msg": "Card deleted successfully"
+  }
+```
+
+This endpoint will delete your card from STRIPE.
+
+### HTTP Request
+
+`DELETE https://splasheroo-backend.herokuapp.com/api/bankCard/delete/:id`
+
+<aside class="success">
+Remember — if you delete successfully, then you gonna receive a success message and all bookings
+</aside>
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  ID of an existing card                             |
+
+<!-- 
 ## Get single Bankcard
 
 > Get a single bankCard by it customer's ID, 
@@ -1129,7 +1330,7 @@ This endpoint will fecth a single bankCard.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
 </aside>
-
+ -->
 
 # Promo Code
 
@@ -1481,6 +1682,63 @@ This endpoint will add a promoCode.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
+
+<!-- 
+## Add stripe customer ID
+
+> For creating a Stripe customer
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/63e81557017631fdb8f6d4ad",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    email: "guy@test.me"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Stripe added successfuly!"
+}
+```
+
+This endpoint will add a promoCode.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/:id`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | customer id                                         |
+| email                 | string |                                                     |
+
+<aside class="warning">
+the ID must be passed as a params!
+</aside> -->
 
 # GSM task
 
