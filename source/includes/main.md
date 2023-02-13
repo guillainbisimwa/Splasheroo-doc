@@ -1093,11 +1093,11 @@ Remember — if you post successfully, then you gonna receive a success message 
 
 # Banking Card
 
-Bank Card management
+Bank Card management throught STRIPE You can a cards on a customer in order to charge the customer later.
 
 ## Add a Bank CARD
 
-> Post a bankCard and save in our database, 
+> Post a Credit Card and save in our database, 
 
 
 ```javascript
@@ -1115,7 +1115,8 @@ const options = {
     cardHolderName: "Nicolas Brody", 
     expiryDate: "12/25", 
     cvvCvc: "12/12", 
-    customer: "63db5cf616391c961dc3a4e5"
+    customer: "63db5cf616391c961dc3a4e5",
+    email : "test15@me.com"
   },
 };
 
@@ -1152,13 +1153,66 @@ This endpoint will add a BankCard.
 | cardHolderName        | number |                                                     |
 | expiryDate            | string |                                                     |
 | cvvCvc                | string |                                                     |
-| customer              | number | ID of an existing customer                             |
+| customer              | number | ID of an existing customer                          |
+| email                 | string | email of an existing customer                       |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+## Get Card details
 
+> Get a Credit card details saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/details/63db5cf616391c961dc3a4e5",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+    "success": true,
+    "last4": "4242",
+    "brand": "Visa"
+  }
+```
+
+This endpoint will show you 4 last digits of your card.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/bankCard/details/:id`
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and all bookings
+</aside>
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  ID of an existing customer                         |
+
+<!-- 
 ## Get single Bankcard
 
 > Get a single bankCard by it customer's ID, 
@@ -1224,7 +1278,7 @@ This endpoint will fecth a single bankCard.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
 </aside>
-
+ -->
 
 # Promo Code
 
@@ -1577,7 +1631,7 @@ This endpoint will add a promoCode.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
-
+<!-- 
 ## Add stripe customer ID
 
 > For creating a Stripe customer
@@ -1588,7 +1642,7 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/:id",
+  url: "https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/63e81557017631fdb8f6d4ad",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -1632,7 +1686,7 @@ This endpoint will add a promoCode.
 
 <aside class="warning">
 the ID must be passed as a params!
-</aside>
+</aside> -->
 
 # GSM task
 
