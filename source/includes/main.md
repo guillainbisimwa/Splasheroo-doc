@@ -1625,7 +1625,7 @@ Remember — if you post successfully, then you gonna receive a success message 
 # Payment
 
 Payment management
-
+<!-- 
 ## Add a Payment
 
 > Post a Payment and save in our database, 
@@ -1681,7 +1681,7 @@ This endpoint will add a promoCode.
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
-</aside>
+</aside> -->
 
 <!-- 
 ## Add stripe customer ID
