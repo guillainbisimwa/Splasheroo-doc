@@ -1625,10 +1625,10 @@ Remember — if you post successfully, then you gonna receive a success message 
 # Payment
 
 Payment management
-<!-- 
-## Add a Payment
+ 
+## Charge a Customer
 
-> Post a Payment and save in our database, 
+> Charge a Customer and pay throught Stripe, 
 
 
 ```javascript
@@ -1636,14 +1636,15 @@ import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/payment/add",
+  url: "https://splasheroo-backend.herokuapp.com/api/payment/charge",
   params: {},
   headers: {
     "content-type": "application/json",
   },
   data: {
-    bankCard: "4680945nge93ff67", 
-    booking: "43570934750935034"
+    id_customer: "63e8b4ce428e36c929691f64",
+    amount: 35.5,
+    id_service: "63e75fef580c7eb24880c99b"
   },
 };
 
@@ -1676,12 +1677,13 @@ This endpoint will add a promoCode.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| bankCard              | string | id                                                  |
-| booking               | number | id                                                  |
+| id_customer           | string | id                                                  |
+| id_service            | string | id                                                  |
+| amount                | number |                                                     |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
-</aside> -->
+</aside>
 
 <!-- 
 ## Add stripe customer ID
