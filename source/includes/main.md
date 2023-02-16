@@ -1671,7 +1671,7 @@ This endpoint will add a promoCode.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/payment/add`
+`POST https://splasheroo-backend.herokuapp.com/api/payment/charge`
 
 ### Query Parameters
 
