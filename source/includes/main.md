@@ -1635,6 +1635,61 @@ This endpoint will add a Booking.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+## Update Booking paymentStatus
+
+> Change `paymentStatus` from `Waiting` to `Complete`, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "PUT",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63efd9d0caf0aa67a2647164",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Booking payment status updated successfully!"
+}
+```
+
+This endpoint will change `paymentStatus` from `Waiting` to `Complete`, 
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | id                                                  |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
 
 ## Get all bookings
 
