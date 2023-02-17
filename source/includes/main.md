@@ -1404,21 +1404,18 @@ Remember — if you post successfully, then you gonna receive a success message
 
 ## Get single promo Code
 
-> Get a single promo Code by it customer's ID, 
+> Get a single promo Code by it CODE, 
 
 ```javascript
 import axios from "axios";
 
 const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/find",
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/find/x2023",
   params: {},
   headers: {
     "content-type": "application/json",
-  },
-  data: {
-    id: "63e0269a2efe25d61bfbda03"
-  },
+  }
 };
 
 axios
@@ -1454,13 +1451,13 @@ This endpoint will fecth a single promoCode.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/promoCode/find`
+`GET https://splasheroo-backend.herokuapp.com/api/promoCode/find/:code`
 
 ### Query Parameters
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| id                    | string | Existing promoCode's ID                             |
+| code                  | string | Existing promoCode's code                           |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect
