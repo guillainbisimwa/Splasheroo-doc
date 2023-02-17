@@ -1484,16 +1484,20 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    date: "2023-03-01T12:00:59", 
-    ref: "C10000002", 
-    contact: "+24389897544", 
-    notes: "This car needs attention when clining left tyers", 
-    slot_start_time: "2023-03-01T12:00:59", 
-    slot_end_time: "2023-03-01T13:00:59", 
-    location: "10 Downing street", 
-    car: "63dcde4dfb6a27a947f255a1",
-    service: "63e014aa4969108cb5bc1797",
-    driver: "63e01b1d747fbe40578423db"
+    ref: "3FINAL200",
+    userId:"63e8b4ce428e36c929691f64",
+    address:"Leicester LE2 2FB, UK",
+    date:"2023-02-21T06:30:00.000Z",
+    endTime:"11:00",
+    latitude:37.33233141,
+    location:"60 Gartree Road  Leicester Leicestershire",
+    longitude:-122.0312186,
+    notes:"test notes",
+    postCode:"le22fw",
+    promocode:"FREE20",
+    service:"63e75fef580c7eb24880c99b",
+    startTime:"10:00",
+    vechile:"63e0c60d62c9e9978212d600"
   },
 };
 
@@ -1512,7 +1516,93 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Booking added successfuly!"
+    "msg": "Booking added successfuly!",
+    {
+    "success": true,
+    "msg": "Booking added successfully",
+    "task": {
+        "id": "a70c2561-bc9d-4a72-b6ef-3bbd36116d2a",
+        "external_id": "63effb3b15a01bf0413ef89e",
+        "reference": "3FINAL200",
+        "barcodes": [
+            "63effb3b15a01bf0413ef89e"
+        ],
+        "url": "https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/",
+        "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+        "state": "unassigned",
+        "assignee": null,
+        "order": "https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/",
+        "orderer_name": null,
+        "route": null,
+        "category": "assignment",
+        "contact": {
+            "name": "Splasheroo",
+            "company": "Splasheroo Tech",
+            "phones": [
+                "+270000000000"
+            ],
+            "emails": [
+                "splasheroo.tech@gmail.com"
+            ],
+            "notes": "test notes"
+        },
+        "address": {
+            "raw_address": "Leicester LE2 2FB, UK",
+            "formatted_address": "60 Gartree Road  Leicester Leicestershire",
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    -122.0312186,
+                    37.33233141
+                ]
+            },
+            "google_place_id": "",
+            "point_of_interest": "",
+            "street": "",
+            "house_number": "",
+            "apartment_number": "",
+            "city": "",
+            "state": "",
+            "postal_code": "le22fw",
+            "country": "United Kingdom",
+            "country_code": "UK",
+            "geocoded_at": "2023-02-18T06:10:04.928463+08:00",
+            "geocode_failed_at": null
+        },
+        "contact_address": null,
+        "contact_address_external_id": null,
+        "description": "Exterior & Interior",
+        "complete_after": "2023-02-18T06:10:04.948296+08:00",
+        "complete_before": "2023-02-21T14:30:00+08:00",
+        "scheduled_time": "2023-02-21T14:30:00+08:00",
+        "completed_at": null,
+        "cancelled_at": null,
+        "auto_assign": false,
+        "assignee_proximity": "away",
+        "position": 1676961614.7623203,
+        "priority": 0,
+        "duration": "00:15:00",
+        "size": null,
+        "forms": {},
+        "documents": [],
+        "signatures": [],
+        "metafields": {},
+        "trackers": [],
+        "issues": [],
+        "counts": {
+            "events": null,
+            "documents": null,
+            "signatures": null,
+            "forms": null,
+            "forms_completed": null
+        },
+        "actions": [
+            "assign",
+            "cancel"
+        ],
+        "created_at": "2023-02-18T06:10:04.951676+08:00",
+        "updated_at": "2023-02-18T06:10:04.951690+08:00"
+  }
 }
 ```
 
@@ -1526,17 +1616,20 @@ This endpoint will add a Booking.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| date                  | string |                                                     |
-| ref                   | number |                                                     |
-| contact               | string |                                                     |
-| notes                 | string |                                                     |
-| slot_start_time       | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
-| slot_end_time         | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
+| userId                | id     |                                                     |
+| ref                   | String |                                                     |
+| address               | string |                                                     |
+| date                  | date   |                                                     |
+| endTime               | string |                                                     |
+| latitude              | number |                                                     |
 | location              | string |                                                     |
-| car                   | string |  id                                                 |
-| service               | string |  id                                                 |
-| driver                | string |  id                                                 |
-| promoCode?            | string |  id (optional)                                      |
+| longitude             | number |                                                     |
+| notes                 | string |                                                     |
+| postCode              | string |                                                     |
+| promoCode             | string |                                                     |
+| service               | string |   id                                                |
+| startTime             | string |                                                     |
+| vechile               | string |  id                                                 |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
