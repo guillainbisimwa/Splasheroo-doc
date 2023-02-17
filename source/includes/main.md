@@ -1678,7 +1678,7 @@ This endpoint will change `paymentStatus` from `Waiting` to `Complete`,
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus`
+`PUT https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus`
 
 ### Query Parameters
 
