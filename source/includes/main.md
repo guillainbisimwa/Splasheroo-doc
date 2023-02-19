@@ -1070,15 +1070,12 @@ Remember — if you post successfully, then you gonna receive a success message
 import axios from "axios";
 
 const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/rider/find",
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/find/:id",
   params: {},
   headers: {
     "content-type": "application/json",
-  },
-  data: {
-    id: "63e01b1d747fbe40578423db"
-  },
+  }
 };
 
 axios
@@ -1095,6 +1092,7 @@ axios
 
 ```json
 {
+  // TODO : Change Response
     "success": true,
     "msg": "Rider found",
     "rider": [
@@ -1118,7 +1116,7 @@ This endpoint will fecth a single service.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/rider/find`
+`GET https://splasheroo-backend.herokuapp.com/api/rider/find/:id`
 
 ### Query Parameters
 
@@ -2438,6 +2436,64 @@ This endpoint will fetch bookings.
 <aside class="success">
 Remember — if you get successfully, then you gonna receive a success message and bookings
 </aside>
+
+## Assign a Booking to a Rider
+
+> Assign n a Booking to a Rider, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "PUT",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    bookingId :"63efd9d0caf0aa67a2647164",
+    riderId: "7d354534sd54f5s5sdfhrt5tye",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Assign Booking successfully!"
+}
+```
+
+This endpoint will change `paymentStatus` from `Waiting` to `Complete`, 
+
+### HTTP Request
+
+`PUT https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| bookingId             | string | id                                                  |
+| riderId               | string | id                                                  |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
 
 # Payment
 
