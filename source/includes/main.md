@@ -904,8 +904,7 @@ Riders management
 
 ## Add a rider
 
-> Post a rider and save in our database, 
-
+> Post a rider and save in Gsmtasks, 
 
 ```javascript
 import axios from "axios";
@@ -918,12 +917,32 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    name: "James Bond", 
-    idNumber: "124578", 
-    gsmId: "321654987", 
-    address: "10 Downing street", 
-    email: "james@test.me", 
-    emergencyContact: "+243841550213"
+    first_name: "Guy",
+    last_name: "Simons",
+    email: "guy@test.me",
+    phone: "+47123456789",
+    //password: "123456",
+    raw_address: "Prime Minister & First Lord of the Treasury",
+    formatted_address: "10 Downing street",
+    type: "",
+    longitude: 51.503038,
+    latitude: -0.128371,
+    google_place_id: "",
+    point_of_interest: "",
+    street: "",
+    house_number: "",
+    apartment_number: "",
+    city: "",
+    state: "",
+    postal_code: "",
+    country: "",
+    country_code: "",
+    // name: "James Bond", 
+    // idNumber: "124578", 
+    // gsmId: "321654987", //?
+    // address: "10 Downing street", 
+    // email: "james@test.me", 
+    // emergencyContact: "+243841550213"
   },
 };
 
@@ -964,7 +983,8 @@ This endpoint will add a service.
 | emergencyContact      | string |                                                     |
 
 <aside class="success">
-Remember — if you post successfully, then you gonna receive a success message
+Remember — if you post successfully, then the rider will receive an Email from GSMTASK team to confirm his 
+account Creation
 </aside>
 
 
