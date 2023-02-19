@@ -1470,7 +1470,7 @@ Booking management
 
 ## Add a Booking
 
-> Post a booking and save in our database, 
+> Post a booking and save it in (GSMTASKS)['https://app.gsmtasks.com/tasks'] , 
 
 
 ```javascript
@@ -1623,7 +1623,7 @@ This endpoint will add a Booking.
 | location              | string |                                                     |
 | longitude             | number |                                                     |
 | notes                 | string |                                                     |
-| postCode              | string |                                                     |
+| postCode              | string |   CODE                                              |
 | promoCode             | string |                                                     |
 | service               | string |   id                                                |
 | startTime             | string |                                                     |
@@ -1689,9 +1689,9 @@ Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
 
-## Get all bookings
+## List all bookings
 
-> Get all bookings saved in our database, 
+> Get all bookings saved in GSMTASKS, 
 
 ```javascript
 import axios from "axios";
@@ -1733,25 +1733,9 @@ axios
         "customer": "63e8b4ce428e36c929691f64",
         "service": "63e75fef580c7eb24880c99b",
         "timestamp": "2023-02-17T22:09:31.000Z",
-        "__v": 0
-      },
-      {
-        "_id": "63effb3b15a01bf0413ef89e",
-        "status": "waiting",
-        "paymentStatus": "waiting",
-        "startTime": "10:00",
-        "endTime": "11:00",
-        "car": "63e0c60d62c9e9978212d600",
-        "customer": "63e8b4ce428e36c929691f64",
-        "service": "63e75fef580c7eb24880c99b",
-        "timestamp": "2023-02-17T22:09:56.106Z",
-        "__v": 0
-      }
-    ],
-    "tasks":[
-      {
+        "__v": 0,
         "id": "a70c2561-bc9d-4a72-b6ef-3bbd36116d2a",
-        "external_id": "63effb3b15a01bf0413ef89e",
+        "external_id": "63effb22bf34234d77e4591b",
         "reference": "3FINAL200",
         "barcodes": [
             "63e8b4ce428e36c929691f64"
@@ -1833,8 +1817,18 @@ axios
         "updated_at": "2023-02-18T06:45:11.764140+08:00"
       },
       {
+        "_id": "63effb3b15a01bf0413ef89e",
+        "status": "waiting",
+        "paymentStatus": "waiting",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "car": "63e0c60d62c9e9978212d600",
+        "customer": "63e8b4ce428e36c929691f64",
+        "service": "63e75fef580c7eb24880c99b",
+        "timestamp": "2023-02-17T22:09:56.106Z",
+        "__v": 0,
         "id": "7800bee0-26e0-4580-92da-40dd68a4cc80",
-        "external_id": "63eff825b329fe071caeff33",
+        "external_id": "63effb3b15a01bf0413ef89e",
         "reference": "FINAL",
         "barcodes": [
             "63eff825b329fe071caeff33"
@@ -1914,8 +1908,8 @@ axios
         ],
         "created_at": "2023-02-18T05:56:55.594066+08:00",
         "updated_at": "2023-02-18T06:45:11.763096+08:00"
-      },
-    ]
+      }
+    ],
 }
 ```
 
