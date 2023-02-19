@@ -975,12 +975,25 @@ This endpoint will add a service.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| name                  | string |                                                     |
-| idNumber              | number |                                                     |
-| gsmId                 | string |                                                     |
-| address               | string |                                                     |
-| email                 | number |                                                     |
-| emergencyContact      | string |                                                     |
+| first_name            | string |                                                     |
+| last_name             | number |                                                     |
+| email                 | string |                                                     |
+| phone                 | string |                                                     |
+| raw_address           | number |                                                     |
+| type                  | string |                                                     |
+| longitude             | number |                                                     |
+| latitude              | number |                                                     |
+| formatted_address     | string |                                                     |
+| google_place_id       | string |                                                     |
+| point_of_interest     | string |                                                     |
+| street                | string |                                                     |
+| house_number          | number |                                                     |
+| apartment_number      | string |                                                     |
+| city                  | string |                                                     |
+| state                 | string |                                                     |
+| postal_code           | string |                                                     |
+| country               | string |                                                     |
+| country_code          | string |                                                     |
 
 <aside class="success">
 Remember — if you post successfully, then the rider will receive an Email from GSMTASK team to confirm his 
