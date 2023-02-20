@@ -1004,7 +1004,7 @@ axios
             <p>Riders management</p>
             <h2 id="add-a-rider">Add a rider</h2>
             <blockquote>
-               <p>Post a rider and save in our database, </p>
+               <p>Post a rider and save in Gsmtasks, </p>
             </blockquote>
             <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
 
@@ -1016,12 +1016,32 @@ axios
     <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
   },
   <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;James Bond&quot;</span>, 
-    <span class="hljs-attr">idNumber</span>: <span class="hljs-string">&quot;124578&quot;</span>, 
-    <span class="hljs-attr">gsmId</span>: <span class="hljs-string">&quot;321654987&quot;</span>, 
-    <span class="hljs-attr">address</span>: <span class="hljs-string">&quot;10 Downing street&quot;</span>, 
-    <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;james@test.me&quot;</span>, 
-    <span class="hljs-attr">emergencyContact</span>: <span class="hljs-string">&quot;+243841550213&quot;</span>
+    <span class="hljs-attr">first_name</span>: <span class="hljs-string">&quot;Guy&quot;</span>,
+    <span class="hljs-attr">last_name</span>: <span class="hljs-string">&quot;Simons&quot;</span>,
+    <span class="hljs-attr">email</span>: <span class="hljs-string">&quot;guy@test.me&quot;</span>,
+    <span class="hljs-attr">phone</span>: <span class="hljs-string">&quot;+47123456789&quot;</span>,
+    <span class="hljs-comment">//password: &quot;123456&quot;,</span>
+    <span class="hljs-attr">raw_address</span>: <span class="hljs-string">&quot;Prime Minister &amp; First Lord of the Treasury&quot;</span>,
+    <span class="hljs-attr">formatted_address</span>: <span class="hljs-string">&quot;10 Downing street&quot;</span>,
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">longitude</span>: <span class="hljs-number">51.503038</span>,
+    <span class="hljs-attr">latitude</span>: -<span class="hljs-number">0.128371</span>,
+    <span class="hljs-attr">google_place_id</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">point_of_interest</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">street</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">house_number</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">apartment_number</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">city</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">state</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">postal_code</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">country</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-attr">country_code</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-comment">// name: &quot;James Bond&quot;, </span>
+    <span class="hljs-comment">// idNumber: &quot;124578&quot;, </span>
+    <span class="hljs-comment">// gsmId: &quot;321654987&quot;, //?</span>
+    <span class="hljs-comment">// address: &quot;10 Downing street&quot;, </span>
+    <span class="hljs-comment">// email: &quot;james@test.me&quot;, </span>
+    <span class="hljs-comment">// emergencyContact: &quot;+243841550213&quot;</span>
   },
 };
 
@@ -1054,38 +1074,103 @@ axios
                </thead>
                <tbody>
                   <tr>
-                     <td>name</td>
+                     <td>first_name</td>
                      <td>string</td>
                      <td></td>
                   </tr>
                   <tr>
-                     <td>idNumber</td>
+                     <td>last_name</td>
                      <td>number</td>
-                     <td></td>
-                  </tr>
-                  <tr>
-                     <td>gsmId</td>
-                     <td>string</td>
-                     <td></td>
-                  </tr>
-                  <tr>
-                     <td>address</td>
-                     <td>string</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>email</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>phone</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>raw_address</td>
                      <td>number</td>
                      <td></td>
                   </tr>
                   <tr>
-                     <td>emergencyContact</td>
+                     <td>type</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>longitude</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>latitude</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>formatted_address</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>google_place_id</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>point_of_interest</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>street</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>house_number</td>
+                     <td>number</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>apartment_number</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>city</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>state</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>postal_code</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>country</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>country_code</td>
                      <td>string</td>
                      <td></td>
                   </tr>
                </tbody>
             </table>
-            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <aside class="success"> Remember — if you post successfully, then the rider will receive an Email from GSMTASK team to confirm his account Creation </aside>
             <h2 id="get-all-riders">Get all riders</h2>
             <blockquote>
                <p>Get all sevices saved in our database, </p>
@@ -1141,15 +1226,12 @@ axios
             <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
 
 <span class="hljs-keyword">const</span> options = {
-  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
-  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/rider/find&quot;</span>,
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/rider/find/:id&quot;</span>,
   <span class="hljs-attr">params</span>: {},
   <span class="hljs-attr">headers</span>: {
     <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
-  },
-  <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;63e01b1d747fbe40578423db&quot;</span>
-  },
+  }
 };
 
 axios
@@ -1164,6 +1246,7 @@ axios
                <p>The above command returns JSON structured like this:</p>
             </blockquote>
             <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">// TODO : Change Response</span>
     <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider found&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;rider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -1183,7 +1266,7 @@ axios
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single service.</p>
             <h3 id="http-request-14">HTTP Request</h3>
-            <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/find</code></p>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/rider/find/:id</code></p>
             <h3 id="query-parameters-12">Query Parameters</h3>
             <table>
                <thead>
@@ -1591,7 +1674,7 @@ axios
             <p>Booking management</p>
             <h2 id="add-a-booking">Add a Booking</h2>
             <blockquote>
-               <p>Post a booking and save in our database, </p>
+               <p>Post a booking and save it in (GSMTASKS)[&#39;<a href="https://app.gsmtasks.com/tasks'%5D">https://app.gsmtasks.com/tasks&#39;]</a> , </p>
             </blockquote>
             <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
 
@@ -1638,87 +1721,85 @@ axios
     <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking added successfully&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;task&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a70c2561-bc9d-4a72-b6ef-3bbd36116d2a&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3FINAL200&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-            <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span>
-        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unassigned&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;assignee&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;orderer_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;route&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;category&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;assignment&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;company&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo Tech&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;phones&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-                <span class="hljs-string">&quot;+270000000000&quot;</span>
-            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;emails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-                <span class="hljs-string">&quot;splasheroo.tech@gmail.com&quot;</span>
-            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test notes&quot;</span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;raw_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Leicester LE2 2FB, UK&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;formatted_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;60 Gartree Road  Leicester Leicestershire&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-                <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
-                <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-                    <span class="hljs-number">-122.0312186</span><span class="hljs-punctuation">,</span>
-                    <span class="hljs-number">37.33233141</span>
-                <span class="hljs-punctuation">]</span>
-            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;google_place_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;point_of_interest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;street&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;house_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;apartment_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;le22fw&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;United Kingdom&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;country_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;geocoded_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.928463+08:00&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;geocode_failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;contact_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;contact_address_external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;complete_after&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.948296+08:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;complete_before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;scheduled_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;cancelled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;auto_assign&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;assignee_proximity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;away&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1676961614.7623203</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;priority&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00:15:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;metafields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;trackers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;issues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;counts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-            <span class="hljs-attr">&quot;events&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
-            <span class="hljs-attr">&quot;forms_completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
-        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
-            <span class="hljs-string">&quot;assign&quot;</span><span class="hljs-punctuation">,</span>
-            <span class="hljs-string">&quot;cancel&quot;</span>
-        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.951676+08:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.951690+08:00&quot;</span>
+    <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:31.000Z&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a70c2561-bc9d-4a72-b6ef-3bbd36116d2a&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3FINAL200&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span> <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unassigned&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;assignee&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;orderer_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;route&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;category&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;assignment&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> 
+    <span class="hljs-punctuation">{</span> 
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;company&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo Tech&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;phones&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;+270000000000&quot;</span> <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;emails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;splasheroo.tech@gmail.com&quot;</span> <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test notes&quot;</span> 
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> 
+    <span class="hljs-punctuation">{</span> 
+      <span class="hljs-attr">&quot;raw_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Leicester LE2 2FB, UK&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;formatted_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;60 Gartree Road  Leicester Leicestershire&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-number">-122.0312186</span><span class="hljs-punctuation">,</span> <span class="hljs-number">37.33233141</span> <span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;google_place_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;point_of_interest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;street&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;house_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;apartment_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;le22fw&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;United Kingdom&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;country_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;geocoded_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.928463+08:00&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;geocode_failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span> 
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;contact_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;contact_address_external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;complete_after&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.948296+08:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;complete_before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;scheduled_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cancelled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;auto_assign&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;assignee_proximity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;away&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1676673811.74039</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;priority&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00:15:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;metafields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;trackers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;issues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;counts&quot;</span><span class="hljs-punctuation">:</span> 
+    <span class="hljs-punctuation">{</span> 
+      <span class="hljs-attr">&quot;events&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;forms_completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span> 
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span> <span class="hljs-string">&quot;assign&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;cancel&quot;</span> <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.951676+08:00&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.764140+08:00&quot;</span> <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a Booking.</p>
@@ -1782,7 +1863,7 @@ axios
                   <tr>
                      <td>postCode</td>
                      <td>string</td>
-                     <td></td>
+                     <td>CODE</td>
                   </tr>
                   <tr>
                      <td>promoCode</td>
@@ -1861,9 +1942,9 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
-            <h2 id="get-all-bookings">Get all bookings</h2>
+            <h2 id="list-all-bookings">List all bookings</h2>
             <blockquote>
-               <p>Get all bookings saved in our database, </p>
+               <p>Get all bookings saved in GSMTASKS, </p>
             </blockquote>
             <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
 
@@ -1902,25 +1983,9 @@ axios
         <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:31.000Z&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:56.106Z&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
-      <span class="hljs-punctuation">}</span>
-    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;tasks&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span>
-      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a70c2561-bc9d-4a72-b6ef-3bbd36116d2a&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb22bf34234d77e4591b&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3FINAL200&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
             <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span>
@@ -2002,8 +2067,18 @@ axios
         <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.764140+08:00&quot;</span>
       <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
       <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:56.106Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;7800bee0-26e0-4580-92da-40dd68a4cc80&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63eff825b329fe071caeff33&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;FINAL&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
             <span class="hljs-string">&quot;63eff825b329fe071caeff33&quot;</span>
@@ -2083,13 +2158,555 @@ axios
         <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.594066+08:00&quot;</span><span class="hljs-punctuation">,</span>
         <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.763096+08:00&quot;</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all bookings.</p>
             <h3 id="http-request-22">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and all bookings </aside>
+            <h2 id="list-bookings-by-customers-id">List bookings by Customer&#39;s ID</h2>
+            <blockquote>
+               <p>Get all bookings by Customer&#39;s ID saved in GSMTASKS, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/all/:id&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  }
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-comment">// TODO : Check response</span>
+<span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking fetched successfully&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;bookings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+           
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb22bf34234d77e4591b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:31.000Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a70c2561-bc9d-4a72-b6ef-3bbd36116d2a&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb22bf34234d77e4591b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3FINAL200&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unassigned&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;orderer_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;route&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;category&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;assignment&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;company&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo Tech&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;phones&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;+270000000000&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;emails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;splasheroo.tech@gmail.com&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test notes&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;raw_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Leicester LE2 2FB, UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;formatted_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;60 Gartree Road  Leicester Leicestershire&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                    <span class="hljs-number">-122.0312186</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-number">37.33233141</span>
+                <span class="hljs-punctuation">]</span>
+            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;google_place_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;point_of_interest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;street&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;house_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;apartment_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;le22fw&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;United Kingdom&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocoded_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.928463+08:00&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocode_failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address_external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_after&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.948296+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;scheduled_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cancelled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;auto_assign&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee_proximity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;away&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1676673811.74039</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;priority&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00:15:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;metafields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;trackers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;issues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;counts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;events&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms_completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;assign&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;cancel&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.951676+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.764140+08:00&quot;</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:56.106Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;7800bee0-26e0-4580-92da-40dd68a4cc80&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;FINAL&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;63eff825b329fe071caeff33&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/7800bee0-26e0-4580-92da-40dd68a4cc80/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unassigned&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/orders/ffa81cca-bc08-4d22-bf1e-4b37199c5f4b/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;orderer_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;route&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;category&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;assignment&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;company&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo Tech&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;phones&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;+270000000000&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;emails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;splasheroo.tech@gmail.com&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test notes&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;raw_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Leicester LE2 2FB, UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;formatted_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;60 Gartree Road  Leicester Leicestershire&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                    <span class="hljs-number">37.33233141</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-number">-122.0312186</span>
+                <span class="hljs-punctuation">]</span>
+            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;google_place_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;point_of_interest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;street&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;house_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;apartment_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;le22fw&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;United Kingdom&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocoded_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.573377+08:00&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocode_failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address_external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_after&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.590444+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;scheduled_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cancelled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;auto_assign&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee_proximity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;away&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1676673711.74039</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;priority&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00:15:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;metafields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;trackers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;issues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;counts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;events&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms_completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;assign&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;cancel&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.594066+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.763096+08:00&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fetch all bookings.</p>
+            <h3 id="http-request-23">HTTP Request</h3>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all/:id</code></p>
+            <h3 id="query-parameters-20">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td>Customer&#39;s id</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you get successfully, then you gonna receive a success message and bookings </aside>
+            <h2 id="list-bookings-by-date">List bookings by Date</h2>
+            <blockquote>
+               <p>Get all bookings by date saved in GSMTASKS, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/all/date/:date&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  }
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-comment">// TODO : Check response</span>
+<span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Bookings for 01-01-2023 fetched successfullyy&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;bookings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+           
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb22bf34234d77e4591b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:31.000Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a70c2561-bc9d-4a72-b6ef-3bbd36116d2a&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb22bf34234d77e4591b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3FINAL200&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unassigned&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;orderer_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;route&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;category&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;assignment&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;company&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo Tech&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;phones&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;+270000000000&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;emails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;splasheroo.tech@gmail.com&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test notes&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;raw_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Leicester LE2 2FB, UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;formatted_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;60 Gartree Road  Leicester Leicestershire&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                    <span class="hljs-number">-122.0312186</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-number">37.33233141</span>
+                <span class="hljs-punctuation">]</span>
+            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;google_place_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;point_of_interest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;street&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;house_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;apartment_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;le22fw&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;United Kingdom&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocoded_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.928463+08:00&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocode_failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address_external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_after&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.948296+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;scheduled_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cancelled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;auto_assign&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee_proximity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;away&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1676673811.74039</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;priority&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00:15:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;metafields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;trackers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;issues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;counts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;events&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms_completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;assign&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;cancel&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:10:04.951676+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.764140+08:00&quot;</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;paymentStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;waiting&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;startTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;endTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;11:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;car&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;customer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e8b4ce428e36c929691f64&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-17T22:09:56.106Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;__v&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;7800bee0-26e0-4580-92da-40dd68a4cc80&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;63effb3b15a01bf0413ef89e&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;reference&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;FINAL&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;barcodes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;63eff825b329fe071caeff33&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/7800bee0-26e0-4580-92da-40dd68a4cc80/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unassigned&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/orders/ffa81cca-bc08-4d22-bf1e-4b37199c5f4b/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;orderer_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;route&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;category&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;assignment&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;company&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Splasheroo Tech&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;phones&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;+270000000000&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;emails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-string">&quot;splasheroo.tech@gmail.com&quot;</span>
+            <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;notes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test notes&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;raw_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Leicester LE2 2FB, UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;formatted_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;60 Gartree Road  Leicester Leicestershire&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                    <span class="hljs-number">37.33233141</span><span class="hljs-punctuation">,</span>
+                    <span class="hljs-number">-122.0312186</span>
+                <span class="hljs-punctuation">]</span>
+            <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;google_place_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;point_of_interest&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;street&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;house_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;apartment_number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;le22fw&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;United Kingdom&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;country_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;UK&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocoded_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.573377+08:00&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;geocode_failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;contact_address_external_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Exterior &amp; Interior&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_after&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.590444+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;complete_before&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;scheduled_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-21T14:30:00+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;cancelled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;auto_assign&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignee_proximity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;away&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1676673711.74039</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;priority&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;00:15:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;metafields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;trackers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;issues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;counts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;events&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;documents&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;signatures&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;forms_completed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;assign&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;cancel&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T05:56:55.594066+08:00&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-02-18T06:45:11.763096+08:00&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will fetch bookings.</p>
+            <h3 id="http-request-24">HTTP Request</h3>
+            <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all/date/:date</code></p>
+            <h3 id="query-parameters-21">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>date</td>
+                     <td>date</td>
+                     <td>Date in this format: YYYYMMDD</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you get successfully, then you gonna receive a success message and bookings </aside>
+            <h2 id="assign-a-booking-to-a-rider">Assign a Booking to a Rider</h2>
+            <blockquote>
+               <p>Assign n a Booking to a Rider, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;PUT&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    bookingId :<span class="hljs-string">&quot;63efd9d0caf0aa67a2647164&quot;</span>,
+    <span class="hljs-attr">riderId</span>: <span class="hljs-string">&quot;7d354534sd54f5s5sdfhrt5tye&quot;</span>,
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Assign Booking successfully!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will change <code>paymentStatus</code> from <code>Waiting</code> to <code>Complete</code>, </p>
+            <h3 id="http-request-25">HTTP Request</h3>
+            <p><code>PUT https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider</code></p>
+            <h3 id="query-parameters-22">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>bookingId</td>
+                     <td>string</td>
+                     <td>id</td>
+                  </tr>
+                  <tr>
+                     <td>riderId</td>
+                     <td>string</td>
+                     <td>id</td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h1 id="payment">Payment</h1>
             <p>Payment management</p>
             <h2 id="charge-a-customer">Charge a Customer</h2>
@@ -2128,9 +2745,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Payment added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will charge A customer.</p>
-            <h3 id="http-request-23">HTTP Request</h3>
+            <h3 id="http-request-26">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/payment/charge</code></p>
-            <h3 id="query-parameters-20">Query Parameters</h3>
+            <h3 id="query-parameters-23">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -2255,7 +2872,7 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will authentificate the user.</p>
-            <h3 id="http-request-24">HTTP Request</h3>
+            <h3 id="http-request-27">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/authGsmtask</code></p>
             <aside class="success"> Remember — this is the token <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>, </aside>
             <aside class="warning"> The tokens are valid forever, unless refreshed by the user himself. </aside>
