@@ -904,8 +904,7 @@ Riders management
 
 ## Add a rider
 
-> Post a rider and save in our database, 
-
+> Post a rider and save in Gsmtasks, 
 
 ```javascript
 import axios from "axios";
@@ -918,12 +917,32 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    name: "James Bond", 
-    idNumber: "124578", 
-    gsmId: "321654987", 
-    address: "10 Downing street", 
-    email: "james@test.me", 
-    emergencyContact: "+243841550213"
+    first_name: "Guy",
+    last_name: "Simons",
+    email: "guy@test.me",
+    phone: "+47123456789",
+    //password: "123456",
+    raw_address: "Prime Minister & First Lord of the Treasury",
+    formatted_address: "10 Downing street",
+    type: "",
+    longitude: 51.503038,
+    latitude: -0.128371,
+    google_place_id: "",
+    point_of_interest: "",
+    street: "",
+    house_number: "",
+    apartment_number: "",
+    city: "",
+    state: "",
+    postal_code: "",
+    country: "",
+    country_code: "",
+    // name: "James Bond", 
+    // idNumber: "124578", 
+    // gsmId: "321654987", //?
+    // address: "10 Downing street", 
+    // email: "james@test.me", 
+    // emergencyContact: "+243841550213"
   },
 };
 
@@ -956,15 +975,29 @@ This endpoint will add a service.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| name                  | string |                                                     |
-| idNumber              | number |                                                     |
-| gsmId                 | string |                                                     |
-| address               | string |                                                     |
-| email                 | number |                                                     |
-| emergencyContact      | string |                                                     |
+| first_name            | string |                                                     |
+| last_name             | number |                                                     |
+| email                 | string |                                                     |
+| phone                 | string |                                                     |
+| raw_address           | number |                                                     |
+| type                  | string |                                                     |
+| longitude             | number |                                                     |
+| latitude              | number |                                                     |
+| formatted_address     | string |                                                     |
+| google_place_id       | string |                                                     |
+| point_of_interest     | string |                                                     |
+| street                | string |                                                     |
+| house_number          | number |                                                     |
+| apartment_number      | string |                                                     |
+| city                  | string |                                                     |
+| state                 | string |                                                     |
+| postal_code           | string |                                                     |
+| country               | string |                                                     |
+| country_code          | string |                                                     |
 
 <aside class="success">
-Remember — if you post successfully, then you gonna receive a success message
+Remember — if you post successfully, then the rider will receive an Email from GSMTASK team to confirm his 
+account Creation
 </aside>
 
 
@@ -1037,15 +1070,12 @@ Remember — if you post successfully, then you gonna receive a success message
 import axios from "axios";
 
 const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/rider/find",
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/find/:id",
   params: {},
   headers: {
     "content-type": "application/json",
-  },
-  data: {
-    id: "63e01b1d747fbe40578423db"
-  },
+  }
 };
 
 axios
@@ -1062,6 +1092,7 @@ axios
 
 ```json
 {
+  // TODO : Change Response
     "success": true,
     "msg": "Rider found",
     "rider": [
@@ -1085,7 +1116,7 @@ This endpoint will fecth a single service.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/rider/find`
+`GET https://splasheroo-backend.herokuapp.com/api/rider/find/:id`
 
 ### Query Parameters
 
@@ -1404,21 +1435,18 @@ Remember — if you post successfully, then you gonna receive a success message
 
 ## Get single promo Code
 
-> Get a single promo Code by it customer's ID, 
+> Get a single promo Code by it CODE, 
 
 ```javascript
 import axios from "axios";
 
 const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/find",
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/promoCode/find/x2023",
   params: {},
   headers: {
     "content-type": "application/json",
-  },
-  data: {
-    id: "63e0269a2efe25d61bfbda03"
-  },
+  }
 };
 
 axios
@@ -1454,13 +1482,13 @@ This endpoint will fecth a single promoCode.
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/promoCode/find`
+`GET https://splasheroo-backend.herokuapp.com/api/promoCode/find/:code`
 
 ### Query Parameters
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| id                    | string | Existing promoCode's ID                             |
+| code                  | string | Existing promoCode's code                           |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and a promoCode ojbect
@@ -1473,7 +1501,7 @@ Booking management
 
 ## Add a Booking
 
-> Post a booking and save in our database, 
+> Post a booking and save it in (GSMTASKS)['https://app.gsmtasks.com/tasks'] , 
 
 
 ```javascript
@@ -1487,16 +1515,20 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    date: "2023-03-01T12:00:59", 
-    ref: "C10000002", 
-    contact: "+24389897544", 
-    notes: "This car needs attention when clining left tyers", 
-    slot_start_time: "2023-03-01T12:00:59", 
-    slot_end_time: "2023-03-01T13:00:59", 
-    location: "10 Downing street", 
-    car: "63dcde4dfb6a27a947f255a1",
-    service: "63e014aa4969108cb5bc1797",
-    driver: "63e01b1d747fbe40578423db"
+    ref: "3FINAL200",
+    userId:"63e8b4ce428e36c929691f64",
+    address:"Leicester LE2 2FB, UK",
+    date:"2023-02-21T06:30:00.000Z",
+    endTime:"11:00",
+    latitude:37.33233141,
+    location:"60 Gartree Road  Leicester Leicestershire",
+    longitude:-122.0312186,
+    notes:"test notes",
+    postCode:"le22fw",
+    promocode:"FREE20",
+    service:"63e75fef580c7eb24880c99b",
+    startTime:"10:00",
+    vechile:"63e0c60d62c9e9978212d600"
   },
 };
 
@@ -1515,7 +1547,91 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Booking added successfuly!"
+    "msg": "Booking added successfuly!",
+    {
+    "success": true,
+    "msg": "Booking added successfully",
+    "task": {
+    "_id": "63effb3b15a01bf0413ef89e",
+    "status": "waiting",
+    "paymentStatus": "waiting",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "car": "63e0c60d62c9e9978212d600",
+    "customer": "63e8b4ce428e36c929691f64",
+    "service": "63e75fef580c7eb24880c99b",
+    "timestamp": "2023-02-17T22:09:31.000Z",
+    "__v": 0,
+    "id": "a70c2561-bc9d-4a72-b6ef-3bbd36116d2a",
+    "external_id": "63effb3b15a01bf0413ef89e",
+    "reference": "3FINAL200",
+    "barcodes": [ "63e8b4ce428e36c929691f64" ],
+    "url": "https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/",
+    "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+    "state": "unassigned",
+    "assignee": null,
+    "order": "https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/",
+    "orderer_name": null,
+    "route": null,
+    "category": "assignment",
+    "contact": 
+    { 
+      "name": "Splasheroo",
+      "company": "Splasheroo Tech",
+      "phones": [ "+270000000000" ],
+      "emails": [ "splasheroo.tech@gmail.com" ],
+      "notes": "test notes" 
+    },
+    "address": 
+    { 
+      "raw_address": "Leicester LE2 2FB, UK",
+      "formatted_address": "60 Gartree Road  Leicester Leicestershire",
+      "location": { "type": "Point", "coordinates": [ -122.0312186, 37.33233141 ] },
+      "google_place_id": "",
+      "point_of_interest": "",
+      "street": "",
+      "house_number": "",
+      "apartment_number": "",
+      "city": "",
+      "state": "",
+      "postal_code": "le22fw",
+      "country": "United Kingdom",
+      "country_code": "UK",
+      "geocoded_at": "2023-02-18T06:10:04.928463+08:00",
+      "geocode_failed_at": null 
+    },
+    "contact_address": null,
+    "contact_address_external_id": null,
+    "description": "Exterior & Interior",
+    "complete_after": "2023-02-18T06:10:04.948296+08:00",
+    "complete_before": "2023-02-21T14:30:00+08:00",
+    "scheduled_time": "2023-02-21T14:30:00+08:00",
+    "completed_at": null,
+    "cancelled_at": null,
+    "auto_assign": false,
+    "assignee_proximity": "away",
+    "position": 1676673811.74039,
+    "priority": 0,
+    "duration": "00:15:00",
+    "size": null,
+    "forms": {},
+    "documents": [],
+    "signatures": [],
+    "metafields": {},
+    "trackers": [],
+    "issues": [],
+    "counts": 
+    { 
+      "events": 1,
+      "documents": 0,
+      "signatures": 0,
+      "forms": 0,
+      "forms_completed": null 
+    },
+    "actions": [ "assign", "cancel" ],
+    "created_at": "2023-02-18T06:10:04.951676+08:00",
+    "updated_at": "2023-02-18T06:45:11.764140+08:00" }
+  }
 }
 ```
 
@@ -1529,26 +1645,83 @@ This endpoint will add a Booking.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| date                  | string |                                                     |
-| ref                   | number |                                                     |
-| contact               | string |                                                     |
-| notes                 | string |                                                     |
-| slot_start_time       | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
-| slot_end_time         | string |  in this format: YYYY-mm-ddTHH:MM:ss                |
+| userId                | id     |                                                     |
+| ref                   | String |                                                     |
+| address               | string |                                                     |
+| date                  | date   |                                                     |
+| endTime               | string |                                                     |
+| latitude              | number |                                                     |
 | location              | string |                                                     |
-| car                   | string |  id                                                 |
-| service               | string |  id                                                 |
-| driver                | string |  id                                                 |
-| promoCode?            | string |  id (optional)                                      |
+| longitude             | number |                                                     |
+| notes                 | string |                                                     |
+| postCode              | string |   CODE                                              |
+| promoCode             | string |                                                     |
+| service               | string |   id                                                |
+| startTime             | string |                                                     |
+| vechile               | string |  id                                                 |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+## Update Booking paymentStatus
 
-## Get all bookings
+> Change `paymentStatus` from `Waiting` to `Complete`, 
 
-> Get all bookings saved in our database, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "PUT",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "63efd9d0caf0aa67a2647164",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Booking payment status updated successfully!"
+}
+```
+
+This endpoint will change `paymentStatus` from `Waiting` to `Complete`, 
+
+### HTTP Request
+
+`PUT https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | id                                                  |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+## List all bookings
+
+> Get all bookings saved in GSMTASKS, 
 
 ```javascript
 import axios from "axios";
@@ -1577,43 +1750,152 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Booking fetched successfully",
-    "bookings": [
+    "msg": "Bookings fetched successfully",
+    "fullTasks": [
         {
-            "_id": "63e02d66276302955b62e222",
-            "date": "2023-02-05T22:27:43.550Z",
+            "_id": "63f274a6a3e9d90470d1017d",
             "status": "waiting",
-            "ref": "C10000002",
-            "contact": "+24389897544",
-            "notes": "This car needs attention when clining left tyers",
-            "slot_start_time": "2023-03-01T10:00:59.000Z",
-            "slot_end_time": "2023-03-01T11:00:59.000Z",
-            "location": "10 Downing street",
-            "jobCompleted": false,
-            "car": "63dcde4dfb6a27a947f255a1",
-            "service": "63e014aa4969108cb5bc1797",
-            "driver": "63e01b1d747fbe40578423db",
-            "timestamp": "2023-02-05T22:27:43.550Z",
-            "__v": 0
-        },
-        {
-            "_id": "63e030ab1e50a3131769ade5",
-            "date": "2023-03-01T11:00:59.000Z",
-            "status": "waiting",
-            "ref": "AB0000100",
-            "contact": "+24389897544",
-            "notes": "Don't forget to clean glasses",
-            "slot_start_time": "2023-03-01T11:00:59.000Z",
-            "slot_end_time": "2023-03-01T11:45:59.000Z",
-            "location": "10 Downing street",
-            "jobCompleted": false,
-            "car": "63dfb03bd18638890433cadf",
-            "service": "63e00d434969108cb5bc1794",
-            "driver": "63e01b1d747fbe40578423db",
-            "timestamp": "2023-02-05T22:41:38.605Z",
-            "__v": 0
-        }
-    ]
+            "paymentStatus": "completed",
+            "startTime": "10:00",
+            "endTime": "11:00",
+            "car": {
+                "_id": "63e78cb1faf9b5d76acb6601",
+                "RegistrationPlate": "KM12AKK",
+                "licence": true,
+                "model": "SHARAN",
+                "make": "VOLKSWAGEN",
+                "coulor": "Grey",
+                "customer": "63e78c8efaf9b5d76acb65fc",
+                "__v": 0
+            },
+            "customer": {
+                "location": {
+                    "coordinates": []
+                },
+                "_id": "63e78c8efaf9b5d76acb65fc",
+                "fullName": "Kislaytest12",
+                "phone": "32323232232",
+                "postCode": "LE22FW",
+                "address": "70 Gartree Road     Leicester Leicestershire",
+                "__v": 0
+            },
+            "service": {
+                "_id": "63e75fef580c7eb24880c99b",
+                "serviceName": "Exterior & Interior",
+                "allService": [
+                    "Exterior Bodywork",
+                    "Exterior Glass",
+                    "Exterior Trim ",
+                    "Alloys",
+                    "Tyre Shine",
+                    "Door Shuts",
+                    "Interior Vacuum",
+                    "Dashboard Wipe",
+                    "Center Console Wiped",
+                    "Anti-bacterial Treatment"
+                ],
+                "price": 25,
+                "duration": 60,
+                "contact": "+243841550213",
+                "__v": 0
+            },
+            "timestamp": "2023-02-19T19:11:41.095Z",
+            "__v": 0,
+            "id": "ceeb1c7f-7c19-44c7-a795-7328dd47bc8d",
+            "external_id": "63f274a6a3e9d90470d1017d",
+            "reference": "YZNIGO2",
+            "barcodes": [
+                "63e78c8efaf9b5d76acb65fc"
+            ],
+            "url": "https://api.gsmtasks.com/tasks/ceeb1c7f-7c19-44c7-a795-7328dd47bc8d/",
+            "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+            "state": "assigned",
+            "assignee": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
+            "order": "https://api.gsmtasks.com/orders/72dfb9ec-0213-412d-ae98-34a0f4462ab3/",
+            "orderer_name": null,
+            "route": null,
+            "category": "assignment",
+            "contact": {
+                "name": "Splasheroo",
+                "company": "Splasheroo Tech",
+                "phones": [
+                    "+270000000000"
+                ],
+                "emails": [
+                    "splasheroo.tech@gmail.com"
+                ],
+                "notes": "test notes"
+            },
+            "address": {
+                "raw_address": "Gartree Road, Leicester LE2 2FW, UK",
+                "formatted_address": "70 Gartree Road     Leicester Leicestershire",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -1.095587,
+                        52.6166008
+                    ]
+                },
+                "google_place_id": "",
+                "point_of_interest": "",
+                "street": "",
+                "house_number": "",
+                "apartment_number": "",
+                "city": "",
+                "state": "",
+                "postal_code": "le22fw",
+                "country": "United Kingdom",
+                "country_code": "UK",
+                "geocoded_at": "2023-02-19T21:12:39.310494+02:00",
+                "geocode_failed_at": null
+            },
+            "contact_address": null,
+            "contact_address_external_id": null,
+            "description": "Exterior & Interior",
+            "complete_after": "2023-02-19T21:12:39.329066+02:00",
+            "complete_before": "2023-02-21T08:30:00+02:00",
+            "scheduled_time": "2023-02-21T08:30:00+02:00",
+            "completed_at": null,
+            "cancelled_at": null,
+            "auto_assign": false,
+            "assignee_proximity": "away",
+            "position": 1676875084.9021854,
+            "priority": 0,
+            "duration": "00:15:00",
+            "size": null,
+            "forms": {},
+            "documents": [],
+            "signatures": [],
+            "metafields": {},
+            "trackers": [],
+            "issues": [],
+            "counts": {
+                "events": 2,
+                "documents": 0,
+                "signatures": 0,
+                "forms": 0,
+                "forms_completed": null
+            },
+            "actions": [
+                "unassign",
+                "accept",
+                "reject",
+                "transit",
+                "activate",
+                "complete",
+                "fail",
+                "cancel"
+            ],
+            "created_at": "2023-02-19T21:12:39.332812+02:00",
+            "updated_at": "2023-02-20T08:38:37.622320+02:00"
+      }
+      {
+        ....
+      },
+      {
+        ....
+      },
+    ],
 }
 ```
 
@@ -1625,6 +1907,502 @@ This endpoint will fetch all bookings.
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message and all bookings
+</aside>
+
+## List bookings by Customer's ID
+
+> Get all bookings  by Customer's ID saved in GSMTASKS, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/all/:id",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Bookings fetched successfully",
+    "fullTasks": [
+        {
+            "_id": "63f274a6a3e9d90470d1017d",
+            "status": "waiting",
+            "paymentStatus": "completed",
+            "startTime": "10:00",
+            "endTime": "11:00",
+            "car": {
+                "_id": "63e78cb1faf9b5d76acb6601",
+                "RegistrationPlate": "KM12AKK",
+                "licence": true,
+                "model": "SHARAN",
+                "make": "VOLKSWAGEN",
+                "coulor": "Grey",
+                "customer": "63e78c8efaf9b5d76acb65fc",
+                "__v": 0
+            },
+            "customer": {
+                "location": {
+                    "coordinates": []
+                },
+                "_id": "63e78c8efaf9b5d76acb65fc",
+                "fullName": "Kislaytest12",
+                "phone": "32323232232",
+                "postCode": "LE22FW",
+                "address": "70 Gartree Road     Leicester Leicestershire",
+                "__v": 0
+            },
+            "service": {
+                "_id": "63e75fef580c7eb24880c99b",
+                "serviceName": "Exterior & Interior",
+                "allService": [
+                    "Exterior Bodywork",
+                    "Exterior Glass",
+                    "Exterior Trim ",
+                    "Alloys",
+                    "Tyre Shine",
+                    "Door Shuts",
+                    "Interior Vacuum",
+                    "Dashboard Wipe",
+                    "Center Console Wiped",
+                    "Anti-bacterial Treatment"
+                ],
+                "price": 25,
+                "duration": 60,
+                "contact": "+243841550213",
+                "__v": 0
+            },
+            "timestamp": "2023-02-19T19:11:41.095Z",
+            "__v": 0,
+            "id": "ceeb1c7f-7c19-44c7-a795-7328dd47bc8d",
+            "external_id": "63f274a6a3e9d90470d1017d",
+            "reference": "YZNIGO2",
+            "barcodes": [
+                "63e78c8efaf9b5d76acb65fc"
+            ],
+            "url": "https://api.gsmtasks.com/tasks/ceeb1c7f-7c19-44c7-a795-7328dd47bc8d/",
+            "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+            "state": "assigned",
+            "assignee": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
+            "order": "https://api.gsmtasks.com/orders/72dfb9ec-0213-412d-ae98-34a0f4462ab3/",
+            "orderer_name": null,
+            "route": null,
+            "category": "assignment",
+            "contact": {
+                "name": "Splasheroo",
+                "company": "Splasheroo Tech",
+                "phones": [
+                    "+270000000000"
+                ],
+                "emails": [
+                    "splasheroo.tech@gmail.com"
+                ],
+                "notes": "test notes"
+            },
+            "address": {
+                "raw_address": "Gartree Road, Leicester LE2 2FW, UK",
+                "formatted_address": "70 Gartree Road     Leicester Leicestershire",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -1.095587,
+                        52.6166008
+                    ]
+                },
+                "google_place_id": "",
+                "point_of_interest": "",
+                "street": "",
+                "house_number": "",
+                "apartment_number": "",
+                "city": "",
+                "state": "",
+                "postal_code": "le22fw",
+                "country": "United Kingdom",
+                "country_code": "UK",
+                "geocoded_at": "2023-02-19T21:12:39.310494+02:00",
+                "geocode_failed_at": null
+            },
+            "contact_address": null,
+            "contact_address_external_id": null,
+            "description": "Exterior & Interior",
+            "complete_after": "2023-02-19T21:12:39.329066+02:00",
+            "complete_before": "2023-02-21T08:30:00+02:00",
+            "scheduled_time": "2023-02-21T08:30:00+02:00",
+            "completed_at": null,
+            "cancelled_at": null,
+            "auto_assign": false,
+            "assignee_proximity": "away",
+            "position": 1676875084.9021854,
+            "priority": 0,
+            "duration": "00:15:00",
+            "size": null,
+            "forms": {},
+            "documents": [],
+            "signatures": [],
+            "metafields": {},
+            "trackers": [],
+            "issues": [],
+            "counts": {
+                "events": 2,
+                "documents": 0,
+                "signatures": 0,
+                "forms": 0,
+                "forms_completed": null
+            },
+            "actions": [
+                "unassign",
+                "accept",
+                "reject",
+                "transit",
+                "activate",
+                "complete",
+                "fail",
+                "cancel"
+            ],
+            "created_at": "2023-02-19T21:12:39.332812+02:00",
+            "updated_at": "2023-02-20T08:38:37.622320+02:00"
+      }
+      {
+        ....
+      },
+      {
+        ....
+      },
+    ],
+}
+```
+
+This endpoint will fetch all bookings.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/booking/all/:id`
+
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Customer's id                                       |
+
+<aside class="success">
+Remember — if you get successfully, then you gonna receive a success message and bookings
+</aside>
+
+## List bookings by Date
+
+> Get all bookings  by date saved in GSMTASKS, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/all/date/:date",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+// TODO : Check response
+{
+    "success": true,
+    "msg": "Bookings for 01-01-2023 fetched successfullyy",
+    "bookings": [
+           
+      {
+        "_id": "63effb22bf34234d77e4591b",
+        "status": "waiting",
+        "paymentStatus": "waiting",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "car": "63e0c60d62c9e9978212d600",
+        "customer": "63e8b4ce428e36c929691f64",
+        "service": "63e75fef580c7eb24880c99b",
+        "timestamp": "2023-02-17T22:09:31.000Z",
+        "__v": 0,
+        "id": "a70c2561-bc9d-4a72-b6ef-3bbd36116d2a",
+        "external_id": "63effb22bf34234d77e4591b",
+        "reference": "3FINAL200",
+        "barcodes": [
+            "63e8b4ce428e36c929691f64"
+        ],
+        "url": "https://api.gsmtasks.com/tasks/a70c2561-bc9d-4a72-b6ef-3bbd36116d2a/",
+        "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+        "state": "unassigned",
+        "assignee": null,
+        "order": "https://api.gsmtasks.com/orders/53c4b0d9-38bb-46c9-b94f-0c59f0a35443/",
+        "orderer_name": null,
+        "route": null,
+        "category": "assignment",
+        "contact": {
+            "name": "Splasheroo",
+            "company": "Splasheroo Tech",
+            "phones": [
+                "+270000000000"
+            ],
+            "emails": [
+                "splasheroo.tech@gmail.com"
+            ],
+            "notes": "test notes"
+        },
+        "address": {
+            "raw_address": "Leicester LE2 2FB, UK",
+            "formatted_address": "60 Gartree Road  Leicester Leicestershire",
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    -122.0312186,
+                    37.33233141
+                ]
+            },
+            "google_place_id": "",
+            "point_of_interest": "",
+            "street": "",
+            "house_number": "",
+            "apartment_number": "",
+            "city": "",
+            "state": "",
+            "postal_code": "le22fw",
+            "country": "United Kingdom",
+            "country_code": "UK",
+            "geocoded_at": "2023-02-18T06:10:04.928463+08:00",
+            "geocode_failed_at": null
+        },
+        "contact_address": null,
+        "contact_address_external_id": null,
+        "description": "Exterior & Interior",
+        "complete_after": "2023-02-18T06:10:04.948296+08:00",
+        "complete_before": "2023-02-21T14:30:00+08:00",
+        "scheduled_time": "2023-02-21T14:30:00+08:00",
+        "completed_at": null,
+        "cancelled_at": null,
+        "auto_assign": false,
+        "assignee_proximity": "away",
+        "position": 1676673811.74039,
+        "priority": 0,
+        "duration": "00:15:00",
+        "size": null,
+        "forms": {},
+        "documents": [],
+        "signatures": [],
+        "metafields": {},
+        "trackers": [],
+        "issues": [],
+        "counts": {
+            "events": 1,
+            "documents": 0,
+            "signatures": 0,
+            "forms": 0,
+            "forms_completed": null
+        },
+        "actions": [
+            "assign",
+            "cancel"
+        ],
+        "created_at": "2023-02-18T06:10:04.951676+08:00",
+        "updated_at": "2023-02-18T06:45:11.764140+08:00"
+      },
+      {
+        "_id": "63effb3b15a01bf0413ef89e",
+        "status": "waiting",
+        "paymentStatus": "waiting",
+        "startTime": "10:00",
+        "endTime": "11:00",
+        "car": "63e0c60d62c9e9978212d600",
+        "customer": "63e8b4ce428e36c929691f64",
+        "service": "63e75fef580c7eb24880c99b",
+        "timestamp": "2023-02-17T22:09:56.106Z",
+        "__v": 0,
+        "id": "7800bee0-26e0-4580-92da-40dd68a4cc80",
+        "external_id": "63effb3b15a01bf0413ef89e",
+        "reference": "FINAL",
+        "barcodes": [
+            "63eff825b329fe071caeff33"
+        ],
+        "url": "https://api.gsmtasks.com/tasks/7800bee0-26e0-4580-92da-40dd68a4cc80/",
+        "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+        "state": "unassigned",
+        "assignee": null,
+        "order": "https://api.gsmtasks.com/orders/ffa81cca-bc08-4d22-bf1e-4b37199c5f4b/",
+        "orderer_name": null,
+        "route": null,
+        "category": "assignment",
+        "contact": {
+            "name": "Splasheroo",
+            "company": "Splasheroo Tech",
+            "phones": [
+                "+270000000000"
+            ],
+            "emails": [
+                "splasheroo.tech@gmail.com"
+            ],
+            "notes": "test notes"
+        },
+        "address": {
+            "raw_address": "Leicester LE2 2FB, UK",
+            "formatted_address": "60 Gartree Road  Leicester Leicestershire",
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    37.33233141,
+                    -122.0312186
+                ]
+            },
+            "google_place_id": "",
+            "point_of_interest": "",
+            "street": "",
+            "house_number": "",
+            "apartment_number": "",
+            "city": "",
+            "state": "",
+            "postal_code": "le22fw",
+            "country": "United Kingdom",
+            "country_code": "UK",
+            "geocoded_at": "2023-02-18T05:56:55.573377+08:00",
+            "geocode_failed_at": null
+        },
+        "contact_address": null,
+        "contact_address_external_id": null,
+        "description": "Exterior & Interior",
+        "complete_after": "2023-02-18T05:56:55.590444+08:00",
+        "complete_before": "2023-02-21T14:30:00+08:00",
+        "scheduled_time": "2023-02-21T14:30:00+08:00",
+        "completed_at": null,
+        "cancelled_at": null,
+        "auto_assign": false,
+        "assignee_proximity": "away",
+        "position": 1676673711.74039,
+        "priority": 0,
+        "duration": "00:15:00",
+        "size": null,
+        "forms": {},
+        "documents": [],
+        "signatures": [],
+        "metafields": {},
+        "trackers": [],
+        "issues": [],
+        "counts": {
+            "events": 1,
+            "documents": 0,
+            "signatures": 0,
+            "forms": 0,
+            "forms_completed": null
+        },
+        "actions": [
+            "assign",
+            "cancel"
+        ],
+        "created_at": "2023-02-18T05:56:55.594066+08:00",
+        "updated_at": "2023-02-18T06:45:11.763096+08:00"
+      }
+    ],
+}
+```
+
+This endpoint will fetch bookings.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/booking/all/date/:date`
+
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | date   | Date in this format: YYYYMMDD                       |
+
+<aside class="success">
+Remember — if you get successfully, then you gonna receive a success message and bookings
+</aside>
+
+## Assign a Booking to a Rider
+
+> Assign n a Booking to a Rider, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "PUT",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    bookingId :"63efd9d0caf0aa67a2647164",
+    riderId: "7d354534sd54f5s5sdfhrt5tye",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Assign Booking successfully!"
+}
+```
+
+This endpoint will change `paymentStatus` from `Waiting` to `Complete`, 
+
+### HTTP Request
+
+`PUT https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| bookingId             | string | id                                                  |
+| riderId               | string | id                                                  |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
 
