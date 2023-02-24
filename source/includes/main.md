@@ -247,6 +247,90 @@ axios
 | --------- | ------ | --------------------------------------------------- |
 | email     | string | An adress mail. It's must be unique in our database |
 
+# Customer
+
+Get customer's Details
+
+## Get Customer By ID
+
+> Get single Customer By ID
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/customer/434343a34df34a3s4asf",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Customer Details for 63e8b4ce428e36c929691f64 fetched successfully",
+    "customer": {
+        "customer": [
+            {
+                "location": {
+                    "coordinates": []
+                },
+                "_id": "63e8b4ce428e36c929691f64",
+                "fullName": "John",
+                "phone": "789456123",
+                "postCode": "postCode",
+                "address": "address",
+                "stripeCustomerId": "",
+                "__v": 0
+            }
+        ],
+        "account": [
+            {
+                "roleData": {
+                    "customer": "63e8b4ce428e36c929691f64"
+                },
+                "_id": "63e8b4cd428e36c929691f62",
+                "email": "test15@me.com",
+                "completedProfile": false,
+                "role": "customer",
+                "__v": 0
+            }
+        ]
+    }
+}
+```
+
+This endpoint will fecth a single CUSTOMER.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/customer/:id`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  Passed as params                                   |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
+</aside>
+
 
 # Vehicle
 
