@@ -1200,6 +1200,63 @@ This endpoint will fecth a single service.
 Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
 </aside>
 
+
+## Activate Rider
+
+> Activation of a Rider 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/activate",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "a432as4d3a2sf453fh4y5"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider activated successfully!"
+}
+```
+
+This endpoint will add a BankCard.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/activate`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Rider's ID                                          |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+
 # Banking Card
 
 Bank Card management throught STRIPE You can a cards on a customer in order to charge the customer later.
@@ -2544,8 +2601,7 @@ Remember — if you get successfully, then you gonna receive a success message a
 
 ## Assign a Booking to a Rider
 
-> Assign n a Booking to a Rider, 
-
+> Assign a Booking to a Rider, 
 
 ```javascript
 import axios from "axios";
