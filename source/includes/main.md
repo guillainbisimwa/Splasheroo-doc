@@ -1240,7 +1240,7 @@ axios
 }
 ```
 
-This endpoint will add a BankCard.
+This endpoint will activate a given Rider.
 
 ### HTTP Request
 
@@ -1255,8 +1255,6 @@ This endpoint will add a BankCard.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
-
-
 
 ## Deactivate Rider
 
@@ -1297,7 +1295,7 @@ axios
 }
 ```
 
-This endpoint will add a BankCard.
+This endpoint will deactivate a given Rider.
 
 ### HTTP Request
 
@@ -2823,6 +2821,61 @@ This endpoint list available slots by a given date.
 <aside class="warning">
   This endpoint list available slots by a given date.
 </aside>
+
+## Edit individual Bookings per Hour
+
+> Edit individual Bookings per Hour for given date
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/slot/editBookingsPerHourForEachSlotOfDate",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    date: "20230303"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Edited individual Bookings per Hour successfully for given date"
+}
+```
+
+This endpoint will edit individual Bookings per Hour successfully for given date
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/slot/editBookingsPerHourForEachSlotOfDate`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | date   | finding the slots of the given date                 |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
 
 # GSM task
 
