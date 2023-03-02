@@ -1217,7 +1217,7 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    id: "a432as4d3a2sf453fh4y5"
+    id: "a432as4d3a2sf453fh4y5asd"
   },
 };
 
@@ -1256,6 +1256,62 @@ This endpoint will add a BankCard.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+
+
+## Deactivate Rider
+
+> Activation of a Rider 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/deactivate",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "a432as4d3a2sf453fh4y55sd"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider deactivated successfully!"
+}
+```
+
+This endpoint will add a BankCard.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/deactivate`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Rider's ID                                          |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
 
 # Banking Card
 
