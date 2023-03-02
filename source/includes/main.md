@@ -2352,6 +2352,196 @@ This endpoint will fetch bookings.
 Remember — if you get successfully, then you gonna receive a success message and bookings
 </aside>
 
+
+## Get latest Booking
+
+> Get latest booking  by Customer's ID saved in GSMTASKS, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/latest/:id",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Bookings fetched successfully",
+    "fullTasks": {
+            "_id": "63f274a6a3e9d90470d1017d",
+            "status": "waiting",
+            "paymentStatus": "completed",
+            "startTime": "10:00",
+            "endTime": "11:00",
+            "car": {
+                "_id": "63e78cb1faf9b5d76acb6601",
+                "RegistrationPlate": "KM12AKK",
+                "licence": true,
+                "model": "SHARAN",
+                "make": "VOLKSWAGEN",
+                "coulor": "Grey",
+                "customer": "63e78c8efaf9b5d76acb65fc",
+                "__v": 0
+            },
+            "customer": {
+                "location": {
+                    "coordinates": []
+                },
+                "_id": "63e78c8efaf9b5d76acb65fc",
+                "fullName": "Kislaytest12",
+                "phone": "32323232232",
+                "postCode": "LE22FW",
+                "address": "70 Gartree Road     Leicester Leicestershire",
+                "__v": 0
+            },
+            "service": {
+                "_id": "63e75fef580c7eb24880c99b",
+                "serviceName": "Exterior & Interior",
+                "allService": [
+                    "Exterior Bodywork",
+                    "Exterior Glass",
+                    "Exterior Trim ",
+                    "Alloys",
+                    "Tyre Shine",
+                    "Door Shuts",
+                    "Interior Vacuum",
+                    "Dashboard Wipe",
+                    "Center Console Wiped",
+                    "Anti-bacterial Treatment"
+                ],
+                "price": 25,
+                "duration": 60,
+                "contact": "+243841550213",
+                "__v": 0
+            },
+            "timestamp": "2023-02-19T19:11:41.095Z",
+            "__v": 0,
+            "id": "ceeb1c7f-7c19-44c7-a795-7328dd47bc8d",
+            "external_id": "63f274a6a3e9d90470d1017d",
+            "reference": "YZNIGO2",
+            "barcodes": [
+                "63e78c8efaf9b5d76acb65fc"
+            ],
+            "url": "https://api.gsmtasks.com/tasks/ceeb1c7f-7c19-44c7-a795-7328dd47bc8d/",
+            "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+            "state": "assigned",
+            "assignee": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
+            "order": "https://api.gsmtasks.com/orders/72dfb9ec-0213-412d-ae98-34a0f4462ab3/",
+            "orderer_name": null,
+            "route": null,
+            "category": "assignment",
+            "contact": {
+                "name": "Splasheroo",
+                "company": "Splasheroo Tech",
+                "phones": [
+                    "+270000000000"
+                ],
+                "emails": [
+                    "splasheroo.tech@gmail.com"
+                ],
+                "notes": "test notes"
+            },
+            "address": {
+                "raw_address": "Gartree Road, Leicester LE2 2FW, UK",
+                "formatted_address": "70 Gartree Road     Leicester Leicestershire",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -1.095587,
+                        52.6166008
+                    ]
+                },
+                "google_place_id": "",
+                "point_of_interest": "",
+                "street": "",
+                "house_number": "",
+                "apartment_number": "",
+                "city": "",
+                "state": "",
+                "postal_code": "le22fw",
+                "country": "United Kingdom",
+                "country_code": "UK",
+                "geocoded_at": "2023-02-19T21:12:39.310494+02:00",
+                "geocode_failed_at": null
+            },
+            "contact_address": null,
+            "contact_address_external_id": null,
+            "description": "Exterior & Interior",
+            "complete_after": "2023-02-19T21:12:39.329066+02:00",
+            "complete_before": "2023-02-21T08:30:00+02:00",
+            "scheduled_time": "2023-02-21T08:30:00+02:00",
+            "completed_at": null,
+            "cancelled_at": null,
+            "auto_assign": false,
+            "assignee_proximity": "away",
+            "position": 1676875084.9021854,
+            "priority": 0,
+            "duration": "00:15:00",
+            "size": null,
+            "forms": {},
+            "documents": [],
+            "signatures": [],
+            "metafields": {},
+            "trackers": [],
+            "issues": [],
+            "counts": {
+                "events": 2,
+                "documents": 0,
+                "signatures": 0,
+                "forms": 0,
+                "forms_completed": null
+            },
+            "actions": [
+                "unassign",
+                "accept",
+                "reject",
+                "transit",
+                "activate",
+                "complete",
+                "fail",
+                "cancel"
+            ],
+            "created_at": "2023-02-19T21:12:39.332812+02:00",
+            "updated_at": "2023-02-20T08:38:37.622320+02:00"
+      },
+}
+```
+
+This endpoint will fetch all bookings.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/booking/latest/:id`
+
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Customer's id                                       |
+
+<aside class="success">
+Remember — if you get successfully, then you gonna receive a success message and bookings
+</aside>
+
 ## Assign a Booking to a Rider
 
 > Assign n a Booking to a Rider, 
