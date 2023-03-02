@@ -2876,6 +2876,77 @@ This endpoint will edit individual Bookings per Hour successfully for given date
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+# Operation
+
+Operation management
+
+## Update Operations 
+
+> Update Operations
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/operation/updateOperations",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  // TODO : TO BE DEFINED
+  data: {
+    isDefault: "",
+    bookingsPerSlot: "",
+    startTime: "",
+    endTime: "",
+    updateOnlyDefault: "",
+    startDate: "20230101",
+    endDate: "20230101",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Operation completed successfully"
+}
+```
+
+This endpoint will update Operations
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/operation/updateOperations`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | date   |                                                     |
+| isDefault             | BOOL   |                                                     |
+| bookingsPerSlot       | NUMBER |                                                     |
+| startTime             | STRING |                                                     |
+| endTime               | STRING |                                                     |
+| updateOnlyDefault     | BOOL   |                                                     |
+| startDate             | date   |                                                     |
+| endDate               | date   |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
 
 # GSM task
 
