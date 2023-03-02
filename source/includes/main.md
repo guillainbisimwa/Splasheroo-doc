@@ -1020,13 +1020,7 @@ const options = {
     state: "",
     postal_code: "",
     country: "",
-    country_code: "",
-    // name: "James Bond", 
-    // idNumber: "124578", 
-    // gsmId: "321654987", //?
-    // address: "10 Downing street", 
-    // email: "james@test.me", 
-    // emergencyContact: "+243841550213"
+    country_code: ""
   },
 };
 
@@ -1384,74 +1378,6 @@ Remember — if you delete successfully, then you gonna receive a success messag
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
 | id                    | string |  ID of an existing card                             |
-
-<!-- 
-## Get single Bankcard
-
-> Get a single bankCard by it customer's ID, 
-
-```javascript
-import axios from "axios";
-
-const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/find",
-  params: {},
-  headers: {
-    "content-type": "application/json",
-  },
-  data: {
-    customer: "63db5cf616391c961dc3a4e5"
-  },
-};
-
-axios
-  .request(options)
-  .then( (response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "success": true,
-    "msg": "bankCard found",
-    "bankCard": [
-        {
-            "_id": "63e022086852fc4fee6bb40a",
-            "cardNumber": "123456789123",
-            "cardHolderName": "Nicolas Brody",
-            "expiryDate": "2001-12-24T22:00:00.000Z",
-            "cvvCvc": "12/12",
-            "verified": false,
-            "customer": "63db5cf616391c961dc3a4e5",
-            "__v": 0
-        }
-    ]
-}
-```
-
-This endpoint will fecth a single bankCard.
-
-### HTTP Request
-
-`POST https://splasheroo-backend.herokuapp.com/api/bankCard/find`
-
-### Query Parameters
-
-| Parameter             | Type   | Description                                         |
-| --------------------- | ------ | --------------------------------------------------- |
-| customer              | string | Existing Customer's ID                              |
-
-<aside class="success">
-Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
-</aside>
- -->
 
 # Promo Code
 
@@ -2552,63 +2478,6 @@ This endpoint will charge A customer.
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
-
-<!-- 
-## Add stripe customer ID
-
-> For creating a Stripe customer
-
-
-```javascript
-import axios from "axios";
-
-const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/63e81557017631fdb8f6d4ad",
-  params: {},
-  headers: {
-    "content-type": "application/json",
-  },
-  data: {
-    email: "guy@test.me"
-  },
-};
-
-axios
-  .request(options)
-  .then( (response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "success": true,
-    "msg": "Stripe added successfuly!"
-}
-```
-
-This endpoint will add a promoCode.
-
-### HTTP Request
-
-`POST https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/:id`
-
-### Query Parameters
-
-| Parameter             | Type   | Description                                         |
-| --------------------- | ------ | --------------------------------------------------- |
-| id                    | string | customer id                                         |
-| email                 | string |                                                     |
-
-<aside class="warning">
-the ID must be passed as a params!
-</aside> -->
 
 # GSM task
 
