@@ -2775,6 +2775,55 @@ This endpoint will charge A customer.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
+# Slot
+
+Slot management
+
+##  Get Slots availability
+
+> To obtain a slot availability by date
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/slot/getSlotsAvailability/:date",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+<!-- TODO : CHECK FOR RESPONSE -->
+```json
+{
+    "success": true,
+    "msg": "Successfully ",
+}
+```
+
+This endpoint list available slots by a given date.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/slot/getSlotsAvailability/:date`
+
+<aside class="warning">
+  This endpoint list available slots by a given date.
+</aside>
+
 # GSM task
 
 The GSMtasks API is a RESTful web service for developers to programmatically interact with GSMtasks data, real-time delivery and task management and route optimization functionality.
