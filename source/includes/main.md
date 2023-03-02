@@ -1,9 +1,3 @@
----
-noteId: "41bc8b10add811ed8ba0d566f9e2e13f"
-tags: []
-
----
-
 # Introduction
 
 Welcome to the Splasheroo API! You can use our API to access Splasheroo API endpoints, which can get informations  in our database.
