@@ -1,9 +1,3 @@
----
-noteId: "41bc8b10add811ed8ba0d566f9e2e13f"
-tags: []
-
----
-
 # Introduction
 
 Welcome to the Splasheroo API! You can use our API to access Splasheroo API endpoints, which can get informations  in our database.
@@ -1020,13 +1014,7 @@ const options = {
     state: "",
     postal_code: "",
     country: "",
-    country_code: "",
-    // name: "James Bond", 
-    // idNumber: "124578", 
-    // gsmId: "321654987", //?
-    // address: "10 Downing street", 
-    // email: "james@test.me", 
-    // emergencyContact: "+243841550213"
+    country_code: ""
   },
 };
 
@@ -1212,6 +1200,117 @@ This endpoint will fecth a single service.
 Remember — if you post successfully, then you gonna receive a success message and a rider ojbect
 </aside>
 
+
+## Activate Rider
+
+> Activation of a Rider 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/activate",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "a432as4d3a2sf453fh4y5asd"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider activated successfully!"
+}
+```
+
+This endpoint will activate a given Rider.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/activate`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Rider's ID                                          |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+## Deactivate Rider
+
+> Activation of a Rider 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/deactivate",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    id: "a432as4d3a2sf453fh4y55sd"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Rider deactivated successfully!"
+}
+```
+
+This endpoint will deactivate a given Rider.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/rider/deactivate`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Rider's ID                                          |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
 # Banking Card
 
 Bank Card management throught STRIPE You can a cards on a customer in order to charge the customer later.
@@ -1384,74 +1483,6 @@ Remember — if you delete successfully, then you gonna receive a success messag
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
 | id                    | string |  ID of an existing card                             |
-
-<!-- 
-## Get single Bankcard
-
-> Get a single bankCard by it customer's ID, 
-
-```javascript
-import axios from "axios";
-
-const options = {
-  method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/bankCard/find",
-  params: {},
-  headers: {
-    "content-type": "application/json",
-  },
-  data: {
-    customer: "63db5cf616391c961dc3a4e5"
-  },
-};
-
-axios
-  .request(options)
-  .then( (response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "success": true,
-    "msg": "bankCard found",
-    "bankCard": [
-        {
-            "_id": "63e022086852fc4fee6bb40a",
-            "cardNumber": "123456789123",
-            "cardHolderName": "Nicolas Brody",
-            "expiryDate": "2001-12-24T22:00:00.000Z",
-            "cvvCvc": "12/12",
-            "verified": false,
-            "customer": "63db5cf616391c961dc3a4e5",
-            "__v": 0
-        }
-    ]
-}
-```
-
-This endpoint will fecth a single bankCard.
-
-### HTTP Request
-
-`POST https://splasheroo-backend.herokuapp.com/api/bankCard/find`
-
-### Query Parameters
-
-| Parameter             | Type   | Description                                         |
-| --------------------- | ------ | --------------------------------------------------- |
-| customer              | string | Existing Customer's ID                              |
-
-<aside class="success">
-Remember — if you post successfully, then you gonna receive a success message and a bankCard ojbect
-</aside>
- -->
 
 # Promo Code
 
@@ -2432,10 +2463,199 @@ This endpoint will fetch bookings.
 Remember — if you get successfully, then you gonna receive a success message and bookings
 </aside>
 
+
+## Get latest Booking
+
+> Get latest booking  by Customer's ID saved in GSMTASKS, 
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/latest/:id",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Bookings fetched successfully",
+    "fullTasks": {
+            "_id": "63f274a6a3e9d90470d1017d",
+            "status": "waiting",
+            "paymentStatus": "completed",
+            "startTime": "10:00",
+            "endTime": "11:00",
+            "car": {
+                "_id": "63e78cb1faf9b5d76acb6601",
+                "RegistrationPlate": "KM12AKK",
+                "licence": true,
+                "model": "SHARAN",
+                "make": "VOLKSWAGEN",
+                "coulor": "Grey",
+                "customer": "63e78c8efaf9b5d76acb65fc",
+                "__v": 0
+            },
+            "customer": {
+                "location": {
+                    "coordinates": []
+                },
+                "_id": "63e78c8efaf9b5d76acb65fc",
+                "fullName": "Kislaytest12",
+                "phone": "32323232232",
+                "postCode": "LE22FW",
+                "address": "70 Gartree Road     Leicester Leicestershire",
+                "__v": 0
+            },
+            "service": {
+                "_id": "63e75fef580c7eb24880c99b",
+                "serviceName": "Exterior & Interior",
+                "allService": [
+                    "Exterior Bodywork",
+                    "Exterior Glass",
+                    "Exterior Trim ",
+                    "Alloys",
+                    "Tyre Shine",
+                    "Door Shuts",
+                    "Interior Vacuum",
+                    "Dashboard Wipe",
+                    "Center Console Wiped",
+                    "Anti-bacterial Treatment"
+                ],
+                "price": 25,
+                "duration": 60,
+                "contact": "+243841550213",
+                "__v": 0
+            },
+            "timestamp": "2023-02-19T19:11:41.095Z",
+            "__v": 0,
+            "id": "ceeb1c7f-7c19-44c7-a795-7328dd47bc8d",
+            "external_id": "63f274a6a3e9d90470d1017d",
+            "reference": "YZNIGO2",
+            "barcodes": [
+                "63e78c8efaf9b5d76acb65fc"
+            ],
+            "url": "https://api.gsmtasks.com/tasks/ceeb1c7f-7c19-44c7-a795-7328dd47bc8d/",
+            "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+            "state": "assigned",
+            "assignee": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
+            "order": "https://api.gsmtasks.com/orders/72dfb9ec-0213-412d-ae98-34a0f4462ab3/",
+            "orderer_name": null,
+            "route": null,
+            "category": "assignment",
+            "contact": {
+                "name": "Splasheroo",
+                "company": "Splasheroo Tech",
+                "phones": [
+                    "+270000000000"
+                ],
+                "emails": [
+                    "splasheroo.tech@gmail.com"
+                ],
+                "notes": "test notes"
+            },
+            "address": {
+                "raw_address": "Gartree Road, Leicester LE2 2FW, UK",
+                "formatted_address": "70 Gartree Road     Leicester Leicestershire",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -1.095587,
+                        52.6166008
+                    ]
+                },
+                "google_place_id": "",
+                "point_of_interest": "",
+                "street": "",
+                "house_number": "",
+                "apartment_number": "",
+                "city": "",
+                "state": "",
+                "postal_code": "le22fw",
+                "country": "United Kingdom",
+                "country_code": "UK",
+                "geocoded_at": "2023-02-19T21:12:39.310494+02:00",
+                "geocode_failed_at": null
+            },
+            "contact_address": null,
+            "contact_address_external_id": null,
+            "description": "Exterior & Interior",
+            "complete_after": "2023-02-19T21:12:39.329066+02:00",
+            "complete_before": "2023-02-21T08:30:00+02:00",
+            "scheduled_time": "2023-02-21T08:30:00+02:00",
+            "completed_at": null,
+            "cancelled_at": null,
+            "auto_assign": false,
+            "assignee_proximity": "away",
+            "position": 1676875084.9021854,
+            "priority": 0,
+            "duration": "00:15:00",
+            "size": null,
+            "forms": {},
+            "documents": [],
+            "signatures": [],
+            "metafields": {},
+            "trackers": [],
+            "issues": [],
+            "counts": {
+                "events": 2,
+                "documents": 0,
+                "signatures": 0,
+                "forms": 0,
+                "forms_completed": null
+            },
+            "actions": [
+                "unassign",
+                "accept",
+                "reject",
+                "transit",
+                "activate",
+                "complete",
+                "fail",
+                "cancel"
+            ],
+            "created_at": "2023-02-19T21:12:39.332812+02:00",
+            "updated_at": "2023-02-20T08:38:37.622320+02:00"
+      },
+}
+```
+
+This endpoint will fetch all bookings.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/booking/latest/:id`
+
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Customer's id                                       |
+
+<aside class="success">
+Remember — if you get successfully, then you gonna receive a success message and bookings
+</aside>
+
 ## Assign a Booking to a Rider
 
-> Assign n a Booking to a Rider, 
-
+> Assign a Booking to a Rider, 
 
 ```javascript
 import axios from "axios";
@@ -2553,24 +2773,71 @@ This endpoint will charge A customer.
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
-<!-- 
-## Add stripe customer ID
+# Slot
 
-> For creating a Stripe customer
+Slot management
 
+##  Get Slots availability
+
+> To obtain a slot availability by date
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/slot/getSlotsAvailability/:date",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+<!-- TODO : CHECK FOR RESPONSE -->
+```json
+{
+    "success": true,
+    "msg": "Successfully ",
+}
+```
+
+This endpoint list available slots by a given date.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/slot/getSlotsAvailability/:date`
+
+<aside class="warning">
+  This endpoint list available slots by a given date.
+</aside>
+
+## Edit individual Bookings per Hour
+
+> Edit individual Bookings per Hour for given date
 
 ```javascript
 import axios from "axios";
 
 const options = {
   method: "POST",
-  url: "https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/63e81557017631fdb8f6d4ad",
+  url: "https://splasheroo-backend.herokuapp.com/api/slot/editBookingsPerHourForEachSlotOfDate",
   params: {},
   headers: {
     "content-type": "application/json",
   },
   data: {
-    email: "guy@test.me"
+    date: "20230303"
   },
 };
 
@@ -2589,26 +2856,97 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Stripe added successfuly!"
+    "msg": "Edited individual Bookings per Hour successfully for given date"
 }
 ```
 
-This endpoint will add a promoCode.
+This endpoint will edit individual Bookings per Hour successfully for given date
 
 ### HTTP Request
 
-`POST https://splasheroo-backend.herokuapp.com/api/payment/stripe/add/:id`
+`POST https://splasheroo-backend.herokuapp.com/api/slot/editBookingsPerHourForEachSlotOfDate`
 
 ### Query Parameters
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| id                    | string | customer id                                         |
-| email                 | string |                                                     |
+| date                  | date   | finding the slots of the given date                 |
 
-<aside class="warning">
-the ID must be passed as a params!
-</aside> -->
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
+# Operation
+
+Operation management
+
+## Update Operations 
+
+> Update Operations
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/operation/updateOperations",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  // TODO : TO BE DEFINED
+  data: {
+    isDefault: "",
+    bookingsPerSlot: "",
+    startTime: "",
+    endTime: "",
+    updateOnlyDefault: "",
+    startDate: "20230101",
+    endDate: "20230101",
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Operation completed successfully"
+}
+```
+
+This endpoint will update Operations
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/operation/updateOperations`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | date   |                                                     |
+| isDefault             | BOOL   |                                                     |
+| bookingsPerSlot       | NUMBER |                                                     |
+| startTime             | STRING |                                                     |
+| endTime               | STRING |                                                     |
+| updateOnlyDefault     | BOOL   |                                                     |
+| startDate             | date   |                                                     |
+| endDate               | date   |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
 
 # GSM task
 
