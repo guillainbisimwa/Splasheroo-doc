@@ -1002,7 +1002,6 @@ const options = {
     //password: "123456",
     raw_address: "Prime Minister & First Lord of the Treasury",
     formatted_address: "10 Downing street",
-    type: "",
     longitude: 51.503038,
     latitude: -0.128371,
     google_place_id: "",
@@ -1052,7 +1051,6 @@ This endpoint will add a service.
 | email                 | string |                                                     |
 | phone                 | string |                                                     |
 | raw_address           | number |                                                     |
-| type                  | string |                                                     |
 | longitude             | number |                                                     |
 | latitude              | number |                                                     |
 | formatted_address     | string |                                                     |
