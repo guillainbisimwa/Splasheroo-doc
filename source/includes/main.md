@@ -1002,7 +1002,6 @@ const options = {
     //password: "123456",
     raw_address: "Prime Minister & First Lord of the Treasury",
     formatted_address: "10 Downing street",
-    type: "",
     longitude: 51.503038,
     latitude: -0.128371,
     google_place_id: "",
@@ -1052,7 +1051,6 @@ This endpoint will add a service.
 | email                 | string |                                                     |
 | phone                 | string |                                                     |
 | raw_address           | number |                                                     |
-| type                  | string |                                                     |
 | longitude             | number |                                                     |
 | latitude              | number |                                                     |
 | formatted_address     | string |                                                     |
@@ -1104,19 +1102,39 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Rider fetched successfully",
-    "riders": [
+    "msg": "Riders fetched successfully",
+    "fullRiders": [
         {
-            "_id": "63e01b1d747fbe40578423db",
-            "name": "James Bond",
+            "_id": "6401e6f5475aa38bb675e8dd",
+            "email": "armel2@test.me",
+            "gsmTaskUrl": "https://api.gsmtasks.com/users/73228f67-d005-49d7-9d44-d1dd92768512/",
             "activate": false,
-            "idNumber": "124578",
-            "gsmId": "321654987",
-            "address": "10 Downing street",
-            "email": "james@test.me",
-            "emergencyContact": "+243841550213",
-            "timestamp": "2023-02-05T20:56:12.077Z",
-            "__v": 0
+            "timestamp": "2023-03-03T12:12:18.743Z",
+            "__v": 0,
+            "id": "73228f67-d005-49d7-9d44-d1dd92768512",
+            "url": "https://api.gsmtasks.com/users/73228f67-d005-49d7-9d44-d1dd92768512/",
+            "first_name": "Armel2",
+            "last_name": "Bent2",
+            "display_name": "Armel2 Bent2",
+            "phone": "+2345678978",
+            "intercom_hash": "8b7663d96308a98b6875804ec2ed47b48dabee38f8deff64458ea3dea272d1c1",
+            "signature_image": null
+        },
+        {
+            "_id": "6401e82e11943a90f9f028b5",
+            "email": "omar@test.me",
+            "gsmTaskUrl": "https://api.gsmtasks.com/users/9e248c26-5202-4639-9718-5396ac08c190/",
+            "activate": false,
+            "timestamp": "2023-03-03T12:29:12.997Z",
+            "__v": 0,
+            "id": "9e248c26-5202-4639-9718-5396ac08c190",
+            "url": "https://api.gsmtasks.com/users/9e248c26-5202-4639-9718-5396ac08c190/",
+            "first_name": "Ahmed",
+            "last_name": "Omar",
+            "display_name": "Ahmed Omar",
+            "phone": "+234567897898",
+            "intercom_hash": "f5bb7ec3ee11b90b78bfdf0dfa9edc5e4c13c46a9e630247a149f427edfd0173",
+            "signature_image": null
         }
     ]
 }
@@ -1143,7 +1161,7 @@ import axios from "axios";
 
 const options = {
   method: "GET",
-  url: "https://splasheroo-backend.herokuapp.com/api/rider/find/:id",
+  url: "https://splasheroo-backend.herokuapp.com/api/rider/find/asdf1sd1f1sd1gsd1",
   params: {},
   headers: {
     "content-type": "application/json",
@@ -1164,27 +1182,28 @@ axios
 
 ```json
 {
-  // TODO : Change Response
     "success": true,
     "msg": "Rider found",
-    "rider": [
-        {
-            "_id": "63e01b1d747fbe40578423db",
-            "name": "James Bond",
-            "activate": false,
-            "idNumber": "124578",
-            "gsmId": "321654987",
-            "address": "10 Downing street",
-            "email": "james@test.me",
-            "emergencyContact": "+243841550213",
-            "timestamp": "2023-02-05T20:56:12.077Z",
-            "__v": 0
-        }
-    ]
+    "rider": {
+        "_id": "6401e6f5475aa38bb675e8dd",
+        "email": "armel2@test.me",
+        "gsmTaskUrl": "https://api.gsmtasks.com/users/73228f67-d005-49d7-9d44-d1dd92768512/",
+        "activate": false,
+        "timestamp": "2023-03-03T12:12:18.743Z",
+        "__v": 0,
+        "id": "73228f67-d005-49d7-9d44-d1dd92768512",
+        "url": "https://api.gsmtasks.com/users/73228f67-d005-49d7-9d44-d1dd92768512/",
+        "first_name": "Armel2",
+        "last_name": "Bent2",
+        "display_name": "Armel2 Bent2",
+        "phone": "+2345678978",
+        "intercom_hash": "8b7663d96308a98b6875804ec2ed47b48dabee38f8deff64458ea3dea272d1c1",
+        "signature_image": null
+    }
 }
 ```
 
-This endpoint will fecth a single service.
+This endpoint will fecth a single Rider.
 
 ### HTTP Request
 
