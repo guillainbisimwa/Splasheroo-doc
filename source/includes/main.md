@@ -2771,9 +2771,10 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    id_customer: "63e8b4ce428e36c929691f64",
-    amount: 35.5,
-    id_service: "63e75fef580c7eb24880c99b"
+    amount: 20, 
+    id_customer: "63e78c8efaf9b5d76acb65fc", 
+    id_service: "63e75fef580c7eb24880c99b",
+    stripe_customer_id: "cus_NVBsV1zqydvc5H"
   },
 };
 
@@ -2792,7 +2793,119 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Payment added successfuly!"
+    "msg": "Payment passed successfully",
+    "charge": {
+        "id": "ch_3MkC5yDSebOil4xL0WG3da4c",
+        "object": "charge",
+        "amount": 2000,
+        "amount_captured": 2000,
+        "amount_refunded": 0,
+        "application": null,
+        "application_fee": null,
+        "application_fee_amount": null,
+        "balance_transaction": "txn_3MkC5yDSebOil4xL0VEZnqga",
+        "billing_details": {
+            "address": {
+                "city": null,
+                "country": null,
+                "line1": null,
+                "line2": null,
+                "postal_code": null,
+                "state": null
+            },
+            "email": null,
+            "name": null,
+            "phone": null
+        },
+        "calculated_statement_descriptor": "Stripe",
+        "captured": true,
+        "created": 1678478358,
+        "currency": "usd",
+        "customer": "cus_NVBsV1zqydvc5H",
+        "description": "Exterior & Interior",
+        "destination": null,
+        "dispute": null,
+        "disputed": false,
+        "failure_balance_transaction": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "invoice": null,
+        "livemode": false,
+        "metadata": {},
+        "on_behalf_of": null,
+        "order": null,
+        "outcome": {
+            "network_status": "approved_by_network",
+            "reason": null,
+            "risk_level": "normal",
+            "risk_score": 32,
+            "seller_message": "Payment complete.",
+            "type": "authorized"
+        },
+        "paid": true,
+        "payment_intent": null,
+        "payment_method": "card_1MkBUXDSebOil4xLAK52JKDK",
+        "payment_method_details": {
+            "card": {
+                "brand": "visa",
+                "checks": {
+                    "address_line1_check": null,
+                    "address_postal_code_check": null,
+                    "cvc_check": null
+                },
+                "country": "US",
+                "exp_month": 2,
+                "exp_year": 2024,
+                "fingerprint": "OoEiI0DZsnhWNuF8",
+                "funding": "credit",
+                "installments": null,
+                "last4": "4242",
+                "mandate": null,
+                "network": "visa",
+                "three_d_secure": null,
+                "wallet": null
+            },
+            "type": "card"
+        },
+        "receipt_email": null,
+        "receipt_number": null,
+        "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xTVpNYkpEU2ViT2lsNHhMKJeYrqAGMgaA1W0RuTY6LBaifTQiTBpgeeepTUFh65ljFIy9DROoLiSDIEHb8sli0USy7MUoreA5sPDP",
+        "refunded": false,
+        "review": null,
+        "shipping": null,
+        "source": {
+            "id": "card_1MkBUXDSebOil4xLAK52JKDK",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "customer": "cus_NVBsV1zqydvc5H",
+            "cvc_check": null,
+            "dynamic_last4": null,
+            "exp_month": 2,
+            "exp_year": 2024,
+            "fingerprint": "OoEiI0DZsnhWNuF8",
+            "funding": "credit",
+            "last4": "4242",
+            "metadata": {},
+            "name": null,
+            "tokenization_method": null
+        },
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "statement_descriptor_suffix": null,
+        "status": "succeeded",
+        "transfer_data": null,
+        "transfer_group": null
+    }
 }
 ```
 
