@@ -1428,11 +1428,33 @@ axios
 > The above command returns JSON structured like this:
 
 ```json
-  {
+{
     "success": true,
-    "last4": "4242",
-    "brand": "Visa"
-  }
+    "cardList": [
+        {
+            "_id": "63efc3ec20763151d87052be",
+            "stripeCardId": "card_1McYRbDSebOil4xLEngZjrMu",
+            "stripeCustomerId": "cus_NNJ3uS46jcceSx",
+            "stripeToken": "tok_1McYRcDSebOil4xLKkm3C3nl",
+            "verified": false,
+            "customer": "63e78c8efaf9b5d76acb65fc",
+            "__v": 0,
+            "last4": "4242",
+            "brand": "Visa"
+        },
+        {
+            "_id": "63efc53f20763151d87052c3",
+            "stripeCardId": "card_1McYX4DSebOil4xLDJS8QENb",
+            "stripeCustomerId": "cus_NNJ9RGdW5xRm8V",
+            "stripeToken": "tok_1McYX4DSebOil4xLWQmT2GN2",
+            "verified": false,
+            "customer": "63e78c8efaf9b5d76acb65fc",
+            "__v": 0,
+            "last4": "4242",
+            "brand": "Visa"
+        }
+    ]
+}
 ```
 
 This endpoint will show you 4 last digits of your card.
