@@ -2922,6 +2922,8 @@ This endpoint will charge A customer.
 | id_customer           | string | id                                                  |
 | id_service            | string | id                                                  |
 | amount                | number |                                                     |
+| stripe_customer_id    | number |  you can get it from bankCard's table               |
+
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
