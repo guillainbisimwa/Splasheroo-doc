@@ -1374,7 +1374,16 @@ axios
 ```json
 {
     "success": true,
-    "msg": "BankCard added successfuly!"
+    "msg": "BankCard added successfully",
+    "bankCard": {
+        "stripeCardId": "card_1MklmbDSebOil4xLPQaiRWcq",
+        "stripeCustomerId": "cus_NVnNyjUO1EtbxQ",
+        "stripeToken": "tok_1MklmcDSebOil4xL6rY6tKIX",
+        "verified": false,
+        "customer": "63e78c8efaf9b5d76acb65fc",
+        "_id": "640da3f5bd1565937686af24",
+        "__v": 0
+    }
 }
 ```
 
