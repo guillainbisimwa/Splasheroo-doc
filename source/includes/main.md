@@ -325,6 +325,57 @@ This endpoint will fecth a single CUSTOMER.
 Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
 </aside>
 
+## Delete a customer
+
+> Delete the customer's associated data
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "DELETE",
+  url: "https://splasheroo-backend.herokuapp.com/api/customer/434343a34df34a3s4asf",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Account deleted",
+}
+```
+
+This endpoint will delete a single CUSTOMER.
+
+### HTTP Request
+
+`DELETE https://splasheroo-backend.herokuapp.com/api/customer/:id`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  Passed as params                                   |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
+</aside>
 
 # Vehicle
 
