@@ -325,6 +325,71 @@ This endpoint will fecth a single CUSTOMER.
 Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
 </aside>
 
+## Get Customer By Email
+
+> Get single Customer By email
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/customer/getByEmail/asif@liorra.io",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Customer Details for asif@liorra.io fetched successfully",
+    "customer": {
+        "customer": [],
+        "account": {
+            "roleData": {
+                "customer": "6411772d79745016c53abfb3"
+            },
+            "_id": "6411772d79745016c53abfb1",
+            "email": "asif@liorra.io",
+            "completedProfile": true,
+            "role": "customer",
+            "__v": 0
+        }
+    }
+}
+```
+
+This endpoint will fecth a single CUSTOMER.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/customer/getByEmail/:email`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| email                 | string |  Passed as params                                   |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
+</aside>
+
 ## Delete a customer
 
 > Delete the customer's associated data
