@@ -2876,6 +2876,109 @@ Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
 
+## Route Optimization
+
+> Route Optimization
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+ 
+  data: {
+    ridersUrl: ["https://api.gsmtasks.com/users/5789286c-aa73-474e-9990-da9f337c33f4/", "https://api.gsmtasks.com/users/7158ea76-772a-47e6-96f0-8c8f50be0f4b/"],
+    date:"20230317"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Route Optimized successfully",
+    "booking": {
+        "id": "04859518-aa99-464b-acfd-5a3c930f626b",
+        "url": "https://api.gsmtasks.com/route_optimizations/04859518-aa99-464b-acfd-5a3c930f626b/",
+        "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+        "assignees": [
+            "https://api.gsmtasks.com/users/5789286c-aa73-474e-9990-da9f337c33f4/",
+            "https://api.gsmtasks.com/users/7158ea76-772a-47e6-96f0-8c8f50be0f4b/"
+        ],
+        "state": "pending",
+        "objective": "completion_time",
+        "tasks": [
+            "https://api.gsmtasks.com/tasks/05d49d2e-c695-4630-bb2a-d74491c6a4b0/",
+            "https://api.gsmtasks.com/tasks/1ee85438-bce7-4075-b31e-66571229a51d/",
+            "https://api.gsmtasks.com/tasks/3aa1858b-13dd-4461-b4be-ff8e789aeb60/",
+            "https://api.gsmtasks.com/tasks/3ecde4af-9a38-4ed1-bcbd-e19c8759b495/"
+        ],
+        "start_time": "2023-03-17T00:00:00Z",
+        "unassign_not_optimal": false,
+        "total_distance": null,
+        "total_duration": null,
+        "commit": true,
+        "created_by": "https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-c564f7b6fded/",
+        "commited_at": null,
+        "scheduled_at": null,
+        "started_at": null,
+        "ready_at": null,
+        "completed_at": null,
+        "failed_at": null,
+        "created_at": "2023-03-17T09:38:08.750302Z",
+        "updated_at": "2023-03-17T09:38:08.750326Z",
+        "errors": null,
+        "start_location": {
+            "type": "Point",
+            "coordinates": [
+                -1.095587,
+                52.6166008
+            ]
+        },
+        "end_location": {
+            "type": "Point",
+            "coordinates": [
+                -1.095587,
+                52.6166008
+            ]
+        }
+    }
+}
+```
+
+This endpoint will optimize Route
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | date   |   YYYYMMDD FORMAT                                   |
+| ridersUrl             | array  |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
 # Payment
 
 Payment management
