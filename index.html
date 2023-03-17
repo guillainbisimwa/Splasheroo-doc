@@ -3080,6 +3080,113 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
+            <h2 id="route-optimization">Route Optimization</h2>
+            <blockquote>
+               <p>Route Optimization</p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+ 
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">ridersUrl</span>: [<span class="hljs-string">&quot;https://api.gsmtasks.com/users/5789286c-aa73-474e-9990-da9f337c33f4/&quot;</span>, <span class="hljs-string">&quot;https://api.gsmtasks.com/users/7158ea76-772a-47e6-96f0-8c8f50be0f4b/&quot;</span>],
+    <span class="hljs-attr">date</span>:<span class="hljs-string">&quot;20230317&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Route Optimized successfully&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;booking&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;04859518-aa99-464b-acfd-5a3c930f626b&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/route_optimizations/04859518-aa99-464b-acfd-5a3c930f626b/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;account&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;assignees&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;https://api.gsmtasks.com/users/5789286c-aa73-474e-9990-da9f337c33f4/&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;https://api.gsmtasks.com/users/7158ea76-772a-47e6-96f0-8c8f50be0f4b/&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;pending&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;objective&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;completion_time&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;tasks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/05d49d2e-c695-4630-bb2a-d74491c6a4b0/&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/1ee85438-bce7-4075-b31e-66571229a51d/&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/3aa1858b-13dd-4461-b4be-ff8e789aeb60/&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;https://api.gsmtasks.com/tasks/3ecde4af-9a38-4ed1-bcbd-e19c8759b495/&quot;</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;start_time&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-17T00:00:00Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;unassign_not_optimal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;total_distance&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;total_duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;commit&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_by&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-c564f7b6fded/&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;commited_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;scheduled_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;started_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;ready_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;completed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;failed_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;created_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-17T09:38:08.750302Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;updated_at&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-03-17T09:38:08.750326Z&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;start_location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-number">-1.095587</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-number">52.6166008</span>
+            <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;end_location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Point&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;coordinates&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+                <span class="hljs-number">-1.095587</span><span class="hljs-punctuation">,</span>
+                <span class="hljs-number">52.6166008</span>
+            <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will optimize Route</p>
+            <h3 id="http-request-32">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute</code></p>
+            <h3 id="query-parameters-29">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>date</td>
+                     <td>date</td>
+                     <td>YYYYMMDD FORMAT</td>
+                  </tr>
+                  <tr>
+                     <td>ridersUrl</td>
+                     <td>array</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h1 id="payment">Payment</h1>
             <p>Payment management</p>
             <h2 id="charge-a-customer">Charge a Customer</h2>
@@ -3231,9 +3338,9 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will charge A customer.</p>
-            <h3 id="http-request-32">HTTP Request</h3>
+            <h3 id="http-request-33">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/payment/charge</code></p>
-            <h3 id="query-parameters-29">Query Parameters</h3>
+            <h3 id="query-parameters-30">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3300,7 +3407,7 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Successfully &quot;</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint list available slots by a given date.</p>
-            <h3 id="http-request-33">HTTP Request</h3>
+            <h3 id="http-request-34">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/slot/getSlotsAvailability/:date</code></p>
             <aside class="warning"> This endpoint list available slots by a given date. </aside>
             <h2 id="edit-individual-bookings-per-hour">Edit individual Bookings per Hour</h2>
@@ -3337,9 +3444,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Edited individual Bookings per Hour successfully for given date&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will edit individual Bookings per Hour successfully for given date</p>
-            <h3 id="http-request-34">HTTP Request</h3>
+            <h3 id="http-request-35">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/slot/editBookingsPerHourForEachSlotOfDate</code></p>
-            <h3 id="query-parameters-30">Query Parameters</h3>
+            <h3 id="query-parameters-31">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3400,9 +3507,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Operation completed successfully&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will update Operations</p>
-            <h3 id="http-request-35">HTTP Request</h3>
+            <h3 id="http-request-36">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/operation/updateOperations</code></p>
-            <h3 id="query-parameters-31">Query Parameters</h3>
+            <h3 id="query-parameters-32">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3496,7 +3603,7 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will authentificate the user.</p>
-            <h3 id="http-request-36">HTTP Request</h3>
+            <h3 id="http-request-37">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/authGsmtask</code></p>
             <aside class="success"> Remember — this is the token <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>, </aside>
             <aside class="warning"> The tokens are valid forever, unless refreshed by the user himself. </aside>
