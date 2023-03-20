@@ -820,9 +820,6 @@ const options = {
   },
   data: {
     email:"test@me.com",
-    date: "2/10/2023",
-    name: "Full name",
-    id: "8464542165578654"
   },
 };
 
@@ -1413,7 +1410,6 @@ Bank Card management throught STRIPE You can a cards on a customer in order to c
 ## Add a Bank CARD
 
 > Post a Credit Card and save in our database, 
-
 
 ```javascript
 import axios from "axios";
