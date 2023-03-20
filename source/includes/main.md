@@ -2073,7 +2073,7 @@ Remember — if you post successfully, then you gonna receive a success message
 
 ## List all bookings
 
-> Get all bookings saved in GSMTASKS, 
+> Get all bookings saved in GSMTASKS
 
 ```javascript
 import axios from "axios";
