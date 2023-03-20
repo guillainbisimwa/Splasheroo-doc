@@ -1880,7 +1880,8 @@ const options = {
     promocode:"FREE20",
     service:"63e75fef580c7eb24880c99b",
     startTime:"10:00",
-    vechile:"63e0c60d62c9e9978212d600"
+    vechile:"63e0c60d62c9e9978212d600",
+    paymentStatus: "waiting"
   },
 };
 
@@ -1898,9 +1899,6 @@ axios
 
 ```json
 {
-    "success": true,
-    "msg": "Booking added successfuly!",
-    {
     "success": true,
     "msg": "Booking added successfully",
     "task": {
@@ -1997,7 +1995,7 @@ This endpoint will add a Booking.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| userId                | id     |                                                     |
+| userId                | id     | id                                                  |
 | ref                   | String |                                                     |
 | address               | string |                                                     |
 | date                  | date   |                                                     |
@@ -2008,9 +2006,11 @@ This endpoint will add a Booking.
 | notes                 | string |                                                     |
 | postCode              | string |   CODE                                              |
 | promoCode             | string |                                                     |
-| service               | string |   id                                                |
+| service               | string |  id                                                 |
 | startTime             | string |                                                     |
 | vechile               | string |  id                                                 |
+| paymentStatus         | string |  It can be `waiting`, `completed` or `canceled`     |
+
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
