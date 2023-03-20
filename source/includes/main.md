@@ -803,6 +803,77 @@ This endpoint will send an email.
 Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder
 </aside>
 
+## Reset Password
+
+> Reset password, 
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/email/reset",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+  data: {
+    email:"test@me.com",
+    date: "2/10/2023",
+    name: "Full name",
+    id: "8464542165578654"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Email sent successfuly!"
+}
+```
+
+> If faild to send an Email, you'll get this message
+
+```json
+{
+    "success": false,
+    "msg": "Faild to send an Email!"
+}
+```
+
+This endpoint will send an email.
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/email/reset`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string | Id returned when sign up or sign in                 |
+| email                 | string |                                                     |
+| date                  | string |                                                     |
+| name                  | string |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder
+</aside>
+
+
 ## Check if Email is validate
 
 > Check if email is already validate
