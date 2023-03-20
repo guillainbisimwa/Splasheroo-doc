@@ -10,7 +10,7 @@
       <link href=css/screen.21a86285.css rel=stylesheet media=screen>
       <link href=css/print.0babe0f0.css rel=stylesheet media=print>
       <link href=css/highlight-monokai.f7211925.css rel=stylesheet media=screen,print>
-      <script src=js/all.1b59ed1c.js></script>
+      <script src=js/all.a451ee3a.js></script>
    </head>
    <body class="" data-languages="[&#34;javascript&#34;]">
       <a href=# id=nav-button>
@@ -895,6 +895,85 @@ axios
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder </aside>
+            <h2 id="reset-password">Reset Password</h2>
+            <blockquote>
+               <p>Reset password, </p>
+            </blockquote>
+            <pre class="highlight javascript"><code><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;axios&quot;</span>;
+
+<span class="hljs-keyword">const</span> options = {
+  <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+  <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;https://splasheroo-backend.herokuapp.com/api/email/reset&quot;</span>,
+  <span class="hljs-attr">params</span>: {},
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
+  },
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">email</span>:<span class="hljs-string">&quot;test@me.com&quot;</span>,
+    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;2/10/2023&quot;</span>,
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Full name&quot;</span>,
+    <span class="hljs-attr">id</span>: <span class="hljs-string">&quot;8464542165578654&quot;</span>
+  },
+};
+
+axios
+  .<span class="hljs-title function_">request</span>(options)
+  .<span class="hljs-title function_">then</span>( <span class="hljs-function">(<span class="hljs-params">response</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response.<span class="hljs-property">data</span>);
+  })
+  .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);
+  });</code></pre>
+            <blockquote>
+               <p>The above command returns JSON structured like this:</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email sent successfuly!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <blockquote>
+               <p>If faild to send an Email, you&#39;ll get this message</p>
+            </blockquote>
+            <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Faild to send an Email!&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+            <p>This endpoint will send an email.</p>
+            <h3 id="http-request-11">HTTP Request</h3>
+            <p><code>POST https://splasheroo-backend.herokuapp.com/api/email/reset</code></p>
+            <h3 id="query-parameters-11">Query Parameters</h3>
+            <table>
+               <thead>
+                  <tr>
+                     <th>Parameter</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>id</td>
+                     <td>string</td>
+                     <td>Id returned when sign up or sign in</td>
+                  </tr>
+                  <tr>
+                     <td>email</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>date</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td>name</td>
+                     <td>string</td>
+                     <td></td>
+                  </tr>
+               </tbody>
+            </table>
+            <aside class="success"> Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder </aside>
             <h2 id="check-if-email-is-validate">Check if Email is validate</h2>
             <blockquote>
                <p>Check if email is already validate</p>
@@ -935,9 +1014,9 @@ axios
     <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Email not validated&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
-            <h3 id="http-request-11">HTTP Request</h3>
+            <h3 id="http-request-12">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/status</code></p>
-            <h3 id="query-parameters-11">Query Parameters</h3>
+            <h3 id="query-parameters-12">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -996,9 +1075,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Service added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a service.</p>
-            <h3 id="http-request-12">HTTP Request</h3>
+            <h3 id="http-request-13">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/service/add</code></p>
-            <h3 id="query-parameters-12">Query Parameters</h3>
+            <h3 id="query-parameters-13">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1119,7 +1198,7 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all services.</p>
-            <h3 id="http-request-13">HTTP Request</h3>
+            <h3 id="http-request-14">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/service/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h2 id="get-single-service">Get single service</h2>
@@ -1173,9 +1252,9 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single service.</p>
-            <h3 id="http-request-14">HTTP Request</h3>
+            <h3 id="http-request-15">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/service/find</code></p>
-            <h3 id="query-parameters-13">Query Parameters</h3>
+            <h3 id="query-parameters-14">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1247,9 +1326,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a service.</p>
-            <h3 id="http-request-15">HTTP Request</h3>
+            <h3 id="http-request-16">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/add</code></p>
-            <h3 id="query-parameters-14">Query Parameters</h3>
+            <h3 id="query-parameters-15">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1417,7 +1496,7 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all riders.</p>
-            <h3 id="http-request-16">HTTP Request</h3>
+            <h3 id="http-request-17">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/rider/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
             <h2 id="get-single-rider">Get single rider</h2>
@@ -1467,9 +1546,9 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single Rider.</p>
-            <h3 id="http-request-17">HTTP Request</h3>
+            <h3 id="http-request-18">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/rider/find/:id</code></p>
-            <h3 id="query-parameters-15">Query Parameters</h3>
+            <h3 id="query-parameters-16">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1521,9 +1600,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider activated successfully!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will activate a given Rider.</p>
-            <h3 id="http-request-18">HTTP Request</h3>
+            <h3 id="http-request-19">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/activate</code></p>
-            <h3 id="query-parameters-16">Query Parameters</h3>
+            <h3 id="query-parameters-17">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1575,9 +1654,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rider deactivated successfully!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will deactivate a given Rider.</p>
-            <h3 id="http-request-19">HTTP Request</h3>
+            <h3 id="http-request-20">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/rider/deactivate</code></p>
-            <h3 id="query-parameters-17">Query Parameters</h3>
+            <h3 id="query-parameters-18">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1645,9 +1724,9 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a BankCard.</p>
-            <h3 id="http-request-20">HTTP Request</h3>
+            <h3 id="http-request-21">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/bankCard/add</code></p>
-            <h3 id="query-parameters-18">Query Parameters</h3>
+            <h3 id="query-parameters-19">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1744,10 +1823,10 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will show you 4 last digits of your card.</p>
-            <h3 id="http-request-21">HTTP Request</h3>
+            <h3 id="http-request-22">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/bankCard/details/:id</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and all bookings </aside>
-            <h3 id="query-parameters-19">Query Parameters</h3>
+            <h3 id="query-parameters-20">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1795,10 +1874,10 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Card deleted successfully&quot;</span>
   <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will delete your card from STRIPE.</p>
-            <h3 id="http-request-22">HTTP Request</h3>
+            <h3 id="http-request-23">HTTP Request</h3>
             <p><code>DELETE https://splasheroo-backend.herokuapp.com/api/bankCard/delete/:id</code></p>
             <aside class="success"> Remember — if you delete successfully, then you gonna receive a success message and all bookings </aside>
-            <h3 id="query-parameters-20">Query Parameters</h3>
+            <h3 id="query-parameters-21">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1853,9 +1932,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PromoCode added successfuly!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a promoCode.</p>
-            <h3 id="http-request-23">HTTP Request</h3>
+            <h3 id="http-request-24">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/promoCode/add</code></p>
-            <h3 id="query-parameters-21">Query Parameters</h3>
+            <h3 id="query-parameters-22">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1924,9 +2003,9 @@ axios
     <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fecth a single promoCode.</p>
-            <h3 id="http-request-24">HTTP Request</h3>
+            <h3 id="http-request-25">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/promoCode/find/:code</code></p>
-            <h3 id="query-parameters-22">Query Parameters</h3>
+            <h3 id="query-parameters-23">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -1973,7 +2052,8 @@ axios
     <span class="hljs-attr">promocode</span>:<span class="hljs-string">&quot;FREE20&quot;</span>,
     <span class="hljs-attr">service</span>:<span class="hljs-string">&quot;63e75fef580c7eb24880c99b&quot;</span>,
     <span class="hljs-attr">startTime</span>:<span class="hljs-string">&quot;10:00&quot;</span>,
-    <span class="hljs-attr">vechile</span>:<span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span>
+    <span class="hljs-attr">vechile</span>:<span class="hljs-string">&quot;63e0c60d62c9e9978212d600&quot;</span>,
+    <span class="hljs-attr">paymentStatus</span>: <span class="hljs-string">&quot;waiting&quot;</span>
   },
 };
 
@@ -1989,9 +2069,6 @@ axios
                <p>The above command returns JSON structured like this:</p>
             </blockquote>
             <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking added successfuly!&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-punctuation">{</span>
     <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking added successfully&quot;</span><span class="hljs-punctuation">,</span>
     <span class="hljs-attr">&quot;task&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
@@ -2077,9 +2154,9 @@ axios
   <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will add a Booking.</p>
-            <h3 id="http-request-25">HTTP Request</h3>
+            <h3 id="http-request-26">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/booking/add</code></p>
-            <h3 id="query-parameters-23">Query Parameters</h3>
+            <h3 id="query-parameters-24">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -2092,7 +2169,7 @@ axios
                   <tr>
                      <td>userId</td>
                      <td>id</td>
-                     <td></td>
+                     <td>id</td>
                   </tr>
                   <tr>
                      <td>ref</td>
@@ -2159,6 +2236,11 @@ axios
                      <td>string</td>
                      <td>id</td>
                   </tr>
+                  <tr>
+                     <td>paymentStatus</td>
+                     <td>string</td>
+                     <td>It can be <code>waiting</code>, <code>completed</code> or <code>canceled</code></td>
+                  </tr>
                </tbody>
             </table>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message </aside>
@@ -2196,9 +2278,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Booking payment status updated successfully!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will change <code>paymentStatus</code> from <code>Waiting</code> to <code>Complete</code>, </p>
-            <h3 id="http-request-26">HTTP Request</h3>
+            <h3 id="http-request-27">HTTP Request</h3>
             <p><code>PUT https://splasheroo-backend.herokuapp.com/api/booking/updatePaymentStatus</code></p>
-            <h3 id="query-parameters-24">Query Parameters</h3>
+            <h3 id="query-parameters-25">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -2392,7 +2474,7 @@ axios
     <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all bookings.</p>
-            <h3 id="http-request-27">HTTP Request</h3>
+            <h3 id="http-request-28">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all</code></p>
             <aside class="success"> Remember — if you post successfully, then you gonna receive a success message and all bookings </aside>
             <h2 id="list-bookings-by-customers-id">List bookings by Customer&#39;s ID</h2>
@@ -2571,9 +2653,9 @@ axios
     <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all bookings.</p>
-            <h3 id="http-request-28">HTTP Request</h3>
+            <h3 id="http-request-29">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all/:id</code></p>
-            <h3 id="query-parameters-25">Query Parameters</h3>
+            <h3 id="query-parameters-26">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -2812,9 +2894,9 @@ axios
     <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch bookings.</p>
-            <h3 id="http-request-29">HTTP Request</h3>
+            <h3 id="http-request-30">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/all/date/:date</code></p>
-            <h3 id="query-parameters-26">Query Parameters</h3>
+            <h3 id="query-parameters-27">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3000,9 +3082,9 @@ axios
       <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will fetch all bookings.</p>
-            <h3 id="http-request-30">HTTP Request</h3>
+            <h3 id="http-request-31">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/booking/latest/:id</code></p>
-            <h3 id="query-parameters-27">Query Parameters</h3>
+            <h3 id="query-parameters-28">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3055,9 +3137,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Assign Booking successfully!&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will change <code>paymentStatus</code> from <code>Waiting</code> to <code>Complete</code>, </p>
-            <h3 id="http-request-31">HTTP Request</h3>
+            <h3 id="http-request-32">HTTP Request</h3>
             <p><code>PUT https://splasheroo-backend.herokuapp.com/api/booking/assignBookingToRider</code></p>
-            <h3 id="query-parameters-28">Query Parameters</h3>
+            <h3 id="query-parameters-29">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3162,9 +3244,9 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will optimize Route</p>
-            <h3 id="http-request-32">HTTP Request</h3>
+            <h3 id="http-request-33">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute</code></p>
-            <h3 id="query-parameters-29">Query Parameters</h3>
+            <h3 id="query-parameters-30">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3338,9 +3420,9 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will charge A customer.</p>
-            <h3 id="http-request-33">HTTP Request</h3>
+            <h3 id="http-request-34">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/payment/charge</code></p>
-            <h3 id="query-parameters-30">Query Parameters</h3>
+            <h3 id="query-parameters-31">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3407,7 +3489,7 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Successfully &quot;</span><span class="hljs-punctuation">,</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint list available slots by a given date.</p>
-            <h3 id="http-request-34">HTTP Request</h3>
+            <h3 id="http-request-35">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/slot/getSlotsAvailability/:date</code></p>
             <aside class="warning"> This endpoint list available slots by a given date. </aside>
             <h2 id="edit-individual-bookings-per-hour">Edit individual Bookings per Hour</h2>
@@ -3444,9 +3526,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Edited individual Bookings per Hour successfully for given date&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will edit individual Bookings per Hour successfully for given date</p>
-            <h3 id="http-request-35">HTTP Request</h3>
+            <h3 id="http-request-36">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/slot/editBookingsPerHourForEachSlotOfDate</code></p>
-            <h3 id="query-parameters-31">Query Parameters</h3>
+            <h3 id="query-parameters-32">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3507,9 +3589,9 @@ axios
     <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Operation completed successfully&quot;</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will update Operations</p>
-            <h3 id="http-request-36">HTTP Request</h3>
+            <h3 id="http-request-37">HTTP Request</h3>
             <p><code>POST https://splasheroo-backend.herokuapp.com/api/operation/updateOperations</code></p>
-            <h3 id="query-parameters-32">Query Parameters</h3>
+            <h3 id="query-parameters-33">Query Parameters</h3>
             <table>
                <thead>
                   <tr>
@@ -3603,7 +3685,7 @@ axios
     <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <p>This endpoint will authentificate the user.</p>
-            <h3 id="http-request-37">HTTP Request</h3>
+            <h3 id="http-request-38">HTTP Request</h3>
             <p><code>GET https://splasheroo-backend.herokuapp.com/api/authGsmtask</code></p>
             <aside class="success"> Remember — this is the token <code>"token": "f69d6f61840fb92efc24b0267abb47***********" </code>, </aside>
             <aside class="warning"> The tokens are valid forever, unless refreshed by the user himself. </aside>
