@@ -325,6 +325,122 @@ This endpoint will fecth a single CUSTOMER.
 Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
 </aside>
 
+## Get Customer By Email
+
+> Get single Customer By email
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "GET",
+  url: "https://splasheroo-backend.herokuapp.com/api/customer/getByEmail/asif@liorra.io",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Customer Details for asif@liorra.io fetched successfully",
+    "customer": {
+        "customer": [],
+        "account": {
+            "roleData": {
+                "customer": "6411772d79745016c53abfb3"
+            },
+            "_id": "6411772d79745016c53abfb1",
+            "email": "asif@liorra.io",
+            "completedProfile": true,
+            "role": "customer",
+            "__v": 0
+        }
+    }
+}
+```
+
+This endpoint will fecth a single CUSTOMER.
+
+### HTTP Request
+
+`GET https://splasheroo-backend.herokuapp.com/api/customer/getByEmail/:email`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| email                 | string |  Passed as params                                   |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
+</aside>
+
+## Delete a customer
+
+> Delete the customer's associated data
+
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "DELETE",
+  url: "https://splasheroo-backend.herokuapp.com/api/customer/434343a34df34a3s4asf",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  }
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Account deleted",
+}
+```
+
+This endpoint will delete a single CUSTOMER.
+
+### HTTP Request
+
+`DELETE https://splasheroo-backend.herokuapp.com/api/customer/:id`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| id                    | string |  Passed as params                                   |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message and a customer ojbect
+</aside>
 
 # Vehicle
 
@@ -1374,7 +1490,16 @@ axios
 ```json
 {
     "success": true,
-    "msg": "BankCard added successfuly!"
+    "msg": "BankCard added successfully",
+    "bankCard": {
+        "stripeCardId": "card_1MklmbDSebOil4xLPQaiRWcq",
+        "stripeCustomerId": "cus_NVnNyjUO1EtbxQ",
+        "stripeToken": "tok_1MklmcDSebOil4xL6rY6tKIX",
+        "verified": false,
+        "customer": "63e78c8efaf9b5d76acb65fc",
+        "_id": "640da3f5bd1565937686af24",
+        "__v": 0
+    }
 }
 ```
 
@@ -1428,11 +1553,33 @@ axios
 > The above command returns JSON structured like this:
 
 ```json
-  {
+{
     "success": true,
-    "last4": "4242",
-    "brand": "Visa"
-  }
+    "cardList": [
+        {
+            "_id": "63efc3ec20763151d87052be",
+            "stripeCardId": "card_1McYRbDSebOil4xLEngZjrMu",
+            "stripeCustomerId": "cus_NNJ3uS46jcceSx",
+            "stripeToken": "tok_1McYRcDSebOil4xLKkm3C3nl",
+            "verified": false,
+            "customer": "63e78c8efaf9b5d76acb65fc",
+            "__v": 0,
+            "last4": "4242",
+            "brand": "Visa"
+        },
+        {
+            "_id": "63efc53f20763151d87052c3",
+            "stripeCardId": "card_1McYX4DSebOil4xLDJS8QENb",
+            "stripeCustomerId": "cus_NNJ9RGdW5xRm8V",
+            "stripeToken": "tok_1McYX4DSebOil4xLWQmT2GN2",
+            "verified": false,
+            "customer": "63e78c8efaf9b5d76acb65fc",
+            "__v": 0,
+            "last4": "4242",
+            "brand": "Visa"
+        }
+    ]
+}
 ```
 
 This endpoint will show you 4 last digits of your card.
@@ -2729,6 +2876,109 @@ Remember — if you post successfully, then you gonna receive a success message
 </aside>
 
 
+## Route Optimization
+
+> Route Optimization
+
+```javascript
+import axios from "axios";
+
+const options = {
+  method: "POST",
+  url: "https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute",
+  params: {},
+  headers: {
+    "content-type": "application/json",
+  },
+ 
+  data: {
+    ridersUrl: ["https://api.gsmtasks.com/users/5789286c-aa73-474e-9990-da9f337c33f4/", "https://api.gsmtasks.com/users/7158ea76-772a-47e6-96f0-8c8f50be0f4b/"],
+    date:"20230317"
+  },
+};
+
+axios
+  .request(options)
+  .then( (response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true,
+    "msg": "Route Optimized successfully",
+    "booking": {
+        "id": "04859518-aa99-464b-acfd-5a3c930f626b",
+        "url": "https://api.gsmtasks.com/route_optimizations/04859518-aa99-464b-acfd-5a3c930f626b/",
+        "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+        "assignees": [
+            "https://api.gsmtasks.com/users/5789286c-aa73-474e-9990-da9f337c33f4/",
+            "https://api.gsmtasks.com/users/7158ea76-772a-47e6-96f0-8c8f50be0f4b/"
+        ],
+        "state": "pending",
+        "objective": "completion_time",
+        "tasks": [
+            "https://api.gsmtasks.com/tasks/05d49d2e-c695-4630-bb2a-d74491c6a4b0/",
+            "https://api.gsmtasks.com/tasks/1ee85438-bce7-4075-b31e-66571229a51d/",
+            "https://api.gsmtasks.com/tasks/3aa1858b-13dd-4461-b4be-ff8e789aeb60/",
+            "https://api.gsmtasks.com/tasks/3ecde4af-9a38-4ed1-bcbd-e19c8759b495/"
+        ],
+        "start_time": "2023-03-17T00:00:00Z",
+        "unassign_not_optimal": false,
+        "total_distance": null,
+        "total_duration": null,
+        "commit": true,
+        "created_by": "https://api.gsmtasks.com/users/eb6ca015-37de-461b-be78-c564f7b6fded/",
+        "commited_at": null,
+        "scheduled_at": null,
+        "started_at": null,
+        "ready_at": null,
+        "completed_at": null,
+        "failed_at": null,
+        "created_at": "2023-03-17T09:38:08.750302Z",
+        "updated_at": "2023-03-17T09:38:08.750326Z",
+        "errors": null,
+        "start_location": {
+            "type": "Point",
+            "coordinates": [
+                -1.095587,
+                52.6166008
+            ]
+        },
+        "end_location": {
+            "type": "Point",
+            "coordinates": [
+                -1.095587,
+                52.6166008
+            ]
+        }
+    }
+}
+```
+
+This endpoint will optimize Route
+
+### HTTP Request
+
+`POST https://splasheroo-backend.herokuapp.com/api/booking/optimizeRoute`
+
+### Query Parameters
+
+| Parameter             | Type   | Description                                         |
+| --------------------- | ------ | --------------------------------------------------- |
+| date                  | date   |   YYYYMMDD FORMAT                                   |
+| ridersUrl             | array  |                                                     |
+
+<aside class="success">
+Remember — if you post successfully, then you gonna receive a success message
+</aside>
+
 # Payment
 
 Payment management
@@ -2749,9 +2999,10 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    id_customer: "63e8b4ce428e36c929691f64",
-    amount: 35.5,
-    id_service: "63e75fef580c7eb24880c99b"
+    amount: 20, 
+    id_customer: "63e78c8efaf9b5d76acb65fc", 
+    id_service: "63e75fef580c7eb24880c99b",
+    stripe_customer_id: "cus_NVBsV1zqydvc5H"
   },
 };
 
@@ -2770,7 +3021,119 @@ axios
 ```json
 {
     "success": true,
-    "msg": "Payment added successfuly!"
+    "msg": "Payment passed successfully",
+    "charge": {
+        "id": "ch_3MkC5yDSebOil4xL0WG3da4c",
+        "object": "charge",
+        "amount": 2000,
+        "amount_captured": 2000,
+        "amount_refunded": 0,
+        "application": null,
+        "application_fee": null,
+        "application_fee_amount": null,
+        "balance_transaction": "txn_3MkC5yDSebOil4xL0VEZnqga",
+        "billing_details": {
+            "address": {
+                "city": null,
+                "country": null,
+                "line1": null,
+                "line2": null,
+                "postal_code": null,
+                "state": null
+            },
+            "email": null,
+            "name": null,
+            "phone": null
+        },
+        "calculated_statement_descriptor": "Stripe",
+        "captured": true,
+        "created": 1678478358,
+        "currency": "usd",
+        "customer": "cus_NVBsV1zqydvc5H",
+        "description": "Exterior & Interior",
+        "destination": null,
+        "dispute": null,
+        "disputed": false,
+        "failure_balance_transaction": null,
+        "failure_code": null,
+        "failure_message": null,
+        "fraud_details": {},
+        "invoice": null,
+        "livemode": false,
+        "metadata": {},
+        "on_behalf_of": null,
+        "order": null,
+        "outcome": {
+            "network_status": "approved_by_network",
+            "reason": null,
+            "risk_level": "normal",
+            "risk_score": 32,
+            "seller_message": "Payment complete.",
+            "type": "authorized"
+        },
+        "paid": true,
+        "payment_intent": null,
+        "payment_method": "card_1MkBUXDSebOil4xLAK52JKDK",
+        "payment_method_details": {
+            "card": {
+                "brand": "visa",
+                "checks": {
+                    "address_line1_check": null,
+                    "address_postal_code_check": null,
+                    "cvc_check": null
+                },
+                "country": "US",
+                "exp_month": 2,
+                "exp_year": 2024,
+                "fingerprint": "OoEiI0DZsnhWNuF8",
+                "funding": "credit",
+                "installments": null,
+                "last4": "4242",
+                "mandate": null,
+                "network": "visa",
+                "three_d_secure": null,
+                "wallet": null
+            },
+            "type": "card"
+        },
+        "receipt_email": null,
+        "receipt_number": null,
+        "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xTVpNYkpEU2ViT2lsNHhMKJeYrqAGMgaA1W0RuTY6LBaifTQiTBpgeeepTUFh65ljFIy9DROoLiSDIEHb8sli0USy7MUoreA5sPDP",
+        "refunded": false,
+        "review": null,
+        "shipping": null,
+        "source": {
+            "id": "card_1MkBUXDSebOil4xLAK52JKDK",
+            "object": "card",
+            "address_city": null,
+            "address_country": null,
+            "address_line1": null,
+            "address_line1_check": null,
+            "address_line2": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_zip_check": null,
+            "brand": "Visa",
+            "country": "US",
+            "customer": "cus_NVBsV1zqydvc5H",
+            "cvc_check": null,
+            "dynamic_last4": null,
+            "exp_month": 2,
+            "exp_year": 2024,
+            "fingerprint": "OoEiI0DZsnhWNuF8",
+            "funding": "credit",
+            "last4": "4242",
+            "metadata": {},
+            "name": null,
+            "tokenization_method": null
+        },
+        "source_transfer": null,
+        "statement_descriptor": null,
+        "statement_descriptor_suffix": null,
+        "status": "succeeded",
+        "transfer_data": null,
+        "transfer_group": null
+    }
 }
 ```
 
@@ -2787,6 +3150,8 @@ This endpoint will charge A customer.
 | id_customer           | string | id                                                  |
 | id_service            | string | id                                                  |
 | amount                | number |                                                     |
+| stripe_customer_id    | number |  you can get it from bankCard's table               |
+
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
