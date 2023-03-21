@@ -861,10 +861,7 @@ This endpoint will send an email.
 
 | Parameter             | Type   | Description                                         |
 | --------------------- | ------ | --------------------------------------------------- |
-| id                    | string | Id returned when sign up or sign in                 |
 | email                 | string |                                                     |
-| date                  | string |                                                     |
-| name                  | string |                                                     |
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive an email, if not please check the Spam folder
