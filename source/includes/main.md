@@ -1987,39 +1987,39 @@ axios
     "msg": "Bookings fetched successfully",
     "fullTasks": [
         {
-            "_id": "63f274a6a3e9d90470d1017d",
-            "status": "waiting",
+            "_id": "641c353cb76aae80f7d25ad4",
+            "date": "2023-03-24T06:30:00.000Z",
             "paymentStatus": "completed",
             "startTime": "10:00",
             "endTime": "11:00",
             "car": {
-                "_id": "63e78cb1faf9b5d76acb6601",
+                "_id": "641b072facceb593aac0a15e",
                 "RegistrationPlate": "KM12AKK",
                 "licence": true,
                 "model": "SHARAN",
                 "make": "VOLKSWAGEN",
                 "coulor": "Grey",
-                "customer": "63e78c8efaf9b5d76acb65fc",
+                "customer": "641b06c0acceb593aac0a159",
                 "__v": 0
             },
             "customer": {
                 "location": {
                     "coordinates": []
                 },
-                "_id": "63e78c8efaf9b5d76acb65fc",
-                "fullName": "Kislaytest12",
-                "phone": "32323232232",
-                "postCode": "LE22FW",
-                "address": "70 Gartree Road     Leicester Leicestershire",
+                "_id": "641b06c0acceb593aac0a159",
+                "fullName": "asif hassam",
+                "phone": "0632770232",
+                "postCode": "Le2 2fw",
+                "address": "66 Gartree Road     Leicester Leicestershire",
                 "__v": 0
             },
             "service": {
-                "_id": "63e75fef580c7eb24880c99b",
+                "_id": "641ac6085ff9f0f660081ff4",
                 "serviceName": "Exterior & Interior",
                 "allService": [
                     "Exterior Bodywork",
                     "Exterior Glass",
-                    "Exterior Trim ",
+                    "Exterior Trim",
                     "Alloys",
                     "Tyre Shine",
                     "Door Shuts",
@@ -2029,23 +2029,22 @@ axios
                     "Anti-bacterial Treatment"
                 ],
                 "price": 25,
-                "duration": 60,
-                "contact": "+243841550213",
+                "duration": "59:00",
                 "__v": 0
             },
-            "timestamp": "2023-02-19T19:11:41.095Z",
+            "timestamp": "2023-03-23T11:16:48.667Z",
             "__v": 0,
-            "id": "ceeb1c7f-7c19-44c7-a795-7328dd47bc8d",
-            "external_id": "63f274a6a3e9d90470d1017d",
-            "reference": "YZNIGO2",
+            "id": "c9becb24-31bf-4307-af4e-8f8666361787",
+            "external_id": "641c353cb76aae80f7d25ad4",
+            "reference": "1ABCDEFGH",
             "barcodes": [
-                "63e78c8efaf9b5d76acb65fc"
+                "641b06c0acceb593aac0a159"
             ],
-            "url": "https://api.gsmtasks.com/tasks/ceeb1c7f-7c19-44c7-a795-7328dd47bc8d/",
+            "url": "https://api.gsmtasks.com/tasks/c9becb24-31bf-4307-af4e-8f8666361787/",
             "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
-            "state": "assigned",
-            "assignee": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
-            "order": "https://api.gsmtasks.com/orders/72dfb9ec-0213-412d-ae98-34a0f4462ab3/",
+            "state": "unassigned",
+            "assignee": null,
+            "order": "https://api.gsmtasks.com/orders/da7d838f-3179-42ae-a398-6258e62197e3/",
             "orderer_name": null,
             "route": null,
             "category": "assignment",
@@ -2053,7 +2052,7 @@ axios
                 "name": "Splasheroo",
                 "company": "Splasheroo Tech",
                 "phones": [
-                    "+270000000000"
+                    "+44 7590 797200"
                 ],
                 "emails": [
                     "splasheroo.tech@gmail.com"
@@ -2061,13 +2060,13 @@ axios
                 "notes": "test notes"
             },
             "address": {
-                "raw_address": "Gartree Road, Leicester LE2 2FW, UK",
-                "formatted_address": "70 Gartree Road     Leicester Leicestershire",
+                "raw_address": "Leicester LE2 2FB, UK",
+                "formatted_address": "61 Gartree Road Leicester Leicestershire",
                 "location": {
                     "type": "Point",
                     "coordinates": [
-                        -1.095587,
-                        52.6166008
+                        -122.0312186,
+                        37.33233141
                     ]
                 },
                 "google_place_id": "",
@@ -2080,29 +2079,159 @@ axios
                 "postal_code": "le22fw",
                 "country": "United Kingdom",
                 "country_code": "UK",
-                "geocoded_at": "2023-02-19T21:12:39.310494+02:00",
+                "geocoded_at": "2023-03-26T12:07:53.465280Z",
                 "geocode_failed_at": null
             },
             "contact_address": null,
             "contact_address_external_id": null,
             "description": "Exterior & Interior",
-            "complete_after": "2023-02-19T21:12:39.329066+02:00",
-            "complete_before": "2023-02-21T08:30:00+02:00",
-            "scheduled_time": "2023-02-21T08:30:00+02:00",
+            "complete_after": "2023-03-24T00:00:00Z",
+            "complete_before": "2023-03-24T01:00:00Z",
+            "scheduled_time": "2023-03-24T00:00:00Z",
             "completed_at": null,
             "cancelled_at": null,
             "auto_assign": false,
             "assignee_proximity": "away",
-            "position": 1676875084.9021854,
+            "position": 127540897381.53271,
             "priority": 0,
-            "duration": "00:15:00",
+            "duration": "00:59:00",
             "size": null,
             "forms": {},
             "documents": [],
             "signatures": [],
             "metafields": {},
             "trackers": [],
-            "issues": [],
+            "issues": [
+                "task_over_complete_before"
+            ],
+            "counts": {
+                "events": 3,
+                "documents": 0,
+                "signatures": 0,
+                "forms": 0,
+                "forms_completed": null
+            },
+            "actions": [
+                "assign",
+                "cancel"
+            ],
+            "created_at": "2023-03-23T11:17:19.769707Z",
+            "updated_at": "2023-03-26T12:30:13.937120Z",
+            "rider": {}
+        },
+        {
+            "_id": "641b10ffacceb593aac0a1b8",
+            "date": "2023-03-23T10:00:00.000Z",
+            "startTime": "15:00",
+            "endTime": "16:00",
+            "car": {
+                "_id": "641b072facceb593aac0a15e",
+                "RegistrationPlate": "KM12AKK",
+                "licence": true,
+                "model": "SHARAN",
+                "make": "VOLKSWAGEN",
+                "coulor": "Grey",
+                "customer": "641b06c0acceb593aac0a159",
+                "__v": 0
+            },
+            "customer": {
+                "location": {
+                    "coordinates": []
+                },
+                "_id": "641b06c0acceb593aac0a159",
+                "fullName": "asif hassam",
+                "phone": "0632770232",
+                "postCode": "Le2 2fw",
+                "address": "66 Gartree Road     Leicester Leicestershire",
+                "__v": 0
+            },
+            "service": {
+                "_id": "641ac25a5ff9f0f660081962",
+                "serviceName": "Exterior Only",
+                "allService": [
+                    "Exterior Bodywork",
+                    "Exterior Glass",
+                    "Exterior Trim",
+                    "Alloys",
+                    "Tyre Shine"
+                ],
+                "price": 20,
+                "duration": "45:00",
+                "__v": 0
+            },
+            "timestamp": "2023-03-22T11:47:04.797Z",
+            "__v": 0,
+            "paymentStatus": "completed",
+            "id": "f8539995-e172-4935-bed9-893fa35e89c9",
+            "external_id": "641b10ffacceb593aac0a1b8",
+            "reference": "JFF20SX",
+            "barcodes": [
+                "641b06c0acceb593aac0a159"
+            ],
+            "url": "https://api.gsmtasks.com/tasks/f8539995-e172-4935-bed9-893fa35e89c9/",
+            "account": "https://api.gsmtasks.com/accounts/040967e8-a52d-4436-80f0-77b153c783fa/",
+            "state": "assigned",
+            "assignee": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
+            "order": "https://api.gsmtasks.com/orders/4238c4ec-f3e9-4318-86ca-c32ca01b0f92/",
+            "orderer_name": null,
+            "route": null,
+            "category": "assignment",
+            "contact": {
+                "name": "Splasheroo",
+                "company": "Splasheroo Tech",
+                "phones": [
+                    "+243841550213"
+                ],
+                "emails": [
+                    "splasheroo.tech@gmail.com"
+                ],
+                "notes": ""
+            },
+            "address": {
+                "raw_address": "Gartree Road, Oadby, Leicester, UK",
+                "formatted_address": "62 Gartree Road     Leicester Leicestershire",
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        -1.07213442738098,
+                        52.62040933543196
+                    ]
+                },
+                "google_place_id": "",
+                "point_of_interest": "",
+                "street": "",
+                "house_number": "",
+                "apartment_number": "",
+                "city": "",
+                "state": "",
+                "postal_code": "Le2 2fw",
+                "country": "United Kingdom",
+                "country_code": "UK",
+                "geocoded_at": "2023-03-22T14:30:25.214128Z",
+                "geocode_failed_at": null
+            },
+            "contact_address": null,
+            "contact_address_external_id": null,
+            "description": "Exterior Only",
+            "complete_after": "2023-03-22T14:30:24.873000Z",
+            "complete_before": "2023-03-25T00:00:00Z",
+            "scheduled_time": "2023-03-23T00:00:00Z",
+            "completed_at": null,
+            "cancelled_at": null,
+            "auto_assign": false,
+            "assignee_proximity": "away",
+            "position": 127541066615.60872,
+            "priority": 0,
+            "duration": "00:00:59",
+            "size": null,
+            "forms": {},
+            "documents": [],
+            "signatures": [],
+            "metafields": {},
+            "trackers": [],
+            "issues": [
+                "task_over_complete_before"
+            ],
             "counts": {
                 "events": 2,
                 "documents": 0,
@@ -2120,16 +2249,21 @@ axios
                 "fail",
                 "cancel"
             ],
-            "created_at": "2023-02-19T21:12:39.332812+02:00",
-            "updated_at": "2023-02-20T08:38:37.622320+02:00"
-      }
-      {
-        ....
-      },
-      {
-        ....
-      },
-    ],
+            "created_at": "2023-03-22T14:30:25.238989Z",
+            "updated_at": "2023-03-26T12:30:10.091308Z",
+            "rider": {
+                "id": "091aed43-2c5e-477b-83a5-5fab3ebfe8fa",
+                "url": "https://api.gsmtasks.com/users/091aed43-2c5e-477b-83a5-5fab3ebfe8fa/",
+                "first_name": "",
+                "last_name": "",
+                "display_name": "wezalab@gmail.com",
+                "email": "wezalab@gmail.com",
+                "phone": "",
+                "intercom_hash": "f55476d672a5f7f7f83cbacfe55efaf2e7f6cbd99780610e718aca581e20a830",
+                "signature_image": null
+            }
+        }
+    ]
 }
 ```
 
