@@ -1893,7 +1893,6 @@ This endpoint will add a Booking.
 | vechile               | string |  id                                                 |
 | paymentStatus         | string |  It can be `waiting`, `completed` or `canceled`     |
 
-
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
 </aside>
