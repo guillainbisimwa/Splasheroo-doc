@@ -583,7 +583,7 @@ axios
     <span class="hljs-string">&quot;content-type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
   },
   <span class="hljs-attr">data</span>: {
-    <span class="hljs-attr">registrationPlate</span>: <span class="hljs-string">&quot;KM12AKK&quot;</span>
+    <span class="hljs-attr">registrationPlate</span>: <span class="hljs-string">&quot;AA19AAA&quot;</span>
   },
 };
 
@@ -599,15 +599,28 @@ axios
                <p>The above command returns JSON structured like this:</p>
             </blockquote>
             <pre class="highlight json"><code><span class="hljs-punctuation">{</span>
-  <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle found&quot;</span><span class="hljs-punctuation">,</span>
-  <span class="hljs-attr">&quot;VehicleDetails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;Colour&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Grey&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;FuelType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Diesel&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;Make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;VOLKSWAGEN&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;Model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;SHARAN&quot;</span><span class="hljs-punctuation">,</span>
-    <span class="hljs-attr">&quot;DateFirstRegistered&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;15/06/2012&quot;</span>
-  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;success&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;msg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Vehicle found&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;vehicleDetails&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;registrationNumber&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;AA19AAA&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;taxStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Taxed&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;taxDueDate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-07-01&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;motStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Valid&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;make&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;MERCEDES-BENZ&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;yearOfManufacture&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2019</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;engineCapacity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1332</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;co2Emissions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">126</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fuelType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PETROL&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;markedForExport&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;colour&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;WHITE&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;typeApproval&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;M1&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;revenueWeight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1945</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;euroStatus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;EURO 6 DG&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;dateOfLastV5CIssued&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2020-07-17&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;motExpiryDate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2023-07-18&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;wheelplan&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2 AXLE RIGID BODY&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;monthOfFirstRegistration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2019-07&quot;</span>
+    <span class="hljs-punctuation">}</span>
 <span class="hljs-punctuation">}</span></code></pre>
             <blockquote>
                <p>If the vehicle doesn&#39;t exist, you&#39;ll get this message</p>
