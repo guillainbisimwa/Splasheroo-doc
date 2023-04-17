@@ -47,6 +47,7 @@ Publish your docs to `origin/gh-pages` branch:
 ```shell
 npm run deploy
 ```
+use node 14.21 version to deploy
 
 Gulp Task
 ---------
