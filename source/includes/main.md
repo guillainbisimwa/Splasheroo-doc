@@ -522,7 +522,7 @@ const options = {
     "content-type": "application/json",
   },
   data: {
-    registrationPlate: "KM12AKK"
+    registrationPlate: "AA19AAA"
   },
 };
 
@@ -540,15 +540,28 @@ axios
 
 ```json
 {
-  "success": false,
-  "msg": "Vehicle found",
-  "VehicleDetails": {
-    "Colour": "Grey",
-    "FuelType": "Diesel",
-    "Make": "VOLKSWAGEN",
-    "Model": "SHARAN",
-    "DateFirstRegistered": "15/06/2012"
-  },
+    "success": true,
+    "msg": "Vehicle found",
+    "vehicleDetails": {
+        "registrationNumber": "AA19AAA",
+        "taxStatus": "Taxed",
+        "taxDueDate": "2023-07-01",
+        "motStatus": "Valid",
+        "make": "MERCEDES-BENZ",
+        "yearOfManufacture": 2019,
+        "engineCapacity": 1332,
+        "co2Emissions": 126,
+        "fuelType": "PETROL",
+        "markedForExport": false,
+        "colour": "WHITE",
+        "typeApproval": "M1",
+        "revenueWeight": 1945,
+        "euroStatus": "EURO 6 DG",
+        "dateOfLastV5CIssued": "2020-07-17",
+        "motExpiryDate": "2023-07-18",
+        "wheelplan": "2 AXLE RIGID BODY",
+        "monthOfFirstRegistration": "2019-07"
+    }
 }
 ```
 
@@ -1892,7 +1905,6 @@ This endpoint will add a Booking.
 | startTime             | string |                                                     |
 | vechile               | string |  id                                                 |
 | paymentStatus         | string |  It can be `waiting`, `completed` or `canceled`     |
-
 
 <aside class="success">
 Remember — if you post successfully, then you gonna receive a success message
